@@ -1,0 +1,5399 @@
+<html><head></head><body><div class="apidocDiv">
+<style>
+/*csslint
+*/
+.apidocDiv {
+    background: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.apidocDiv a[href] {
+    color: #33f;
+    font-weight: bold;
+    text-decoration: none;
+}
+.apidocDiv a[href]:hover {
+    text-decoration: underline;
+}
+.apidocCodeCommentSpan {
+    background: #bbf;
+    color: #000;
+    display: block;
+}
+.apidocCodeKeywordSpan {
+    color: #d00;
+    font-weight: bold;
+}
+.apidocCodePre {
+    background: #eef;
+    border: 1px solid;
+    color: #777;
+    padding: 5px;
+    white-space: pre-wrap;
+}
+.apidocFooterDiv {
+    margin-top: 20px;
+    text-align: center;
+}
+.apidocModuleLi {
+    margin-top: 10px;
+}
+.apidocSectionDiv {
+    border-top: 1px solid;
+    margin-top: 20px;
+}
+.apidocSignatureSpan {
+    color: #777;
+    font-weight: bold;
+}
+</style>
+<h1>api documentation for
+    <a href="https://github.com/svg/svgo">svgo (v0.7.2)</a>
+</h1>
+<h4>Nodejs-based tool for optimizing SVG vector graphics files</h4>
+<div class="apidocSectionDiv"><a href="#apidoc.tableOfContents" id="apidoc.tableOfContents"><h1>table of contents</h1></a><ol>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.svgo">module svgo</a><ol>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">svgo.</span>_path</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">svgo.</span>_transforms</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">svgo.</span>addAttributesToSVGElement</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">svgo.</span>addClassesToSVGElement</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">svgo.</span>cleanupAttrs</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">svgo.</span>cleanupEnableBackground</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">svgo.</span>cleanupIDs</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">svgo.</span>cleanupListOfValues</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">svgo.</span>cleanupNumericValues</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">svgo.</span>collapseGroups</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">svgo.</span>convertColors</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">svgo.</span>convertPathData</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">svgo.</span>convertShapeToPath</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">svgo.</span>convertStyleToAttrs</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">svgo.</span>convertTransform</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">svgo.</span>mergePaths</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">svgo.</span>minifyStyles</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">svgo.</span>moveElemsAttrsToGroup</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">svgo.</span>moveGroupAttrsToElems</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">svgo.</span>removeAttrs</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">svgo.</span>removeComments</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">svgo.</span>removeDesc</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">svgo.</span>removeDimensions</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">svgo.</span>removeDoctype</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">svgo.</span>removeEditorsNSData</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">svgo.</span>removeElementsByAttr</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">svgo.</span>removeEmptyAttrs</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">svgo.</span>removeEmptyContainers</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">svgo.</span>removeEmptyText</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">svgo.</span>removeHiddenElems</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">svgo.</span>removeMetadata</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">svgo.</span>removeNonInheritableGroupAttrs</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">svgo.</span>removeRasterImages</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">svgo.</span>removeStyleElement</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">svgo.</span>removeTitle</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">svgo.</span>removeUnknownsAndDefaults</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">svgo.</span>removeUnusedNS</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">svgo.</span>removeUselessDefs</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">svgo.</span>removeUselessStrokeAndFill</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">svgo.</span>removeViewBox</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">svgo.</span>removeXMLNS</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">svgo.</span>removeXMLProcInst</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">svgo.</span>sortAttrs</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">svgo.</span>transformsWithOnePath</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.svgo._path">module svgo._path</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.svgo._path.applyTransforms">
+            function <span class="apidocSignatureSpan">svgo._path.</span>applyTransforms
+            <span class="apidocSignatureSpan">(elem, path, params)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.svgo._path.computeCubicBoundingBox">
+            function <span class="apidocSignatureSpan">svgo._path.</span>computeCubicBoundingBox
+            <span class="apidocSignatureSpan">(xa, ya, xb, yb, xc, yc, xd, yd)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.svgo._path.computeQuadraticBoundingBox">
+            function <span class="apidocSignatureSpan">svgo._path.</span>computeQuadraticBoundingBox
+            <span class="apidocSignatureSpan">(xa, ya, xb, yb, xc, yc)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.svgo._path.intersects">
+            function <span class="apidocSignatureSpan">svgo._path.</span>intersects
+            <span class="apidocSignatureSpan">(path1, path2)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.svgo._path.js2path">
+            function <span class="apidocSignatureSpan">svgo._path.</span>js2path
+            <span class="apidocSignatureSpan">(path, data, params)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.svgo._path.path2js">
+            function <span class="apidocSignatureSpan">svgo._path.</span>path2js
+            <span class="apidocSignatureSpan">(path)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.svgo._path.relative2absolute">
+            function <span class="apidocSignatureSpan">svgo._path.</span>relative2absolute
+            <span class="apidocSignatureSpan">(data)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.svgo._transforms">module svgo._transforms</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.svgo._transforms.matrixToTransform">
+            function <span class="apidocSignatureSpan">svgo._transforms.</span>matrixToTransform
+            <span class="apidocSignatureSpan">(transform, params)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.svgo._transforms.transform2js">
+            function <span class="apidocSignatureSpan">svgo._transforms.</span>transform2js
+            <span class="apidocSignatureSpan">(transformString)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.svgo._transforms.transformArc">
+            function <span class="apidocSignatureSpan">svgo._transforms.</span>transformArc
+            <span class="apidocSignatureSpan">(arc, transform)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.svgo._transforms.transformsMultiply">
+            function <span class="apidocSignatureSpan">svgo._transforms.</span>transformsMultiply
+            <span class="apidocSignatureSpan">(transforms)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">svgo._transforms.</span>mth</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.svgo.addAttributesToSVGElement">module svgo.addAttributesToSVGElement</a><ol>
+
+        <li>
+
+            <span class="apidocSignatureSpan">boolean <span class="apidocSignatureSpan">svgo.addAttributesToSVGElement.</span>active</span>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.svgo.addAttributesToSVGElement.fn">
+            function <span class="apidocSignatureSpan">svgo.addAttributesToSVGElement.</span>fn
+            <span class="apidocSignatureSpan">(data, params)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">string <span class="apidocSignatureSpan">svgo.addAttributesToSVGElement.</span>description</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">string <span class="apidocSignatureSpan">svgo.addAttributesToSVGElement.</span>type</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.svgo.addClassesToSVGElement">module svgo.addClassesToSVGElement</a><ol>
+
+        <li>
+
+            <span class="apidocSignatureSpan">boolean <span class="apidocSignatureSpan">svgo.addClassesToSVGElement.</span>active</span>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.svgo.addClassesToSVGElement.fn">
+            function <span class="apidocSignatureSpan">svgo.addClassesToSVGElement.</span>fn
+            <span class="apidocSignatureSpan">(data, params)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">string <span class="apidocSignatureSpan">svgo.addClassesToSVGElement.</span>description</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">string <span class="apidocSignatureSpan">svgo.addClassesToSVGElement.</span>type</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.svgo.cleanupAttrs">module svgo.cleanupAttrs</a><ol>
+
+        <li>
+
+            <span class="apidocSignatureSpan">boolean <span class="apidocSignatureSpan">svgo.cleanupAttrs.</span>active</span>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.svgo.cleanupAttrs.fn">
+            function <span class="apidocSignatureSpan">svgo.cleanupAttrs.</span>fn
+            <span class="apidocSignatureSpan">(item, params)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">svgo.cleanupAttrs.</span>params</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">string <span class="apidocSignatureSpan">svgo.cleanupAttrs.</span>description</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">string <span class="apidocSignatureSpan">svgo.cleanupAttrs.</span>type</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.svgo.cleanupEnableBackground">module svgo.cleanupEnableBackground</a><ol>
+
+        <li>
+
+            <span class="apidocSignatureSpan">boolean <span class="apidocSignatureSpan">svgo.cleanupEnableBackground.</span>active</span>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.svgo.cleanupEnableBackground.fn">
+            function <span class="apidocSignatureSpan">svgo.cleanupEnableBackground.</span>fn
+            <span class="apidocSignatureSpan">(data)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">string <span class="apidocSignatureSpan">svgo.cleanupEnableBackground.</span>description</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">string <span class="apidocSignatureSpan">svgo.cleanupEnableBackground.</span>type</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.svgo.cleanupIDs">module svgo.cleanupIDs</a><ol>
+
+        <li>
+
+            <span class="apidocSignatureSpan">boolean <span class="apidocSignatureSpan">svgo.cleanupIDs.</span>active</span>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.svgo.cleanupIDs.fn">
+            function <span class="apidocSignatureSpan">svgo.cleanupIDs.</span>fn
+            <span class="apidocSignatureSpan">(data, params)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">svgo.cleanupIDs.</span>params</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">string <span class="apidocSignatureSpan">svgo.cleanupIDs.</span>description</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">string <span class="apidocSignatureSpan">svgo.cleanupIDs.</span>type</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.svgo.cleanupListOfValues">module svgo.cleanupListOfValues</a><ol>
+
+        <li>
+
+            <span class="apidocSignatureSpan">boolean <span class="apidocSignatureSpan">svgo.cleanupListOfValues.</span>active</span>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.svgo.cleanupListOfValues.fn">
+            function <span class="apidocSignatureSpan">svgo.cleanupListOfValues.</span>fn
+            <span class="apidocSignatureSpan">(item, params)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">svgo.cleanupListOfValues.</span>params</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">string <span class="apidocSignatureSpan">svgo.cleanupListOfValues.</span>description</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">string <span class="apidocSignatureSpan">svgo.cleanupListOfValues.</span>type</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.svgo.cleanupNumericValues">module svgo.cleanupNumericValues</a><ol>
+
+        <li>
+
+            <span class="apidocSignatureSpan">boolean <span class="apidocSignatureSpan">svgo.cleanupNumericValues.</span>active</span>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.svgo.cleanupNumericValues.fn">
+            function <span class="apidocSignatureSpan">svgo.cleanupNumericValues.</span>fn
+            <span class="apidocSignatureSpan">(item, params)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">svgo.cleanupNumericValues.</span>params</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">string <span class="apidocSignatureSpan">svgo.cleanupNumericValues.</span>description</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">string <span class="apidocSignatureSpan">svgo.cleanupNumericValues.</span>type</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.svgo.collapseGroups">module svgo.collapseGroups</a><ol>
+
+        <li>
+
+            <span class="apidocSignatureSpan">boolean <span class="apidocSignatureSpan">svgo.collapseGroups.</span>active</span>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.svgo.collapseGroups.fn">
+            function <span class="apidocSignatureSpan">svgo.collapseGroups.</span>fn
+            <span class="apidocSignatureSpan">(item)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">string <span class="apidocSignatureSpan">svgo.collapseGroups.</span>description</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">string <span class="apidocSignatureSpan">svgo.collapseGroups.</span>type</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.svgo.convertColors">module svgo.convertColors</a><ol>
+
+        <li>
+
+            <span class="apidocSignatureSpan">boolean <span class="apidocSignatureSpan">svgo.convertColors.</span>active</span>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.svgo.convertColors.fn">
+            function <span class="apidocSignatureSpan">svgo.convertColors.</span>fn
+            <span class="apidocSignatureSpan">(item, params)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">svgo.convertColors.</span>params</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">string <span class="apidocSignatureSpan">svgo.convertColors.</span>description</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">string <span class="apidocSignatureSpan">svgo.convertColors.</span>type</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.svgo.convertPathData">module svgo.convertPathData</a><ol>
+
+        <li>
+
+            <span class="apidocSignatureSpan">boolean <span class="apidocSignatureSpan">svgo.convertPathData.</span>active</span>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.svgo.convertPathData.fn">
+            function <span class="apidocSignatureSpan">svgo.convertPathData.</span>fn
+            <span class="apidocSignatureSpan">(item, params)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">svgo.convertPathData.</span>params</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">string <span class="apidocSignatureSpan">svgo.convertPathData.</span>description</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">string <span class="apidocSignatureSpan">svgo.convertPathData.</span>type</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.svgo.convertShapeToPath">module svgo.convertShapeToPath</a><ol>
+
+        <li>
+
+            <span class="apidocSignatureSpan">boolean <span class="apidocSignatureSpan">svgo.convertShapeToPath.</span>active</span>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.svgo.convertShapeToPath.fn">
+            function <span class="apidocSignatureSpan">svgo.convertShapeToPath.</span>fn
+            <span class="apidocSignatureSpan">(item)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">string <span class="apidocSignatureSpan">svgo.convertShapeToPath.</span>description</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">string <span class="apidocSignatureSpan">svgo.convertShapeToPath.</span>type</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.svgo.convertStyleToAttrs">module svgo.convertStyleToAttrs</a><ol>
+
+        <li>
+
+            <span class="apidocSignatureSpan">boolean <span class="apidocSignatureSpan">svgo.convertStyleToAttrs.</span>active</span>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.svgo.convertStyleToAttrs.fn">
+            function <span class="apidocSignatureSpan">svgo.convertStyleToAttrs.</span>fn
+            <span class="apidocSignatureSpan">(item)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">string <span class="apidocSignatureSpan">svgo.convertStyleToAttrs.</span>description</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">string <span class="apidocSignatureSpan">svgo.convertStyleToAttrs.</span>type</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.svgo.convertTransform">module svgo.convertTransform</a><ol>
+
+        <li>
+
+            <span class="apidocSignatureSpan">boolean <span class="apidocSignatureSpan">svgo.convertTransform.</span>active</span>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.svgo.convertTransform.fn">
+            function <span class="apidocSignatureSpan">svgo.convertTransform.</span>fn
+            <span class="apidocSignatureSpan">(item, params)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">svgo.convertTransform.</span>params</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">string <span class="apidocSignatureSpan">svgo.convertTransform.</span>description</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">string <span class="apidocSignatureSpan">svgo.convertTransform.</span>type</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.svgo.mergePaths">module svgo.mergePaths</a><ol>
+
+        <li>
+
+            <span class="apidocSignatureSpan">boolean <span class="apidocSignatureSpan">svgo.mergePaths.</span>active</span>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.svgo.mergePaths.fn">
+            function <span class="apidocSignatureSpan">svgo.mergePaths.</span>fn
+            <span class="apidocSignatureSpan">(item, params)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">svgo.mergePaths.</span>params</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">string <span class="apidocSignatureSpan">svgo.mergePaths.</span>description</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">string <span class="apidocSignatureSpan">svgo.mergePaths.</span>type</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.svgo.minifyStyles">module svgo.minifyStyles</a><ol>
+
+        <li>
+
+            <span class="apidocSignatureSpan">boolean <span class="apidocSignatureSpan">svgo.minifyStyles.</span>active</span>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.svgo.minifyStyles.fn">
+            function <span class="apidocSignatureSpan">svgo.minifyStyles.</span>fn
+            <span class="apidocSignatureSpan">(item, svgoOptions)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">svgo.minifyStyles.</span>params</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">string <span class="apidocSignatureSpan">svgo.minifyStyles.</span>description</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">string <span class="apidocSignatureSpan">svgo.minifyStyles.</span>type</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.svgo.moveElemsAttrsToGroup">module svgo.moveElemsAttrsToGroup</a><ol>
+
+        <li>
+
+            <span class="apidocSignatureSpan">boolean <span class="apidocSignatureSpan">svgo.moveElemsAttrsToGroup.</span>active</span>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.svgo.moveElemsAttrsToGroup.fn">
+            function <span class="apidocSignatureSpan">svgo.moveElemsAttrsToGroup.</span>fn
+            <span class="apidocSignatureSpan">(item)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">string <span class="apidocSignatureSpan">svgo.moveElemsAttrsToGroup.</span>description</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">string <span class="apidocSignatureSpan">svgo.moveElemsAttrsToGroup.</span>type</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.svgo.moveGroupAttrsToElems">module svgo.moveGroupAttrsToElems</a><ol>
+
+        <li>
+
+            <span class="apidocSignatureSpan">boolean <span class="apidocSignatureSpan">svgo.moveGroupAttrsToElems.</span>active</span>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.svgo.moveGroupAttrsToElems.fn">
+            function <span class="apidocSignatureSpan">svgo.moveGroupAttrsToElems.</span>fn
+            <span class="apidocSignatureSpan">(item)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">string <span class="apidocSignatureSpan">svgo.moveGroupAttrsToElems.</span>description</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">string <span class="apidocSignatureSpan">svgo.moveGroupAttrsToElems.</span>type</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.svgo.removeAttrs">module svgo.removeAttrs</a><ol>
+
+        <li>
+
+            <span class="apidocSignatureSpan">boolean <span class="apidocSignatureSpan">svgo.removeAttrs.</span>active</span>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.svgo.removeAttrs.fn">
+            function <span class="apidocSignatureSpan">svgo.removeAttrs.</span>fn
+            <span class="apidocSignatureSpan">(item, params)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">svgo.removeAttrs.</span>params</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">string <span class="apidocSignatureSpan">svgo.removeAttrs.</span>description</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">string <span class="apidocSignatureSpan">svgo.removeAttrs.</span>type</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.svgo.removeComments">module svgo.removeComments</a><ol>
+
+        <li>
+
+            <span class="apidocSignatureSpan">boolean <span class="apidocSignatureSpan">svgo.removeComments.</span>active</span>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.svgo.removeComments.fn">
+            function <span class="apidocSignatureSpan">svgo.removeComments.</span>fn
+            <span class="apidocSignatureSpan">(item)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">string <span class="apidocSignatureSpan">svgo.removeComments.</span>description</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">string <span class="apidocSignatureSpan">svgo.removeComments.</span>type</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.svgo.removeDesc">module svgo.removeDesc</a><ol>
+
+        <li>
+
+            <span class="apidocSignatureSpan">boolean <span class="apidocSignatureSpan">svgo.removeDesc.</span>active</span>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.svgo.removeDesc.fn">
+            function <span class="apidocSignatureSpan">svgo.removeDesc.</span>fn
+            <span class="apidocSignatureSpan">(item, params)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">svgo.removeDesc.</span>params</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">string <span class="apidocSignatureSpan">svgo.removeDesc.</span>description</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">string <span class="apidocSignatureSpan">svgo.removeDesc.</span>type</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.svgo.removeDimensions">module svgo.removeDimensions</a><ol>
+
+        <li>
+
+            <span class="apidocSignatureSpan">boolean <span class="apidocSignatureSpan">svgo.removeDimensions.</span>active</span>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.svgo.removeDimensions.fn">
+            function <span class="apidocSignatureSpan">svgo.removeDimensions.</span>fn
+            <span class="apidocSignatureSpan">(item)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">string <span class="apidocSignatureSpan">svgo.removeDimensions.</span>description</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">string <span class="apidocSignatureSpan">svgo.removeDimensions.</span>type</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.svgo.removeDoctype">module svgo.removeDoctype</a><ol>
+
+        <li>
+
+            <span class="apidocSignatureSpan">boolean <span class="apidocSignatureSpan">svgo.removeDoctype.</span>active</span>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.svgo.removeDoctype.fn">
+            function <span class="apidocSignatureSpan">svgo.removeDoctype.</span>fn
+            <span class="apidocSignatureSpan">(item)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">string <span class="apidocSignatureSpan">svgo.removeDoctype.</span>description</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">string <span class="apidocSignatureSpan">svgo.removeDoctype.</span>type</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.svgo.removeEditorsNSData">module svgo.removeEditorsNSData</a><ol>
+
+        <li>
+
+            <span class="apidocSignatureSpan">boolean <span class="apidocSignatureSpan">svgo.removeEditorsNSData.</span>active</span>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.svgo.removeEditorsNSData.fn">
+            function <span class="apidocSignatureSpan">svgo.removeEditorsNSData.</span>fn
+            <span class="apidocSignatureSpan">(item, params)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">svgo.removeEditorsNSData.</span>params</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">string <span class="apidocSignatureSpan">svgo.removeEditorsNSData.</span>description</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">string <span class="apidocSignatureSpan">svgo.removeEditorsNSData.</span>type</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.svgo.removeElementsByAttr">module svgo.removeElementsByAttr</a><ol>
+
+        <li>
+
+            <span class="apidocSignatureSpan">boolean <span class="apidocSignatureSpan">svgo.removeElementsByAttr.</span>active</span>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.svgo.removeElementsByAttr.fn">
+            function <span class="apidocSignatureSpan">svgo.removeElementsByAttr.</span>fn
+            <span class="apidocSignatureSpan">(item, params)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">svgo.removeElementsByAttr.</span>params</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">string <span class="apidocSignatureSpan">svgo.removeElementsByAttr.</span>description</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">string <span class="apidocSignatureSpan">svgo.removeElementsByAttr.</span>type</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.svgo.removeEmptyAttrs">module svgo.removeEmptyAttrs</a><ol>
+
+        <li>
+
+            <span class="apidocSignatureSpan">boolean <span class="apidocSignatureSpan">svgo.removeEmptyAttrs.</span>active</span>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.svgo.removeEmptyAttrs.fn">
+            function <span class="apidocSignatureSpan">svgo.removeEmptyAttrs.</span>fn
+            <span class="apidocSignatureSpan">(item)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">string <span class="apidocSignatureSpan">svgo.removeEmptyAttrs.</span>description</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">string <span class="apidocSignatureSpan">svgo.removeEmptyAttrs.</span>type</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.svgo.removeEmptyContainers">module svgo.removeEmptyContainers</a><ol>
+
+        <li>
+
+            <span class="apidocSignatureSpan">boolean <span class="apidocSignatureSpan">svgo.removeEmptyContainers.</span>active</span>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.svgo.removeEmptyContainers.fn">
+            function <span class="apidocSignatureSpan">svgo.removeEmptyContainers.</span>fn
+            <span class="apidocSignatureSpan">(item)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">string <span class="apidocSignatureSpan">svgo.removeEmptyContainers.</span>description</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">string <span class="apidocSignatureSpan">svgo.removeEmptyContainers.</span>type</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.svgo.removeEmptyText">module svgo.removeEmptyText</a><ol>
+
+        <li>
+
+            <span class="apidocSignatureSpan">boolean <span class="apidocSignatureSpan">svgo.removeEmptyText.</span>active</span>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.svgo.removeEmptyText.fn">
+            function <span class="apidocSignatureSpan">svgo.removeEmptyText.</span>fn
+            <span class="apidocSignatureSpan">(item, params)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">svgo.removeEmptyText.</span>params</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">string <span class="apidocSignatureSpan">svgo.removeEmptyText.</span>description</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">string <span class="apidocSignatureSpan">svgo.removeEmptyText.</span>type</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.svgo.removeHiddenElems">module svgo.removeHiddenElems</a><ol>
+
+        <li>
+
+            <span class="apidocSignatureSpan">boolean <span class="apidocSignatureSpan">svgo.removeHiddenElems.</span>active</span>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.svgo.removeHiddenElems.fn">
+            function <span class="apidocSignatureSpan">svgo.removeHiddenElems.</span>fn
+            <span class="apidocSignatureSpan">(item, params)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">svgo.removeHiddenElems.</span>params</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">string <span class="apidocSignatureSpan">svgo.removeHiddenElems.</span>description</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">string <span class="apidocSignatureSpan">svgo.removeHiddenElems.</span>type</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.svgo.removeMetadata">module svgo.removeMetadata</a><ol>
+
+        <li>
+
+            <span class="apidocSignatureSpan">boolean <span class="apidocSignatureSpan">svgo.removeMetadata.</span>active</span>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.svgo.removeMetadata.fn">
+            function <span class="apidocSignatureSpan">svgo.removeMetadata.</span>fn
+            <span class="apidocSignatureSpan">(item)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">string <span class="apidocSignatureSpan">svgo.removeMetadata.</span>description</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">string <span class="apidocSignatureSpan">svgo.removeMetadata.</span>type</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.svgo.removeNonInheritableGroupAttrs">module svgo.removeNonInheritableGroupAttrs</a><ol>
+
+        <li>
+
+            <span class="apidocSignatureSpan">boolean <span class="apidocSignatureSpan">svgo.removeNonInheritableGroupAttrs.</span>active</span>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.svgo.removeNonInheritableGroupAttrs.fn">
+            function <span class="apidocSignatureSpan">svgo.removeNonInheritableGroupAttrs.</span>fn
+            <span class="apidocSignatureSpan">(item)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">string <span class="apidocSignatureSpan">svgo.removeNonInheritableGroupAttrs.</span>description</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">string <span class="apidocSignatureSpan">svgo.removeNonInheritableGroupAttrs.</span>type</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.svgo.removeRasterImages">module svgo.removeRasterImages</a><ol>
+
+        <li>
+
+            <span class="apidocSignatureSpan">boolean <span class="apidocSignatureSpan">svgo.removeRasterImages.</span>active</span>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.svgo.removeRasterImages.fn">
+            function <span class="apidocSignatureSpan">svgo.removeRasterImages.</span>fn
+            <span class="apidocSignatureSpan">(item)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">string <span class="apidocSignatureSpan">svgo.removeRasterImages.</span>description</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">string <span class="apidocSignatureSpan">svgo.removeRasterImages.</span>type</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.svgo.removeStyleElement">module svgo.removeStyleElement</a><ol>
+
+        <li>
+
+            <span class="apidocSignatureSpan">boolean <span class="apidocSignatureSpan">svgo.removeStyleElement.</span>active</span>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.svgo.removeStyleElement.fn">
+            function <span class="apidocSignatureSpan">svgo.removeStyleElement.</span>fn
+            <span class="apidocSignatureSpan">(item)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">string <span class="apidocSignatureSpan">svgo.removeStyleElement.</span>description</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">string <span class="apidocSignatureSpan">svgo.removeStyleElement.</span>type</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.svgo.removeTitle">module svgo.removeTitle</a><ol>
+
+        <li>
+
+            <span class="apidocSignatureSpan">boolean <span class="apidocSignatureSpan">svgo.removeTitle.</span>active</span>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.svgo.removeTitle.fn">
+            function <span class="apidocSignatureSpan">svgo.removeTitle.</span>fn
+            <span class="apidocSignatureSpan">(item)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">string <span class="apidocSignatureSpan">svgo.removeTitle.</span>description</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">string <span class="apidocSignatureSpan">svgo.removeTitle.</span>type</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.svgo.removeUnknownsAndDefaults">module svgo.removeUnknownsAndDefaults</a><ol>
+
+        <li>
+
+            <span class="apidocSignatureSpan">boolean <span class="apidocSignatureSpan">svgo.removeUnknownsAndDefaults.</span>active</span>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.svgo.removeUnknownsAndDefaults.fn">
+            function <span class="apidocSignatureSpan">svgo.removeUnknownsAndDefaults.</span>fn
+            <span class="apidocSignatureSpan">(item, params)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">svgo.removeUnknownsAndDefaults.</span>params</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">string <span class="apidocSignatureSpan">svgo.removeUnknownsAndDefaults.</span>description</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">string <span class="apidocSignatureSpan">svgo.removeUnknownsAndDefaults.</span>type</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.svgo.removeUnusedNS">module svgo.removeUnusedNS</a><ol>
+
+        <li>
+
+            <span class="apidocSignatureSpan">boolean <span class="apidocSignatureSpan">svgo.removeUnusedNS.</span>active</span>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.svgo.removeUnusedNS.fn">
+            function <span class="apidocSignatureSpan">svgo.removeUnusedNS.</span>fn
+            <span class="apidocSignatureSpan">(data)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">string <span class="apidocSignatureSpan">svgo.removeUnusedNS.</span>description</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">string <span class="apidocSignatureSpan">svgo.removeUnusedNS.</span>type</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.svgo.removeUselessDefs">module svgo.removeUselessDefs</a><ol>
+
+        <li>
+
+            <span class="apidocSignatureSpan">boolean <span class="apidocSignatureSpan">svgo.removeUselessDefs.</span>active</span>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.svgo.removeUselessDefs.fn">
+            function <span class="apidocSignatureSpan">svgo.removeUselessDefs.</span>fn
+            <span class="apidocSignatureSpan">(item)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">string <span class="apidocSignatureSpan">svgo.removeUselessDefs.</span>description</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">string <span class="apidocSignatureSpan">svgo.removeUselessDefs.</span>type</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.svgo.removeUselessStrokeAndFill">module svgo.removeUselessStrokeAndFill</a><ol>
+
+        <li>
+
+            <span class="apidocSignatureSpan">boolean <span class="apidocSignatureSpan">svgo.removeUselessStrokeAndFill.</span>active</span>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.svgo.removeUselessStrokeAndFill.fn">
+            function <span class="apidocSignatureSpan">svgo.removeUselessStrokeAndFill.</span>fn
+            <span class="apidocSignatureSpan">(item, params)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">svgo.removeUselessStrokeAndFill.</span>params</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">string <span class="apidocSignatureSpan">svgo.removeUselessStrokeAndFill.</span>description</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">string <span class="apidocSignatureSpan">svgo.removeUselessStrokeAndFill.</span>type</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.svgo.removeViewBox">module svgo.removeViewBox</a><ol>
+
+        <li>
+
+            <span class="apidocSignatureSpan">boolean <span class="apidocSignatureSpan">svgo.removeViewBox.</span>active</span>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.svgo.removeViewBox.fn">
+            function <span class="apidocSignatureSpan">svgo.removeViewBox.</span>fn
+            <span class="apidocSignatureSpan">(item)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">string <span class="apidocSignatureSpan">svgo.removeViewBox.</span>description</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">string <span class="apidocSignatureSpan">svgo.removeViewBox.</span>type</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.svgo.removeXMLNS">module svgo.removeXMLNS</a><ol>
+
+        <li>
+
+            <span class="apidocSignatureSpan">boolean <span class="apidocSignatureSpan">svgo.removeXMLNS.</span>active</span>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.svgo.removeXMLNS.fn">
+            function <span class="apidocSignatureSpan">svgo.removeXMLNS.</span>fn
+            <span class="apidocSignatureSpan">(item)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">string <span class="apidocSignatureSpan">svgo.removeXMLNS.</span>description</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">string <span class="apidocSignatureSpan">svgo.removeXMLNS.</span>type</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.svgo.removeXMLProcInst">module svgo.removeXMLProcInst</a><ol>
+
+        <li>
+
+            <span class="apidocSignatureSpan">boolean <span class="apidocSignatureSpan">svgo.removeXMLProcInst.</span>active</span>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.svgo.removeXMLProcInst.fn">
+            function <span class="apidocSignatureSpan">svgo.removeXMLProcInst.</span>fn
+            <span class="apidocSignatureSpan">(item)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">string <span class="apidocSignatureSpan">svgo.removeXMLProcInst.</span>description</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">string <span class="apidocSignatureSpan">svgo.removeXMLProcInst.</span>type</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.svgo.sortAttrs">module svgo.sortAttrs</a><ol>
+
+        <li>
+
+            <span class="apidocSignatureSpan">boolean <span class="apidocSignatureSpan">svgo.sortAttrs.</span>active</span>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.svgo.sortAttrs.fn">
+            function <span class="apidocSignatureSpan">svgo.sortAttrs.</span>fn
+            <span class="apidocSignatureSpan">(item, params)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">svgo.sortAttrs.</span>params</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">string <span class="apidocSignatureSpan">svgo.sortAttrs.</span>description</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">string <span class="apidocSignatureSpan">svgo.sortAttrs.</span>type</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.svgo.transformsWithOnePath">module svgo.transformsWithOnePath</a><ol>
+
+        <li>
+
+            <span class="apidocSignatureSpan">boolean <span class="apidocSignatureSpan">svgo.transformsWithOnePath.</span>active</span>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.svgo.transformsWithOnePath.fn">
+            function <span class="apidocSignatureSpan">svgo.transformsWithOnePath.</span>fn
+            <span class="apidocSignatureSpan">(data, params)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">svgo.transformsWithOnePath.</span>params</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">string <span class="apidocSignatureSpan">svgo.transformsWithOnePath.</span>description</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">string <span class="apidocSignatureSpan">svgo.transformsWithOnePath.</span>type</span>
+
+        </li>
+
+    </ol></li>
+
+</ol></div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.svgo" id="apidoc.module.svgo">module svgo</a></h1>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.svgo._path" id="apidoc.module.svgo._path">module svgo._path</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.svgo._path.applyTransforms" id="apidoc.element.svgo._path.applyTransforms">
+        function <span class="apidocSignatureSpan">svgo._path.</span>applyTransforms
+        <span class="apidocSignatureSpan">(elem, path, params)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">applyTransforms = function (elem, path, params) {
+    // if there are no 'stroke' attr and references to other objects such as
+    // gradiends or clip-path which are also subjects to transform.
+    if (!elem.hasAttr('transform') || !elem.attr('transform').value ||
+        elem.someAttr(function(attr) {
+            return ~referencesProps.indexOf(attr.name) &amp;&amp; ~attr.value.indexOf('url(');
+        }))
+        return path;
+
+    var matrix = transformsMultiply(transform2js(elem.attr('transform').value)),
+        stroke = elem.computedAttr('stroke'),
+        id = elem.computedAttr('id'),
+        transformPrecision = params.transformPrecision,
+        newPoint, scale;
+
+    if (stroke &amp;&amp; stroke != 'none') {
+        if (!params.applyTransformsStroked ||
+            (matrix.data[0] != matrix.data[3] || matrix.data[1] != -matrix.data[2]) &amp;&amp;
+            (matrix.data[0] != -matrix.data[3] || matrix.data[1] != matrix.data[2]))
+            return path;
+
+        // "stroke-width" should be inside the part with ID, otherwise it can be overrided in &lt;use&gt;
+        if (id) {
+            var idElem = elem,
+                hasStrokeWidth = false;
+
+            do {
+                if (idElem.hasAttr('stroke-width')) hasStrokeWidth = true;
+            } while (!idElem.hasAttr('id', id) &amp;&amp; !hasStrokeWidth &amp;&amp; (idElem = idElem.parentNode));
+
+            if (!hasStrokeWidth) return path;
+        }
+
+        scale = +Math.sqrt(matrix.data[0] * matrix.data[0] + matrix.data[1] * matrix.data[1]).toFixed(transformPrecision);
+
+        if (scale !== 1) {
+            var strokeWidth = elem.computedAttr('stroke-width') || defaultStrokeWidth;
+
+            if (elem.hasAttr('stroke-width')) {
+                elem.attrs['stroke-width'].value = elem.attrs['stroke-width'].value.trim()
+                    .replace(regNumericValues, function(num) { return removeLeadingZero(num * scale) });
+            } else {
+                elem.addAttr({
+                    name: 'stroke-width',
+                    prefix: '',
+                    local: 'stroke-width',
+                    value: strokeWidth.replace(regNumericValues, function(num) { return removeLeadingZero(num * scale) })
+                });
+            }
+        }
+    } else if (id) { // Stroke and stroke-width can be redefined with &lt;use&gt;
+        return path;
+    }
+
+    path.forEach(function(pathItem) {
+
+        if (pathItem.data) {
+
+            // h -&gt; l
+            if (pathItem.instruction === 'h') {
+
+                pathItem.instruction = 'l';
+                pathItem.data[1] = 0;
+
+            // v -&gt; l
+            } else if (pathItem.instruction === 'v') {
+
+                pathItem.instruction = 'l';
+                pathItem.data[1] = pathItem.data[0];
+                pathItem.data[0] = 0;
+
+            }
+
+            // if there is a translate() transform
+            if (pathItem.instruction === 'M' &amp;&amp;
+                (matrix.data[4] !== 0 ||
+                matrix.data[5] !== 0)
+            ) {
+
+                // then apply it only to the first absoluted M
+                newPoint = transformPoint(matrix.data, pathItem.data[0], pathItem.data[1]);
+                set(pathItem.data, newPoint);
+                set(pathItem.coords, newPoint);
+
+                // clear translate() data from transform matrix
+                matrix.data[4] = 0;
+                matrix.data[5] = 0;
+
+            } else {
+
+                if (pathItem.instruction == 'a') {
+
+                    transformArc(pathItem.data, matrix.data);
+
+                    // reduce number of digits in rotation angle
+                    if (Math.abs(pathItem.data[2]) &gt; 80) {
+                        var a = pathItem.data[0],
+                            rotation = pathItem.data[2];
+                        pathItem.data[0] = pathItem.data[1];
+                        pathItem.data[1] = a;
+                        pathItem.data[2] = rotation + (rotation &gt; 0 ? -90 : 90);
+                    }
+
+                    newPoint = transformPoint(matrix.data, pathItem.data[5], pathItem.data[6]);
+                    pathItem.data[5] = newPoint[0];
+                    pathItem.data[6] ...</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.svgo._path.computeCubicBoundingBox" id="apidoc.element.svgo._path.computeCubicBoundingBox">
+        function <span class="apidocSignatureSpan">svgo._path.</span>computeCubicBoundingBox
+        <span class="apidocSignatureSpan">(xa, ya, xb, yb, xc, yc, xd, yd)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">computeCubicBoundingBox = function (xa, ya, xb, yb, xc, yc, xd, yd) {
+
+    var minx = Number.POSITIVE_INFINITY,
+        miny = Number.POSITIVE_INFINITY,
+        maxx = Number.NEGATIVE_INFINITY,
+        maxy = Number.NEGATIVE_INFINITY,
+        ts,
+        t,
+        x,
+        y,
+        i;
+
+    // X
+    if (xa &lt; minx) { minx = xa; }
+    if (xa &gt; maxx) { maxx = xa; }
+    if (xd &lt; minx) { minx= xd; }
+    if (xd &gt; maxx) { maxx = xd; }
+
+    ts = computeCubicFirstDerivativeRoots(xa, xb, xc, xd);
+
+    for (i = 0; i &lt; ts.length; i++) {
+
+        t = ts[i];
+
+        if (t &gt;= 0 &amp;&amp; t &lt;= 1) {
+            x = computeCubicBaseValue(t, xa, xb, xc, xd);
+            // y = computeCubicBaseValue(t, ya, yb, yc, yd);
+
+            if (x &lt; minx) { minx = x; }
+            if (x &gt; maxx) { maxx = x; }
+        }
+
+    }
+
+    // Y
+    if (ya &lt; miny) { miny = ya; }
+    if (ya &gt; maxy) { maxy = ya; }
+    if (yd &lt; miny) { miny = yd; }
+    if (yd &gt; maxy) { maxy = yd; }
+
+    ts = computeCubicFirstDerivativeRoots(ya, yb, yc, yd);
+
+    for (i = 0; i &lt; ts.length; i++) {
+
+        t = ts[i];
+
+        if (t &gt;= 0 &amp;&amp; t &lt;= 1) {
+            // x = computeCubicBaseValue(t, xa, xb, xc, xd);
+            y = computeCubicBaseValue(t, ya, yb, yc, yd);
+
+            if (y &lt; miny) { miny = y; }
+            if (y &gt; maxy) { maxy = y; }
+        }
+
+    }
+
+    return {
+        minx: minx,
+        miny: miny,
+        maxx: maxx,
+        maxy: maxy
+    };
+
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.svgo._path.computeQuadraticBoundingBox" id="apidoc.element.svgo._path.computeQuadraticBoundingBox">
+        function <span class="apidocSignatureSpan">svgo._path.</span>computeQuadraticBoundingBox
+        <span class="apidocSignatureSpan">(xa, ya, xb, yb, xc, yc)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">computeQuadraticBoundingBox = function (xa, ya, xb, yb, xc, yc) {
+
+    var minx = Number.POSITIVE_INFINITY,
+        miny = Number.POSITIVE_INFINITY,
+        maxx = Number.NEGATIVE_INFINITY,
+        maxy = Number.NEGATIVE_INFINITY,
+        t,
+        x,
+        y;
+
+    // X
+    if (xa &lt; minx) { minx = xa; }
+    if (xa &gt; maxx) { maxx = xa; }
+    if (xc &lt; minx) { minx = xc; }
+    if (xc &gt; maxx) { maxx = xc; }
+
+    t = computeQuadraticFirstDerivativeRoot(xa, xb, xc);
+
+    if (t &gt;= 0 &amp;&amp; t &lt;= 1) {
+        x = computeQuadraticBaseValue(t, xa, xb, xc);
+        // y = computeQuadraticBaseValue(t, ya, yb, yc);
+
+        if (x &lt; minx) { minx = x; }
+        if (x &gt; maxx) { maxx = x; }
+    }
+
+    // Y
+    if (ya &lt; miny) { miny = ya; }
+    if (ya &gt; maxy) { maxy = ya; }
+    if (yc &lt; miny) { miny = yc; }
+    if (yc &gt; maxy) { maxy = yc; }
+
+    t = computeQuadraticFirstDerivativeRoot(ya, yb, yc);
+
+    if (t &gt;= 0 &amp;&amp; t &lt;=1 ) {
+        // x = computeQuadraticBaseValue(t, xa, xb, xc);
+        y = computeQuadraticBaseValue(t, ya, yb, yc);
+
+        if (y &lt; miny) { miny = y; }
+        if (y &gt; maxy) { maxy = y ; }
+
+    }
+
+    return {
+        minx: minx,
+        miny: miny,
+        maxx: maxx,
+        maxy: maxy
+    };
+
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.svgo._path.intersects" id="apidoc.element.svgo._path.intersects">
+        function <span class="apidocSignatureSpan">svgo._path.</span>intersects
+        <span class="apidocSignatureSpan">(path1, path2)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">intersects = function (path1, path2) {
+    if (path1.length &lt; 3 || path2.length &lt; 3) return false; // nothing to fill
+
+    // Collect points of every subpath.
+    var points1 = relative2absolute(path1).reduce(gatherPoints, []),
+        points2 = relative2absolute(path2).reduce(gatherPoints, []);
+
+    // Axis-aligned bounding box check.
+    if (points1.maxX &lt;= points2.minX || points2.maxX &lt;= points1.minX ||
+        points1.maxY &lt;= points2.minY || points2.maxY &lt;= points1.minY ||
+        points1.every(function (set1) {
+            return points2.every(function (set2) {
+                return set1[set1.maxX][0] &lt;= set2[set2.minX][0] ||
+                    set2[set2.maxX][0] &lt;= set1[set1.minX][0] ||
+                    set1[set1.maxY][1] &lt;= set2[set2.minY][1] ||
+                    set2[set2.maxY][1] &lt;= set1[set1.minY][1];
+            });
+        })
+    ) return false;
+
+    // Get a convex hull from points of each subpath. Has the most complexity O(nÂ·log n).
+    var hullNest1 = points1.map(convexHull),
+        hullNest2 = points2.map(convexHull);
+
+    // Check intersection of every subpath of the first path with every subpath of the second.
+    return hullNest1.some(function(hull1) {
+        if (hull1.length &lt; 3) return false;
+
+        return hullNest2.some(function(hull2) {
+            if (hull2.length &lt; 3) return false;
+
+            var simplex = [getSupport(hull1, hull2, [1, 0])], // create the initial simplex
+                direction = minus(simplex[0]); // set the direction to point towards the origin
+
+            var iterations = 1e4; // infinite loop protection, 10 000 iterations is more than enough
+            while (true) {
+                if (iterations-- == 0) {
+                    console.error('Error: infinite loop while processing mergePaths plugin.');
+                    return true; // true is the safe value that means â€œdo nothing with pathsâ€
+                }
+                // add a new point
+                simplex.push(getSupport(hull1, hull2, direction));
+                // see if the new point was on the correct side of the origin
+                if (dot(direction, simplex[simplex.length - 1]) &lt;= 0) return false;
+                // process the simplex
+                if (processSimplex(simplex, direction)) return true;
+            }
+        });
+    });
+
+    function getSupport(a, b, direction) {
+        return sub(supportPoint(a, direction), supportPoint(b, minus(direction)));
+    }
+
+    // Computes farthest polygon point in particular direction.
+    // Thanks to knowledge of min/max x and y coordinates we can choose a quadrant to search in.
+    // Since we're working on convex hull, the dot product is increasing until we find the farthest point.
+    function supportPoint(polygon, direction) {
+        var index = direction[1] &gt;= 0 ?
+                direction[0] &lt; 0 ? polygon.maxY : polygon.maxX :
+                direction[0] &lt; 0 ? polygon.minX : polygon.minY,
+            max = -Infinity,
+            value;
+        while ((value = dot(polygon[index], direction)) &gt; max) {
+            max = value;
+            index = ++index % polygon.length;
+        }
+        return polygon[(index || polygon.length) - 1];
+    }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.svgo._path.js2path" id="apidoc.element.svgo._path.js2path">
+        function <span class="apidocSignatureSpan">svgo._path.</span>js2path
+        <span class="apidocSignatureSpan">(path, data, params)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">js2path = function (path, data, params) {
+
+    path.pathJS = data;
+
+    if (params.collapseRepeated) {
+        data = collapseRepeated(data);
+    }
+
+    path.attr('d').value = data.reduce(function(pathString, item) {
+        return pathString += item.instruction + (item.data ? cleanupOutData(item.data, params) : '');
+    }, '');
+
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.svgo._path.path2js" id="apidoc.element.svgo._path.path2js">
+        function <span class="apidocSignatureSpan">svgo._path.</span>path2js
+        <span class="apidocSignatureSpan">(path)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">path2js = function (path) {
+    if (path.pathJS) return path.pathJS;
+
+    var paramsLength = { // Number of parameters of every path command
+            H: 1, V: 1, M: 2, L: 2, T: 2, Q: 4, S: 4, C: 6, A: 7,
+            h: 1, v: 1, m: 2, l: 2, t: 2, q: 4, s: 4, c: 6, a: 7
+        },
+        pathData = [],   // JS representation of the path data
+        instruction, // current instruction context
+        startMoveto = false;
+
+    // splitting path string into array like ['M', '10 50', 'L', '20 30']
+    path.attr('d').value.split(regPathInstructions).forEach(function(data) {
+        if (!data) return;
+        if (!startMoveto) {
+            if (data == 'M' || data == 'm') {
+                startMoveto = true;
+            } else return;
+        }
+
+        // instruction item
+        if (regPathInstructions.test(data)) {
+            instruction = data;
+
+            // z - instruction w/o data
+            if (instruction == 'Z' || instruction == 'z') {
+                pathData.push({
+                    instruction: 'z'
+                });
+            }
+        // data item
+        } else {
+            data = data.match(regPathData);
+            if (!data) return;
+
+            data = data.map(Number);
+
+            // Subsequent moveto pairs of coordinates are threated as implicit lineto commands
+            // http://www.w3.org/TR/SVG/paths.html#PathDataMovetoCommands
+            if (instruction == 'M' || instruction == 'm') {
+                pathData.push({
+                    instruction: pathData.length == 0 ? 'M' : instruction,
+                    data: data.splice(0, 2)
+                });
+                instruction = instruction == 'M' ? 'L' : 'l';
+            }
+
+            for (var pair = paramsLength[instruction]; data.length;) {
+                pathData.push({
+                    instruction: instruction,
+                    data: data.splice(0, pair)
+                });
+            }
+        }
+    });
+
+    // First moveto is actually absolute. Subsequent coordinates were separated above.
+    if (pathData.length &amp;&amp; pathData[0].instruction == 'm') {
+        pathData[0].instruction = 'M';
+    }
+    path.pathJS = pathData;
+
+    return pathData;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.svgo._path.relative2absolute" id="apidoc.element.svgo._path.relative2absolute">
+        function <span class="apidocSignatureSpan">svgo._path.</span>relative2absolute
+        <span class="apidocSignatureSpan">(data)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">relative2absolute = function (data) {
+    var currentPoint = [0, 0],
+        subpathPoint = [0, 0],
+        i;
+
+    data = data.map(function(item) {
+
+        var instruction = item.instruction,
+            itemData = item.data &amp;&amp; item.data.slice();
+
+        if (instruction == 'M') {
+
+            set(currentPoint, itemData);
+            set(subpathPoint, itemData);
+
+        } else if ('mlcsqt'.indexOf(instruction) &gt; -1) {
+
+            for (i = 0; i &lt; itemData.length; i++) {
+                itemData[i] += currentPoint[i % 2];
+            }
+            set(currentPoint, itemData);
+
+            if (instruction == 'm') {
+                set(subpathPoint, itemData);
+            }
+
+        } else if (instruction == 'a') {
+
+            itemData[5] += currentPoint[0];
+            itemData[6] += currentPoint[1];
+            set(currentPoint, itemData);
+
+        } else if (instruction == 'h') {
+
+            itemData[0] += currentPoint[0];
+            currentPoint[0] = itemData[0];
+
+        } else if (instruction == 'v') {
+
+            itemData[0] += currentPoint[1];
+            currentPoint[1] = itemData[0];
+
+        } else if ('MZLCSQTA'.indexOf(instruction) &gt; -1) {
+
+            set(currentPoint, itemData);
+
+        } else if (instruction == 'H') {
+
+            currentPoint[0] = itemData[0];
+
+        } else if (instruction == 'V') {
+
+            currentPoint[1] = itemData[0];
+
+        } else if (instruction == 'z') {
+
+            set(currentPoint, subpathPoint);
+
+        }
+
+        return instruction == 'z' ?
+            { instruction: 'z' } :
+            {
+                instruction: instruction.toUpperCase(),
+                data: itemData
+            };
+
+    });
+
+    return data;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.svgo._transforms" id="apidoc.module.svgo._transforms">module svgo._transforms</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.svgo._transforms.matrixToTransform" id="apidoc.element.svgo._transforms.matrixToTransform">
+        function <span class="apidocSignatureSpan">svgo._transforms.</span>matrixToTransform
+        <span class="apidocSignatureSpan">(transform, params)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">matrixToTransform = function (transform, params) {
+    var floatPrecision = params.floatPrecision,
+        data = transform.data,
+        transforms = [],
+        sx = +Math.sqrt(data[0] * data[0] + data[1] * data[1]).toFixed(params.transformPrecision),
+        sy = +((data[0] * data[3] - data[1] * data[2]) / sx).toFixed(params.transformPrecision),
+        colsSum = data[0] * data[2] + data[1] * data[3],
+        rowsSum = data[0] * data[1] + data[2] * data[3],
+        scaleBefore = rowsSum || +(sx == sy);
+
+    // [..., ..., ..., ..., tx, ty] â†’ translate(tx, ty)
+    if (data[4] || data[5]) {
+        transforms.push({ name: 'translate', data: data.slice(4, data[5] ? 6 : 5) });
+    }
+
+    // [sx, 0, tan(a)Â·sy, sy, 0, 0] â†’ skewX(a)Â·scale(sx, sy)
+    if (!data[1] &amp;&amp; data[2]) {
+        transforms.push({ name: 'skewX', data: [mth.atan(data[2] / sy, floatPrecision)] });
+
+    // [sx, sxÂ·tan(a), 0, sy, 0, 0] â†’ skewY(a)Â·scale(sx, sy)
+    } else if (data[1] &amp;&amp; !data[2]) {
+        transforms.push({ name: 'skewY', data: [mth.atan(data[1] / data[0], floatPrecision)] });
+        sx = data[0];
+        sy = data[3];
+
+    // [sxÂ·cos(a), sxÂ·sin(a), syÂ·-sin(a), syÂ·cos(a), x, y] â†’ rotate(a[, cx, cy])Â·(scale or skewX) or
+    // [sxÂ·cos(a), syÂ·sin(a), sxÂ·-sin(a), syÂ·cos(a), x, y] â†’ scale(sx, sy)Â·rotate(a[, cx, cy]) (if !scaleBefore)
+    } else if (!colsSum || (sx == 1 &amp;&amp; sy == 1) || !scaleBefore) {
+        if (!scaleBefore) {
+            sx = (data[0] &lt; 0 ? -1 : 1) * Math.sqrt(data[0] * data[0] + data[2] * data[2]);
+            sy = (data[3] &lt; 0 ? -1 : 1) * Math.sqrt(data[1] * data[1] + data[3] * data[3]);
+            transforms.push({ name: 'scale', data: [sx, sy] });
+        }
+        var rotate = [mth.acos(data[0] / sx, floatPrecision) * (data[1] * sy &lt; 0 ? -1 : 1)];
+
+        if (rotate[0]) transforms.push({ name: 'rotate', data: rotate });
+
+        if (rowsSum &amp;&amp; colsSum) transforms.push({
+            name: 'skewX',
+            data: [mth.atan(colsSum / (sx * sx), floatPrecision)]
+        });
+
+        // rotate(a, cx, cy) can consume translate() within optional arguments cx, cy (rotation point)
+        if (rotate[0] &amp;&amp; (data[4] || data[5])) {
+            transforms.shift();
+            var cos = data[0] / sx,
+                sin = data[1] / (scaleBefore ? sx : sy),
+                x = data[4] * (scaleBefore || sy),
+                y = data[5] * (scaleBefore || sx),
+                denom = (Math.pow(1 - cos, 2) + Math.pow(sin, 2)) * (scaleBefore || sx * sy);
+            rotate.push(((1 - cos) * x - sin * y) / denom);
+            rotate.push(((1 - cos) * y + sin * x) / denom);
+        }
+
+    // Too many transformations, return original matrix if it isn't just a scale/translate
+    } else if (data[1] || data[2]) {
+        return transform;
+    }
+
+    if (scaleBefore &amp;&amp; (sx != 1 || sy != 1) || !transforms.length) transforms.push({
+        name: 'scale',
+        data: sx == sy ? [sx] : [sx, sy]
+    });
+
+    return transforms;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.svgo._transforms.transform2js" id="apidoc.element.svgo._transforms.transform2js">
+        function <span class="apidocSignatureSpan">svgo._transforms.</span>transform2js
+        <span class="apidocSignatureSpan">(transformString)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">transform2js = function (transformString) {
+
+        // JS representation of the transform data
+    var transforms = [],
+        // current transform context
+        current;
+
+    // split value into ['', 'translate', '10 50', '', 'scale', '2', '', 'rotate', '-45', '']
+    transformString.split(regTransformSplit).forEach(function(item) {
+<span class="apidocCodeCommentSpan">        /*jshint -W084 */
+</span>        var num;
+
+        if (item) {
+            // if item is a translate function
+            if (regTransformTypes.test(item)) {
+                // then collect it and change current context
+                transforms.push(current = { name: item });
+            // else if item is data
+            } else {
+                // then split it into [10, 50] and collect as context.data
+                while (num = regNumericValues.exec(item)) {
+                    num = Number(num);
+                    if (current.data)
+                        current.data.push(num);
+                    else
+                        current.data = [num];
+                }
+            }
+        }
+    });
+
+    return transforms;
+
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.svgo._transforms.transformArc" id="apidoc.element.svgo._transforms.transformArc">
+        function <span class="apidocSignatureSpan">svgo._transforms.</span>transformArc
+        <span class="apidocSignatureSpan">(arc, transform)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">transformArc = function (arc, transform) {
+
+    var a = arc[0],
+        b = arc[1],
+        rot = arc[2] * Math.PI / 180,
+        cos = Math.cos(rot),
+        sin = Math.sin(rot),
+        h = Math.pow(arc[5] * cos + arc[6] * sin, 2) / (4 * a * a) +
+            Math.pow(arc[6] * cos - arc[5] * sin, 2) / (4 * b * b);
+    if (h &gt; 1) {
+        h = Math.sqrt(h);
+        a *= h;
+        b *= h;
+    }
+    var ellipse = [a * cos, a * sin, -b * sin, b * cos, 0, 0],
+        m = multiplyTransformMatrices(transform, ellipse),
+        // Decompose the new ellipse matrix
+        lastCol = m[2] * m[2] + m[3] * m[3],
+        squareSum = m[0] * m[0] + m[1] * m[1] + lastCol,
+        root = Math.sqrt(
+            (Math.pow(m[0] - m[3], 2) + Math.pow(m[1] + m[2], 2)) *
+            (Math.pow(m[0] + m[3], 2) + Math.pow(m[1] - m[2], 2))
+        );
+
+    if (!root) { // circle
+        arc[0] = arc[1] = Math.sqrt(squareSum / 2);
+        arc[2] = 0;
+    } else {
+        var majorAxisSqr = (squareSum + root) / 2,
+            minorAxisSqr = (squareSum - root) / 2,
+            major = Math.abs(majorAxisSqr - lastCol) &gt; 1e-6,
+            sub = (major ? majorAxisSqr : minorAxisSqr) - lastCol,
+            rowsSum = m[0] * m[2] + m[1] * m[3],
+            term1 = m[0] * sub + m[2] * rowsSum,
+            term2 = m[1] * sub + m[3] * rowsSum;
+        arc[0] = Math.sqrt(majorAxisSqr);
+        arc[1] = Math.sqrt(minorAxisSqr);
+        arc[2] = ((major ? term2 &lt; 0 : term1 &gt; 0) ? -1 : 1) *
+            Math.acos((major ? term1 : term2) / Math.sqrt(term1 * term1 + term2 * term2)) * 180 / Math.PI;
+    }
+    return arc;
+
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.svgo._transforms.transformsMultiply" id="apidoc.element.svgo._transforms.transformsMultiply">
+        function <span class="apidocSignatureSpan">svgo._transforms.</span>transformsMultiply
+        <span class="apidocSignatureSpan">(transforms)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">transformsMultiply = function (transforms) {
+
+    // convert transforms objects to the matrices
+    transforms = transforms.map(function(transform) {
+        if (transform.name === 'matrix') {
+            return transform.data;
+        }
+        return transformToMatrix(transform);
+    });
+
+    // multiply all matrices into one
+    transforms = {
+        name: 'matrix',
+        data: transforms.reduce(function(a, b) {
+            return multiplyTransformMatrices(a, b);
+        })
+    };
+
+    return transforms;
+
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.svgo.addAttributesToSVGElement" id="apidoc.module.svgo.addAttributesToSVGElement">module svgo.addAttributesToSVGElement</a></h1>
+
+
+
+
+    <h2>
+        <a href="#apidoc.element.svgo.addAttributesToSVGElement.fn" id="apidoc.element.svgo.addAttributesToSVGElement.fn">
+        function <span class="apidocSignatureSpan">svgo.addAttributesToSVGElement.</span>fn
+        <span class="apidocSignatureSpan">(data, params)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">fn = function (data, params) {
+    if (!params || !(Array.isArray(params.attributes) &amp;&amp; params.attributes.some(String) || params.attribute)) {
+        console.error(ENOCLS);
+        return data;
+    }
+
+    var attributes = params.attributes || [ params.attribute ],
+        svg = data.content[0];
+
+    if (svg.isElem('svg')) {
+        attributes.forEach(function (attribute) {
+            if (!svg.hasAttr(attribute)) {
+                svg.addAttr({
+                    name: attribute,
+                    prefix: '',
+                    local: attribute
+                });
+            }
+        });
+    }
+
+    return data;
+
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.svgo.addClassesToSVGElement" id="apidoc.module.svgo.addClassesToSVGElement">module svgo.addClassesToSVGElement</a></h1>
+
+
+
+
+    <h2>
+        <a href="#apidoc.element.svgo.addClassesToSVGElement.fn" id="apidoc.element.svgo.addClassesToSVGElement.fn">
+        function <span class="apidocSignatureSpan">svgo.addClassesToSVGElement.</span>fn
+        <span class="apidocSignatureSpan">(data, params)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">fn = function (data, params) {
+    if (!params || !(Array.isArray(params.classNames) &amp;&amp; params.classNames.some(String) || params.className)) {
+        console.error(ENOCLS);
+        return data;
+    }
+
+    var classNames = params.classNames || [ params.className ],
+        svg = data.content[0];
+
+    if (svg.isElem('svg')) {
+        if (svg.hasAttr('class')) {
+            var classes = svg.attr('class').value.split(' ');
+            classNames.forEach(function(className){
+                if (classes.indexOf(className) &lt; 0) {
+                    classes.push(className);
+                }
+            });
+            svg.attr('class').value = classes.join(' ');
+        } else {
+            svg.addAttr({
+                name: 'class',
+                value: classNames.join(' '),
+                prefix: '',
+                local: 'class'
+            });
+        }
+    }
+
+    return data;
+
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.svgo.cleanupAttrs" id="apidoc.module.svgo.cleanupAttrs">module svgo.cleanupAttrs</a></h1>
+
+
+
+
+    <h2>
+        <a href="#apidoc.element.svgo.cleanupAttrs.fn" id="apidoc.element.svgo.cleanupAttrs.fn">
+        function <span class="apidocSignatureSpan">svgo.cleanupAttrs.</span>fn
+        <span class="apidocSignatureSpan">(item, params)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">fn = function (item, params) {
+
+    if (item.isElem()) {
+
+        item.eachAttr(function(attr) {
+
+            if (params.newlines) {
+                // new line which requires a space instead of themselve
+                attr.value = attr.value.replace(regNewlinesNeedSpace, function(match, p1, p2) {
+                    return p1 + ' ' + p2;
+                });
+
+                // simple new line
+                attr.value = attr.value.replace(regNewlines, '');
+            }
+
+            if (params.trim) {
+                attr.value = attr.value.trim();
+            }
+
+            if (params.spaces) {
+                attr.value = attr.value.replace(regSpaces, ' ');
+            }
+
+        });
+
+    }
+
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.svgo.cleanupEnableBackground" id="apidoc.module.svgo.cleanupEnableBackground">module svgo.cleanupEnableBackground</a></h1>
+
+
+
+
+    <h2>
+        <a href="#apidoc.element.svgo.cleanupEnableBackground.fn" id="apidoc.element.svgo.cleanupEnableBackground.fn">
+        function <span class="apidocSignatureSpan">svgo.cleanupEnableBackground.</span>fn
+        <span class="apidocSignatureSpan">(data)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">fn = function (data) {
+
+    var regEnableBackground = /^new\s0\s0\s([\-+]?\d*\.?\d+([eE][\-+]?\d+)?)\s([\-+]?\d*\.?\d+([eE][\-+]?\d+)?)$/,
+        hasFilter = false,
+        elems = ['svg', 'mask', 'pattern'];
+
+    function checkEnableBackground(item) {
+        if (
+            item.isElem(elems) &amp;&amp;
+            item.hasAttr('enable-background') &amp;&amp;
+            item.hasAttr('width') &amp;&amp;
+            item.hasAttr('height')
+        ) {
+
+            var match = item.attr('enable-background').value.match(regEnableBackground);
+
+            if (match) {
+                if (
+                    item.attr('width').value === match[1] &amp;&amp;
+                    item.attr('height').value === match[3]
+                ) {
+                    if (item.isElem('svg')) {
+                        item.removeAttr('enable-background');
+                    } else {
+                        item.attr('enable-background').value = 'new';
+                    }
+                }
+            }
+
+        }
+    }
+
+    function checkForFilter(item) {
+        if (item.isElem('filter')) {
+            hasFilter = true;
+        }
+    }
+
+    function monkeys(items, fn) {
+        items.content.forEach(function(item) {
+            fn(item);
+
+            if (item.content) {
+                monkeys(item, fn);
+            }
+        });
+        return items;
+    }
+
+    var firstStep = monkeys(data, function(item) {
+        checkEnableBackground(item);
+        if (!hasFilter) {
+            checkForFilter(item);
+        }
+    });
+
+    return hasFilter ? firstStep : monkeys(firstStep, function(item) {
+            //we don't need 'enable-background' if we have no filters
+            item.removeAttr('enable-background');
+        });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.svgo.cleanupIDs" id="apidoc.module.svgo.cleanupIDs">module svgo.cleanupIDs</a></h1>
+
+
+
+
+    <h2>
+        <a href="#apidoc.element.svgo.cleanupIDs.fn" id="apidoc.element.svgo.cleanupIDs.fn">
+        function <span class="apidocSignatureSpan">svgo.cleanupIDs.</span>fn
+        <span class="apidocSignatureSpan">(data, params)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">fn = function (data, params) {
+
+    var currentID,
+        currentIDstring,
+        IDs = Object.create(null),
+        referencesIDs = Object.create(null),
+        idPrefix = 'id-', // prefix IDs so that values like '__proto__' don't break the work
+        hasStyleOrScript = false;
+
+<span class="apidocCodeCommentSpan">    /**
+     * Bananas!
+     *
+     * @param {Array} items input items
+     * @return {Array} output items
+     */
+</span>    function monkeys(items) {
+
+        for (var i = 0; i &lt; items.content.length &amp;&amp; !hasStyleOrScript; i++) {
+
+            var item = items.content[i],
+                match;
+
+            // check if &lt;style&gt; of &lt;script&gt; presents
+            if (item.isElem(styleOrScript)) {
+                hasStyleOrScript = true;
+                continue;
+            }
+
+            // â€¦and don't remove any ID if yes
+            if (item.isElem()) {
+
+                item.eachAttr(function(attr) {
+                    var key;
+                    // save IDs
+                    if (attr.name === 'id') {
+                        key = idPrefix + attr.value;
+                        if (key in IDs) {
+                            item.removeAttr('id');
+                        } else {
+                            IDs[key] = item;
+                        }
+                    }
+
+                    // save IDs url() references
+                    else if (referencesProps.indexOf(attr.name) &gt; -1) {
+                        match = attr.value.match(regReferencesUrl);
+
+                        if (match) {
+                            key = idPrefix + match[2];
+                            if (referencesIDs[key]) {
+                                referencesIDs[key].push(attr);
+                            } else {
+                                referencesIDs[key] = [attr];
+                            }
+                        }
+                    }
+
+                    // save IDs href references
+                    else if (
+                        attr.local === 'href' &amp;&amp; (match = attr.value.match(regReferencesHref)) ||
+                        attr.name === 'begin' &amp;&amp; (match = attr.value.match(regReferencesBegin))
+                    ) {
+                        key = idPrefix + match[1];
+                        if (referencesIDs[key]) {
+                            referencesIDs[key].push(attr);
+                        } else {
+                            referencesIDs[key] = [attr];
+                        }
+                    }
+                });
+
+            }
+
+            // go deeper
+            if (item.content) {
+                monkeys(item);
+            }
+        }
+
+        return items;
+
+    }
+
+    data = monkeys(data);
+
+    if (hasStyleOrScript) {
+        return data;
+    }
+
+    var idKey;
+    for (var k in referencesIDs) {
+        if (IDs[k]) {
+            idKey = k;
+            k = k.replace(idPrefix, '');
+            // replace referenced IDs with the minified ones
+            if (params.minify) {
+                currentIDstring = getIDstring(currentID = generateID(currentID), params);
+                IDs[idKey].attr('id').value = currentIDstring;
+
+                referencesIDs[idKey].forEach(function(attr) {
+                    attr.value = attr.value
+                        .replace('#' + k, '#' + currentIDstring)
+                        .replace(k + '.', currentIDstring + '.');
+                });
+
+                idKey = idPrefix + k;
+            }
+
+            // don't remove referenced IDs
+            delete IDs[idKey];
+        }
+    }
+
+    // remove non-referenced IDs attributes from elements
+    if (params.remove) {
+
+        for(var ID in IDs) {
+            IDs[ID].removeAttr('id');
+        }
+
+    }
+
+    return data;
+
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.svgo.cleanupListOfValues" id="apidoc.module.svgo.cleanupListOfValues">module svgo.cleanupListOfValues</a></h1>
+
+
+
+
+    <h2>
+        <a href="#apidoc.element.svgo.cleanupListOfValues.fn" id="apidoc.element.svgo.cleanupListOfValues.fn">
+        function <span class="apidocSignatureSpan">svgo.cleanupListOfValues.</span>fn
+        <span class="apidocSignatureSpan">(item, params)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">fn = function (item, params) {
+
+
+    if ( item.hasAttr('points') ) {
+        roundValues(item.attrs.points);
+    }
+
+    if ( item.hasAttr('enable-background') ) {
+        roundValues(item.attrs['enable-background']);
+    }
+
+    if ( item.hasAttr('viewBox') ) {
+        roundValues(item.attrs.viewBox);
+    }
+
+    if ( item.hasAttr('stroke-dasharray') ) {
+        roundValues(item.attrs['stroke-dasharray']);
+    }
+
+    if ( item.hasAttr('dx') ) {
+        roundValues(item.attrs.dx);
+    }
+
+    if ( item.hasAttr('dy') ) {
+        roundValues(item.attrs.dy);
+    }
+
+    if ( item.hasAttr('x') ) {
+        roundValues(item.attrs.x);
+    }
+
+    if ( item.hasAttr('y') ) {
+        roundValues(item.attrs.y);
+    }
+
+
+    function roundValues($prop){
+
+        var num, units,
+            match,
+            matchNew,
+            lists = $prop.value,
+            listsArr = lists.split(regSeparator),
+            roundedListArr = [],
+            roundedList;
+
+        listsArr.forEach(function(elem){
+
+            match = elem.match(regNumericValues);
+            matchNew = elem.match(/new/);
+
+             // if attribute value matches regNumericValues
+            if(match){
+
+                // round it to the fixed precision
+                num = +(+match[1]).toFixed(params.floatPrecision),
+                units = match[3] || '';
+
+                // convert absolute values to pixels
+                if (params.convertToPx &amp;&amp; units &amp;&amp; (units in absoluteLengths)) {
+                    var pxNum = +(absoluteLengths[units] * match[1]).toFixed(params.floatPrecision);
+
+                    if (String(pxNum).length &lt; match[0].length)
+                        num = pxNum,
+                        units = 'px';
+                }
+
+                 // and remove leading zero
+                if (params.leadingZero) {
+                    num = removeLeadingZero(num);
+                }
+
+                // remove default 'px' units
+                if (params.defaultPx &amp;&amp; units === 'px') {
+                    units = '';
+                }
+
+                roundedListArr.push(num+units);
+
+            }
+            // if attribute value is "new"(only enable-background).
+            else if(matchNew){
+
+                roundedListArr.push('new');
+
+            }
+
+        });
+
+        roundedList = roundedListArr.join(' ');
+        $prop.value = roundedList;
+
+    }
+
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.svgo.cleanupNumericValues" id="apidoc.module.svgo.cleanupNumericValues">module svgo.cleanupNumericValues</a></h1>
+
+
+
+
+    <h2>
+        <a href="#apidoc.element.svgo.cleanupNumericValues.fn" id="apidoc.element.svgo.cleanupNumericValues.fn">
+        function <span class="apidocSignatureSpan">svgo.cleanupNumericValues.</span>fn
+        <span class="apidocSignatureSpan">(item, params)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">fn = function (item, params) {
+
+    if (item.isElem()) {
+
+        var match;
+
+        item.eachAttr(function(attr) {
+            match = attr.value.match(regNumericValues);
+
+            // if attribute value matches regNumericValues
+            if (match) {
+                // round it to the fixed precision
+                var num = +(+match[1]).toFixed(params.floatPrecision),
+                    units = match[3] || '';
+
+                // convert absolute values to pixels
+                if (params.convertToPx &amp;&amp; units &amp;&amp; (units in absoluteLengths)) {
+                    var pxNum = +(absoluteLengths[units] * match[1]).toFixed(params.floatPrecision);
+
+                    if (String(pxNum).length &lt; match[0].length)
+                        num = pxNum,
+                        units = 'px';
+                }
+
+                // and remove leading zero
+                if (params.leadingZero) {
+                    num = removeLeadingZero(num);
+                }
+
+                // remove default 'px' units
+                if (params.defaultPx &amp;&amp; units === 'px') {
+                    units = '';
+                }
+
+                attr.value = num + units;
+            }
+        });
+
+    }
+
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.svgo.collapseGroups" id="apidoc.module.svgo.collapseGroups">module svgo.collapseGroups</a></h1>
+
+
+
+
+    <h2>
+        <a href="#apidoc.element.svgo.collapseGroups.fn" id="apidoc.element.svgo.collapseGroups.fn">
+        function <span class="apidocSignatureSpan">svgo.collapseGroups.</span>fn
+        <span class="apidocSignatureSpan">(item)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">fn = function (item) {
+
+    // non-empty elements
+    if (item.isElem() &amp;&amp; !item.isElem('switch') &amp;&amp; !item.isEmpty()) {
+
+        item.content.forEach(function(g, i) {
+
+            // non-empty groups
+            if (g.isElem('g') &amp;&amp; !g.isEmpty()) {
+
+                // move group attibutes to the single content element
+                if (g.hasAttr() &amp;&amp; g.content.length === 1) {
+                    var inner = g.content[0];
+
+                    if (inner.isElem() &amp;&amp; !inner.hasAttr('id') &amp;&amp;
+                        !(g.hasAttr('class') &amp;&amp; inner.hasAttr('class')) &amp;&amp; (
+                            !g.hasAttr('clip-path') &amp;&amp; !g.hasAttr('mask') ||
+                            inner.isElem('g') &amp;&amp; !g.hasAttr('transform') &amp;&amp; !inner.hasAttr('transform')
+                        )
+                    ) {
+                        g.eachAttr(function(attr) {
+                            if (g.content.some(hasAnimatedAttr, attr.name)) return;
+
+                            if (!inner.hasAttr(attr.name)) {
+                                inner.addAttr(attr);
+                            } else if (attr.name == 'transform') {
+                                inner.attr(attr.name).value = attr.value + ' ' + inner.attr(attr.name).value;
+                            } else if (
+                                attrsInheritable.indexOf(attr.name) &lt; 0 &amp;&amp;
+                                !inner.hasAttr(attr.name, attr.value)
+                            ) {
+                                return;
+                            }
+
+                            g.removeAttr(attr.name);
+                        });
+                    }
+                }
+
+                // collapse groups without attributes
+                if (!g.hasAttr() &amp;&amp; !g.content.some(function(item) { return item.isElem(animationElems) })) {
+                    item.spliceContent(i, 1, g.content);
+                }
+            }
+
+        });
+
+    }
+
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.svgo.convertColors" id="apidoc.module.svgo.convertColors">module svgo.convertColors</a></h1>
+
+
+
+
+    <h2>
+        <a href="#apidoc.element.svgo.convertColors.fn" id="apidoc.element.svgo.convertColors.fn">
+        function <span class="apidocSignatureSpan">svgo.convertColors.</span>fn
+        <span class="apidocSignatureSpan">(item, params)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">fn = function (item, params) {
+
+    if (item.elem) {
+
+        item.eachAttr(function(attr) {
+
+            if (collections.colorsProps.indexOf(attr.name) &gt; -1) {
+
+                var val = attr.value,
+                    match;
+
+                // Convert colors to currentColor
+                if (params.currentColor) {
+                    if (typeof params.currentColor === 'string') {
+                        match = val === params.currentColor;
+                    } else if (params.currentColor.exec) {
+                        match = params.currentColor.exec(val);
+                    } else {
+                        match = !val.match(none);
+                    }
+                    if (match) {
+                        val = 'currentColor';
+                    }
+                }
+
+                // Convert color name keyword to long hex
+                if (params.names2hex &amp;&amp; val.toLowerCase() in collections.colorsNames) {
+                    val = collections.colorsNames[val.toLowerCase()];
+                }
+
+                // Convert rgb() to long hex
+                if (params.rgb2hex &amp;&amp; (match = val.match(regRGB))) {
+                    match = match.slice(1, 4).map(function(m) {
+                        if (m.indexOf('%') &gt; -1)
+                            m = Math.round(parseFloat(m) * 2.55);
+
+                        return Math.max(0, Math.min(m, 255));
+                    });
+
+                    val = rgb2hex(match);
+                }
+
+                // Convert long hex to short hex
+                if (params.shorthex &amp;&amp; (match = val.match(regHEX))) {
+                    val = '#' + match[0][1] + match[0][3] + match[0][5];
+                }
+
+                // Convert hex to short name
+                if (params.shortname &amp;&amp; val in collections.colorsShortNames) {
+                    val = collections.colorsShortNames[val];
+                }
+
+                attr.value = val;
+
+            }
+
+        });
+
+    }
+
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.svgo.convertPathData" id="apidoc.module.svgo.convertPathData">module svgo.convertPathData</a></h1>
+
+
+
+
+    <h2>
+        <a href="#apidoc.element.svgo.convertPathData.fn" id="apidoc.element.svgo.convertPathData.fn">
+        function <span class="apidocSignatureSpan">svgo.convertPathData.</span>fn
+        <span class="apidocSignatureSpan">(item, params)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">fn = function (item, params) {
+
+    if (item.isElem(pathElems) &amp;&amp; item.hasAttr('d')) {
+
+        precision = params.floatPrecision;
+        error = precision !== false ? +Math.pow(.1, precision).toFixed(precision) : 1e-2;
+        roundData = precision &gt; 0 &amp;&amp; precision &lt; 20 ? strongRound : round;
+        if (params.makeArcs) {
+            arcThreshold = params.makeArcs.threshold;
+            arcTolerance = params.makeArcs.tolerance;
+        }
+        hasMarkerMid = item.hasAttr('marker-mid');
+
+        var data = path2js(item);
+
+        // TODO: get rid of functions returns
+        if (data.length) {
+            convertToRelative(data);
+
+            if (params.applyTransforms) {
+                data = applyTransforms(item, data, params);
+            }
+
+            data = filters(data, params);
+
+            if (params.utilizeAbsolute) {
+                data = convertToMixed(data, params);
+            }
+
+            js2path(item, data, params);
+        }
+
+    }
+
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.svgo.convertShapeToPath" id="apidoc.module.svgo.convertShapeToPath">module svgo.convertShapeToPath</a></h1>
+
+
+
+
+    <h2>
+        <a href="#apidoc.element.svgo.convertShapeToPath.fn" id="apidoc.element.svgo.convertShapeToPath.fn">
+        function <span class="apidocSignatureSpan">svgo.convertShapeToPath.</span>fn
+        <span class="apidocSignatureSpan">(item)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">fn = function (item) {
+
+    if (
+        item.isElem('rect') &amp;&amp;
+        item.hasAttr('width') &amp;&amp;
+        item.hasAttr('height') &amp;&amp;
+        !item.hasAttr('rx') &amp;&amp;
+        !item.hasAttr('ry')
+    ) {
+
+        var x = +(item.attr('x') || none).value,
+            y = +(item.attr('y') || none).value,
+            width  = +item.attr('width').value,
+            height = +item.attr('height').value;
+
+            // Values like '100%' compute to NaN, thus running after
+            // cleanupNumericValues when 'px' units has already been removed.
+            // TODO: Calculate sizes from % and non-px units if possible.
+        if (isNaN(x - y + width - height)) return;
+
+        var pathData =
+            'M' + x + ' ' + y +
+            'H' + (x + width) +
+            'V' + (y + height) +
+            'H' + x +
+            'z';
+
+        item.addAttr({
+                name: 'd',
+                value: pathData,
+                prefix: '',
+                local: 'd'
+            });
+
+        item.renameElem('path')
+            .removeAttr(['x', 'y', 'width', 'height']);
+
+    } else if (item.isElem('line')) {
+
+        var x1 = +(item.attr('x1') || none).value,
+            y1 = +(item.attr('y1') || none).value,
+            x2 = +(item.attr('x2') || none).value,
+            y2 = +(item.attr('y2') || none).value;
+        if (isNaN(x1 - y1 + x2 - y2)) return;
+
+        item.addAttr({
+                name: 'd',
+                value: 'M' + x1 + ' ' + y1 + 'L' + x2 + ' ' + y2,
+                prefix: '',
+                local: 'd'
+            });
+
+        item.renameElem('path')
+            .removeAttr(['x1', 'y1', 'x2', 'y2']);
+
+    } else if ((
+            item.isElem('polyline') ||
+            item.isElem('polygon')
+        ) &amp;&amp;
+        item.hasAttr('points')
+    ) {
+
+        var coords = (item.attr('points').value.match(regNumber) || []).map(Number);
+        if (coords.length &lt; 4) return false;
+
+        item.addAttr({
+                name: 'd',
+                value: 'M' + coords.slice(0,2).join(' ') +
+                       'L' + coords.slice(2).join(' ') +
+                       (item.isElem('polygon') ? 'z' : ''),
+                prefix: '',
+                local: 'd'
+            });
+
+        item.renameElem('path')
+            .removeAttr('points');
+    }
+
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.svgo.convertStyleToAttrs" id="apidoc.module.svgo.convertStyleToAttrs">module svgo.convertStyleToAttrs</a></h1>
+
+
+
+
+    <h2>
+        <a href="#apidoc.element.svgo.convertStyleToAttrs.fn" id="apidoc.element.svgo.convertStyleToAttrs.fn">
+        function <span class="apidocSignatureSpan">svgo.convertStyleToAttrs.</span>fn
+        <span class="apidocSignatureSpan">(item)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">fn = function (item) {
+<span class="apidocCodeCommentSpan">    /* jshint boss: true */
+</span>
+    if (item.elem &amp;&amp; item.hasAttr('style')) {
+            // ['opacity: 1', 'color: #000']
+        var styleValue = item.attr('style').value,
+            styles = [],
+            attrs = {};
+
+        // Strip CSS comments preserving escape sequences and strings.
+        styleValue = styleValue.replace(regStripComments, function(match) {
+            return match[0] == '/' ? '' :
+                match[0] == '\\' &amp;&amp; /[-g-z]/i.test(match[1]) ? match[1] : match;
+        });
+
+        regDeclarationBlock.lastIndex = 0;
+        for (var rule; rule = regDeclarationBlock.exec(styleValue);) {
+            styles.push([rule[1], rule[2]]);
+        }
+
+        if (styles.length) {
+
+            styles = styles.filter(function(style) {
+                if (style[0]) {
+                    var prop = style[0].toLowerCase(),
+                        val = style[1];
+
+                    if (rQuotedString.test(val)) {
+                        val = val.slice(1, -1);
+                    }
+
+                    if (stylingProps.indexOf(prop) &gt; -1) {
+
+                        attrs[prop] = {
+                            name: prop,
+                            value: val,
+                            local: prop,
+                            prefix: ''
+                        };
+
+                        return false;
+                    }
+                }
+
+                return true;
+            });
+
+            EXTEND(item.attrs, attrs);
+
+            if (styles.length) {
+                item.attr('style').value = styles
+                    .map(function(declaration) { return declaration.join(':') })
+                    .join(';');
+            } else {
+                item.removeAttr('style');
+            }
+
+        }
+
+    }
+
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.svgo.convertTransform" id="apidoc.module.svgo.convertTransform">module svgo.convertTransform</a></h1>
+
+
+
+
+    <h2>
+        <a href="#apidoc.element.svgo.convertTransform.fn" id="apidoc.element.svgo.convertTransform.fn">
+        function <span class="apidocSignatureSpan">svgo.convertTransform.</span>fn
+        <span class="apidocSignatureSpan">(item, params)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">fn = function (item, params) {
+
+    if (item.elem) {
+
+        // transform
+        if (item.hasAttr('transform')) {
+            convertTransform(item, 'transform', params);
+        }
+
+        // gradientTransform
+        if (item.hasAttr('gradientTransform')) {
+            convertTransform(item, 'gradientTransform', params);
+        }
+
+        // patternTransform
+        if (item.hasAttr('patternTransform')) {
+            convertTransform(item, 'patternTransform', params);
+        }
+
+    }
+
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.svgo.mergePaths" id="apidoc.module.svgo.mergePaths">module svgo.mergePaths</a></h1>
+
+
+
+
+    <h2>
+        <a href="#apidoc.element.svgo.mergePaths.fn" id="apidoc.element.svgo.mergePaths.fn">
+        function <span class="apidocSignatureSpan">svgo.mergePaths.</span>fn
+        <span class="apidocSignatureSpan">(item, params)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">fn = function (item, params) {
+
+    if (!item.isElem() || item.isEmpty()) return;
+
+    var prevContentItem = null,
+        prevContentItemKeys = null;
+
+    item.content = item.content.filter(function(contentItem) {
+
+        if (prevContentItem &amp;&amp;
+            prevContentItem.isElem('path') &amp;&amp;
+            prevContentItem.isEmpty() &amp;&amp;
+            prevContentItem.hasAttr('d') &amp;&amp;
+            contentItem.isElem('path') &amp;&amp;
+            contentItem.isEmpty() &amp;&amp;
+            contentItem.hasAttr('d')
+        ) {
+
+            if (!prevContentItemKeys) {
+                prevContentItemKeys = Object.keys(prevContentItem.attrs);
+            }
+
+            var contentItemAttrs = Object.keys(contentItem.attrs),
+                equalData = prevContentItemKeys.length == contentItemAttrs.length &amp;&amp;
+                    contentItemAttrs.every(function(key) {
+                        return key == 'd' ||
+                            prevContentItem.hasAttr(key) &amp;&amp;
+                            prevContentItem.attr(key).value == contentItem.attr(key).value;
+                    }),
+                prevPathJS = path2js(prevContentItem),
+                curPathJS = path2js(contentItem);
+
+            if (equalData &amp;&amp; !intersects(prevPathJS, curPathJS)) {
+                js2path(prevContentItem, prevPathJS.concat(curPathJS), params);
+                return false;
+            }
+        }
+
+        prevContentItem = contentItem;
+        prevContentItemKeys = null;
+        return true;
+
+    });
+
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.svgo.minifyStyles" id="apidoc.module.svgo.minifyStyles">module svgo.minifyStyles</a></h1>
+
+
+
+
+    <h2>
+        <a href="#apidoc.element.svgo.minifyStyles.fn" id="apidoc.element.svgo.minifyStyles.fn">
+        function <span class="apidocSignatureSpan">svgo.minifyStyles.</span>fn
+        <span class="apidocSignatureSpan">(item, svgoOptions)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">fn = function (item, svgoOptions) {
+
+    if(item.elem) {
+        if(item.isElem('style') &amp;&amp; !item.isEmpty()) {
+            var styleCss = item.content[0].text || item.content[0].cdata || [],
+                DATA = styleCss.indexOf('&gt;') &gt;= 0 || styleCss.indexOf('&lt;') &gt;= 0 ? 'cdata' : 'text';
+            if(styleCss.length &gt; 0) {
+                var styleCssMinified = csso.minify(styleCss, svgoOptions);
+                item.content[0][DATA] = styleCssMinified.css;
+            }
+      }
+
+      if(item.hasAttr('style')) {
+          var itemCss = item.attr('style').value;
+          if(itemCss.length &gt; 0) {
+              var itemCssMinified = csso.minifyBlock(itemCss, svgoOptions);
+              item.attr('style').value = itemCssMinified.css;
+          }
+      }
+    }
+
+    return item;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.svgo.moveElemsAttrsToGroup" id="apidoc.module.svgo.moveElemsAttrsToGroup">module svgo.moveElemsAttrsToGroup</a></h1>
+
+
+
+
+    <h2>
+        <a href="#apidoc.element.svgo.moveElemsAttrsToGroup.fn" id="apidoc.element.svgo.moveElemsAttrsToGroup.fn">
+        function <span class="apidocSignatureSpan">svgo.moveElemsAttrsToGroup.</span>fn
+        <span class="apidocSignatureSpan">(item)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">fn = function (item) {
+
+    if (item.isElem('g') &amp;&amp; !item.isEmpty() &amp;&amp; item.content.length &gt; 1) {
+
+        var intersection = {},
+            hasTransform = false,
+            hasClip = item.hasAttr('clip-path') || item.hasAttr('mask'),
+            intersected = item.content.every(function(inner) {
+                if (inner.isElem() &amp;&amp; inner.hasAttr()) {
+                    // don't mess with possible styles (hack until CSS parsing is implemented)
+                    if (inner.hasAttr('class')) return false;
+                    if (!Object.keys(intersection).length) {
+                        intersection = inner.attrs;
+                    } else {
+                        intersection = intersectInheritableAttrs(intersection, inner.attrs);
+
+                        if (!intersection) return false;
+                    }
+
+                    return true;
+                }
+            }),
+            allPath = item.content.every(function(inner) {
+                return inner.isElem(pathElems);
+            });
+
+        if (intersected) {
+
+            item.content.forEach(function(g) {
+
+                for (var name in intersection) {
+
+                    if (!allPath &amp;&amp; !hasClip || name !== 'transform') {
+
+                        g.removeAttr(name);
+
+                        if (name === 'transform') {
+                            if (!hasTransform) {
+                                if (item.hasAttr('transform')) {
+                                    item.attr('transform').value += ' ' + intersection[name].value;
+                                } else {
+                                    item.addAttr(intersection[name]);
+                                }
+
+                                hasTransform = true;
+                            }
+                        } else {
+                            item.addAttr(intersection[name]);
+                        }
+
+                    }
+                }
+
+            });
+
+        }
+
+    }
+
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.svgo.moveGroupAttrsToElems" id="apidoc.module.svgo.moveGroupAttrsToElems">module svgo.moveGroupAttrsToElems</a></h1>
+
+
+
+
+    <h2>
+        <a href="#apidoc.element.svgo.moveGroupAttrsToElems.fn" id="apidoc.element.svgo.moveGroupAttrsToElems.fn">
+        function <span class="apidocSignatureSpan">svgo.moveGroupAttrsToElems.</span>fn
+        <span class="apidocSignatureSpan">(item)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">fn = function (item) {
+
+    // move group transform attr to content's pathElems
+    if (
+        item.isElem('g') &amp;&amp;
+        item.hasAttr('transform') &amp;&amp;
+        !item.isEmpty() &amp;&amp;
+        !item.someAttr(function(attr) {
+            return ~referencesProps.indexOf(attr.name) &amp;&amp; ~attr.value.indexOf('url(');
+        }) &amp;&amp;
+        item.content.every(function(inner) {
+            return inner.isElem(pathElems) &amp;&amp; !inner.hasAttr('id');
+        })
+    ) {
+        item.content.forEach(function(inner) {
+            var attr = item.attr('transform');
+            if (inner.hasAttr('transform')) {
+                inner.attr('transform').value = attr.value + ' ' + inner.attr('transform').value;
+            } else {
+                inner.addAttr({
+                    'name': attr.name,
+                    'local': attr.local,
+                    'prefix': attr.prefix,
+                    'value': attr.value
+                });
+            }
+        });
+
+        item.removeAttr('transform');
+    }
+
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.svgo.removeAttrs" id="apidoc.module.svgo.removeAttrs">module svgo.removeAttrs</a></h1>
+
+
+
+
+    <h2>
+        <a href="#apidoc.element.svgo.removeAttrs.fn" id="apidoc.element.svgo.removeAttrs.fn">
+        function <span class="apidocSignatureSpan">svgo.removeAttrs.</span>fn
+        <span class="apidocSignatureSpan">(item, params)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">fn = function (item, params) {
+
+        // wrap into an array if params is not
+    if (!Array.isArray(params.attrs)) {
+        params.attrs = [params.attrs];
+    }
+
+    if (item.isElem()) {
+
+            // prepare patterns
+        var patterns = params.attrs.map(function(pattern) {
+
+                // apply to all elements if specifc element is omitted
+            if (pattern.indexOf(ELEM_SEP) === -1) {
+                pattern = ['.*', ELEM_SEP, pattern].join('');
+            }
+
+                // create regexps for element and attribute name
+            return pattern.split(ELEM_SEP)
+                .map(function(value) {
+
+                        // adjust single * to match anything
+                    if (value === '*') { value = '.*'; }
+
+                    return new RegExp(['^', value, '$'].join(''), 'i');
+                });
+
+        });
+
+            // loop patterns
+        patterns.forEach(function(pattern) {
+
+                // matches element
+            if (pattern[0].test(item.elem)) {
+
+                    // loop attributes
+                item.eachAttr(function(attr) {
+                    var name = attr.name;
+
+                        // matches attribute name
+                    if (pattern[1].test(name)) {
+                        item.removeAttr(name);
+                    }
+
+                });
+
+            }
+
+        });
+
+    }
+
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.svgo.removeComments" id="apidoc.module.svgo.removeComments">module svgo.removeComments</a></h1>
+
+
+
+
+    <h2>
+        <a href="#apidoc.element.svgo.removeComments.fn" id="apidoc.element.svgo.removeComments.fn">
+        function <span class="apidocSignatureSpan">svgo.removeComments.</span>fn
+        <span class="apidocSignatureSpan">(item)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">fn = function (item) {
+
+    if (item.comment &amp;&amp; item.comment.charAt(0) !== '!') {
+        return false;
+    }
+
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.svgo.removeDesc" id="apidoc.module.svgo.removeDesc">module svgo.removeDesc</a></h1>
+
+
+
+
+    <h2>
+        <a href="#apidoc.element.svgo.removeDesc.fn" id="apidoc.element.svgo.removeDesc.fn">
+        function <span class="apidocSignatureSpan">svgo.removeDesc.</span>fn
+        <span class="apidocSignatureSpan">(item, params)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">fn = function (item, params) {
+
+    return !item.isElem('desc') || !(params.removeAny || item.isEmpty() ||
+            standardDescs.test(item.content[0].text));
+
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.svgo.removeDimensions" id="apidoc.module.svgo.removeDimensions">module svgo.removeDimensions</a></h1>
+
+
+
+
+    <h2>
+        <a href="#apidoc.element.svgo.removeDimensions.fn" id="apidoc.element.svgo.removeDimensions.fn">
+        function <span class="apidocSignatureSpan">svgo.removeDimensions.</span>fn
+        <span class="apidocSignatureSpan">(item)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">fn = function (item) {
+
+    if (
+        item.isElem('svg') &amp;&amp;
+        item.hasAttr('viewBox')
+    ) {
+        item.removeAttr('width');
+        item.removeAttr('height');
+    }
+
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.svgo.removeDoctype" id="apidoc.module.svgo.removeDoctype">module svgo.removeDoctype</a></h1>
+
+
+
+
+    <h2>
+        <a href="#apidoc.element.svgo.removeDoctype.fn" id="apidoc.element.svgo.removeDoctype.fn">
+        function <span class="apidocSignatureSpan">svgo.removeDoctype.</span>fn
+        <span class="apidocSignatureSpan">(item)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">fn = function (item) {
+
+    if (item.doctype) {
+        return false;
+    }
+
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.svgo.removeEditorsNSData" id="apidoc.module.svgo.removeEditorsNSData">module svgo.removeEditorsNSData</a></h1>
+
+
+
+
+    <h2>
+        <a href="#apidoc.element.svgo.removeEditorsNSData.fn" id="apidoc.element.svgo.removeEditorsNSData.fn">
+        function <span class="apidocSignatureSpan">svgo.removeEditorsNSData.</span>fn
+        <span class="apidocSignatureSpan">(item, params)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">fn = function (item, params) {
+
+    if (Array.isArray(params.additionalNamespaces)) {
+        editorNamespaces = editorNamespaces.concat(params.additionalNamespaces);
+    }
+
+    if (item.elem) {
+
+        if (item.isElem('svg')) {
+
+            item.eachAttr(function(attr) {
+                if (attr.prefix === 'xmlns' &amp;&amp; editorNamespaces.indexOf(attr.value) &gt; -1) {
+                    prefixes.push(attr.local);
+
+                    // &lt;svg xmlns:sodipodi=""&gt;
+                    item.removeAttr(attr.name);
+                }
+            });
+
+        }
+
+        // &lt;* sodipodi:*=""&gt;
+        item.eachAttr(function(attr) {
+            if (prefixes.indexOf(attr.prefix) &gt; -1) {
+                item.removeAttr(attr.name);
+            }
+        });
+
+        // &lt;sodipodi:*&gt;
+        if (prefixes.indexOf(item.prefix) &gt; -1) {
+            return false;
+        }
+
+    }
+
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.svgo.removeElementsByAttr" id="apidoc.module.svgo.removeElementsByAttr">module svgo.removeElementsByAttr</a></h1>
+
+
+
+
+    <h2>
+        <a href="#apidoc.element.svgo.removeElementsByAttr.fn" id="apidoc.element.svgo.removeElementsByAttr.fn">
+        function <span class="apidocSignatureSpan">svgo.removeElementsByAttr.</span>fn
+        <span class="apidocSignatureSpan">(item, params)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">fn = function (item, params) {
+    var elemId, elemClass;
+
+    // wrap params in an array if not already
+    ['id', 'class'].forEach(function(key) {
+        if (!Array.isArray(params[key])) {
+            params[key] = [ params[key] ];
+        }
+    });
+
+    // abort if current item is no an element
+    if (!item.isElem()) {
+        return;
+    }
+
+    // remove element if it's `id` matches configured `id` params
+    elemId = item.attr('id');
+    if (elemId) {
+        return params.id.indexOf(elemId.value) === -1;
+    }
+
+    // remove element if it's `class` contains any of the configured `class` params
+    elemClass = item.attr('class');
+    if (elemClass) {
+        var hasClassRegex = new RegExp(params.class.join('|'));
+        return !hasClassRegex.test(elemClass.value);
+    }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.svgo.removeEmptyAttrs" id="apidoc.module.svgo.removeEmptyAttrs">module svgo.removeEmptyAttrs</a></h1>
+
+
+
+
+    <h2>
+        <a href="#apidoc.element.svgo.removeEmptyAttrs.fn" id="apidoc.element.svgo.removeEmptyAttrs.fn">
+        function <span class="apidocSignatureSpan">svgo.removeEmptyAttrs.</span>fn
+        <span class="apidocSignatureSpan">(item)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">fn = function (item) {
+
+    if (item.elem) {
+
+        item.eachAttr(function(attr) {
+            if (attr.value === '') {
+                item.removeAttr(attr.name);
+            }
+        });
+
+    }
+
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.svgo.removeEmptyContainers" id="apidoc.module.svgo.removeEmptyContainers">module svgo.removeEmptyContainers</a></h1>
+
+
+
+
+    <h2>
+        <a href="#apidoc.element.svgo.removeEmptyContainers.fn" id="apidoc.element.svgo.removeEmptyContainers.fn">
+        function <span class="apidocSignatureSpan">svgo.removeEmptyContainers.</span>fn
+        <span class="apidocSignatureSpan">(item)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">fn = function (item) {
+
+    return !(item.isElem(container) &amp;&amp; !item.isElem('svg') &amp;&amp; item.isEmpty() &amp;&amp;
+        (!item.isElem('pattern') || !item.hasAttrLocal('href')));
+
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.svgo.removeEmptyText" id="apidoc.module.svgo.removeEmptyText">module svgo.removeEmptyText</a></h1>
+
+
+
+
+    <h2>
+        <a href="#apidoc.element.svgo.removeEmptyText.fn" id="apidoc.element.svgo.removeEmptyText.fn">
+        function <span class="apidocSignatureSpan">svgo.removeEmptyText.</span>fn
+        <span class="apidocSignatureSpan">(item, params)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">fn = function (item, params) {
+
+    // Remove empty text element
+    if (
+        params.text &amp;&amp;
+        item.isElem('text') &amp;&amp;
+        item.isEmpty()
+    ) return false;
+
+    // Remove empty tspan element
+    if (
+        params.tspan &amp;&amp;
+        item.isElem('tspan') &amp;&amp;
+        item.isEmpty()
+    ) return false;
+
+    // Remove tref with empty xlink:href attribute
+    if (
+        params.tref &amp;&amp;
+        item.isElem('tref') &amp;&amp;
+        !item.hasAttrLocal('href')
+    ) return false;
+
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.svgo.removeHiddenElems" id="apidoc.module.svgo.removeHiddenElems">module svgo.removeHiddenElems</a></h1>
+
+
+
+
+    <h2>
+        <a href="#apidoc.element.svgo.removeHiddenElems.fn" id="apidoc.element.svgo.removeHiddenElems.fn">
+        function <span class="apidocSignatureSpan">svgo.removeHiddenElems.</span>fn
+        <span class="apidocSignatureSpan">(item, params)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">fn = function (item, params) {
+
+    if (item.elem) {
+
+        // display="none"
+        //
+        // http://www.w3.org/TR/SVG/painting.html#DisplayProperty
+        // "A value of display: none indicates that the given element
+        // and its children shall not be rendered directly"
+        if (
+            params.displayNone &amp;&amp;
+            item.hasAttr('display', 'none')
+        ) return false;
+
+        // opacity="0"
+        //
+        // http://www.w3.org/TR/SVG/masking.html#ObjectAndGroupOpacityProperties
+        if (
+            params.opacity0 &amp;&amp;
+            item.hasAttr('opacity', '0')
+        ) return false;
+
+        // Circles with zero radius
+        //
+        // http://www.w3.org/TR/SVG/shapes.html#CircleElementRAttribute
+        // "A value of zero disables rendering of the element"
+        //
+        // &lt;circle r="0"&gt;
+        if (
+            params.circleR0 &amp;&amp;
+            item.isElem('circle') &amp;&amp;
+            item.isEmpty() &amp;&amp;
+            item.hasAttr('r', '0')
+        ) return false;
+
+        // Ellipse with zero x-axis radius
+        //
+        // http://www.w3.org/TR/SVG/shapes.html#EllipseElementRXAttribute
+        // "A value of zero disables rendering of the element"
+        //
+        // &lt;ellipse rx="0"&gt;
+        if (
+            params.ellipseRX0 &amp;&amp;
+            item.isElem('ellipse') &amp;&amp;
+            item.isEmpty() &amp;&amp;
+            item.hasAttr('rx', '0')
+        ) return false;
+
+        // Ellipse with zero y-axis radius
+        //
+        // http://www.w3.org/TR/SVG/shapes.html#EllipseElementRYAttribute
+        // "A value of zero disables rendering of the element"
+        //
+        // &lt;ellipse ry="0"&gt;
+        if (
+            params.ellipseRY0 &amp;&amp;
+            item.isElem('ellipse') &amp;&amp;
+            item.isEmpty() &amp;&amp;
+            item.hasAttr('ry', '0')
+        ) return false;
+
+        // Rectangle with zero width
+        //
+        // http://www.w3.org/TR/SVG/shapes.html#RectElementWidthAttribute
+        // "A value of zero disables rendering of the element"
+        //
+        // &lt;rect width="0"&gt;
+        if (
+            params.rectWidth0 &amp;&amp;
+            item.isElem('rect') &amp;&amp;
+            item.isEmpty() &amp;&amp;
+            item.hasAttr('width', '0')
+        ) return false;
+
+        // Rectangle with zero height
+        //
+        // http://www.w3.org/TR/SVG/shapes.html#RectElementHeightAttribute
+        // "A value of zero disables rendering of the element"
+        //
+        // &lt;rect height="0"&gt;
+        if (
+            params.rectHeight0 &amp;&amp;
+            params.rectWidth0 &amp;&amp;
+            item.isElem('rect') &amp;&amp;
+            item.isEmpty() &amp;&amp;
+            item.hasAttr('height', '0')
+        ) return false;
+
+        // Pattern with zero width
+        //
+        // http://www.w3.org/TR/SVG/pservers.html#PatternElementWidthAttribute
+        // "A value of zero disables rendering of the element (i.e., no paint is applied)"
+        //
+        // &lt;pattern width="0"&gt;
+        if (
+            params.patternWidth0 &amp;&amp;
+            item.isElem('pattern') &amp;&amp;
+            item.hasAttr('width', '0')
+        ) return false;
+
+        // Pattern with zero height
+        //
+        // http://www.w3.org/TR/SVG/pservers.html#PatternElementHeightAttribute
+        // "A value of zero disables rendering of the element (i.e., no paint is applied)"
+        //
+        // &lt;pattern height="0"&gt;
+        if (
+            params.patternHeight0 &amp;&amp;
+            item.isElem('pattern') &amp;&amp;
+            item.hasAttr('height', '0')
+        ) return false;
+
+        // Image with zero width
+        //
+        // http://www.w3.org/TR/SVG/struct.html#ImageElementWidthAttribute
+        // "A value of zero disables rendering of the element"
+        //
+        // &lt;image width="0"&gt;
+        if (
+            params.imageWidth0 &amp;&amp;
+            item.isElem('image') &amp;&amp;
+            item.hasAttr('width', '0')
+        ) return false;
+
+        // Image with zero height
+        //
+        // http://www.w3.org/TR/SVG/struct.html#ImageElementHeightAttribute
+        // "A value of zero disables rendering of the element"
+        //
+        // &lt;image height="0"&gt;
+        if ( ...</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.svgo.removeMetadata" id="apidoc.module.svgo.removeMetadata">module svgo.removeMetadata</a></h1>
+
+
+
+
+    <h2>
+        <a href="#apidoc.element.svgo.removeMetadata.fn" id="apidoc.element.svgo.removeMetadata.fn">
+        function <span class="apidocSignatureSpan">svgo.removeMetadata.</span>fn
+        <span class="apidocSignatureSpan">(item)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">fn = function (item) {
+
+    return !item.isElem('metadata');
+
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.svgo.removeNonInheritableGroupAttrs" id="apidoc.module.svgo.removeNonInheritableGroupAttrs">module svgo.removeNonInheritableGroupAttrs</a></h1>
+
+
+
+
+    <h2>
+        <a href="#apidoc.element.svgo.removeNonInheritableGroupAttrs.fn" id="apidoc.element.svgo.removeNonInheritableGroupAttrs.fn">
+        function <span class="apidocSignatureSpan">svgo.removeNonInheritableGroupAttrs.</span>fn
+        <span class="apidocSignatureSpan">(item)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">fn = function (item) {
+
+    if (item.isElem('g')) {
+
+        item.eachAttr(function(attr) {
+            if (
+                ~attrsGroups.presentation.indexOf(attr.name) &amp;&amp;
+                ~attrsGroups.graphicalEvent.indexOf(attr.name) &amp;&amp;
+                ~attrsGroups.core.indexOf(attr.name) &amp;&amp;
+                ~attrsGroups.conditionalProcessing.indexOf(attr.name) &amp;&amp;
+                !~excludedAttrs.indexOf(attr.name) &amp;&amp;
+                !~inheritableAttrs.indexOf(attr.name)
+            ) {
+                item.removeAttr(attr.name);
+            }
+        });
+
+    }
+
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.svgo.removeRasterImages" id="apidoc.module.svgo.removeRasterImages">module svgo.removeRasterImages</a></h1>
+
+
+
+
+    <h2>
+        <a href="#apidoc.element.svgo.removeRasterImages.fn" id="apidoc.element.svgo.removeRasterImages.fn">
+        function <span class="apidocSignatureSpan">svgo.removeRasterImages.</span>fn
+        <span class="apidocSignatureSpan">(item)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">fn = function (item) {
+
+    if (
+        item.isElem('image') &amp;&amp;
+        item.hasAttrLocal('href', /(\.|image\/)(jpg|png|gif)/)
+    ) {
+        return false;
+    }
+
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.svgo.removeStyleElement" id="apidoc.module.svgo.removeStyleElement">module svgo.removeStyleElement</a></h1>
+
+
+
+
+    <h2>
+        <a href="#apidoc.element.svgo.removeStyleElement.fn" id="apidoc.element.svgo.removeStyleElement.fn">
+        function <span class="apidocSignatureSpan">svgo.removeStyleElement.</span>fn
+        <span class="apidocSignatureSpan">(item)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">fn = function (item) {
+
+    return !item.isElem('style');
+
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.svgo.removeTitle" id="apidoc.module.svgo.removeTitle">module svgo.removeTitle</a></h1>
+
+
+
+
+    <h2>
+        <a href="#apidoc.element.svgo.removeTitle.fn" id="apidoc.element.svgo.removeTitle.fn">
+        function <span class="apidocSignatureSpan">svgo.removeTitle.</span>fn
+        <span class="apidocSignatureSpan">(item)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">fn = function (item) {
+
+    return !item.isElem('title');
+
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.svgo.removeUnknownsAndDefaults" id="apidoc.module.svgo.removeUnknownsAndDefaults">module svgo.removeUnknownsAndDefaults</a></h1>
+
+
+
+
+    <h2>
+        <a href="#apidoc.element.svgo.removeUnknownsAndDefaults.fn" id="apidoc.element.svgo.removeUnknownsAndDefaults.fn">
+        function <span class="apidocSignatureSpan">svgo.removeUnknownsAndDefaults.</span>fn
+        <span class="apidocSignatureSpan">(item, params)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">fn = function (item, params) {
+
+    // elems w/o namespace prefix
+    if (item.isElem() &amp;&amp; !item.prefix) {
+
+        var elem = item.elem;
+
+        // remove unknown element's content
+        if (
+            params.unknownContent &amp;&amp;
+            !item.isEmpty() &amp;&amp;
+            elems[elem] &amp;&amp; // make sure we know of this element before checking its children
+            elem !== 'foreignObject' // Don't check foreignObject
+        ) {
+            item.content.forEach(function(content, i) {
+                if (
+                    content.isElem() &amp;&amp;
+                    !content.prefix &amp;&amp;
+                    (
+                        (
+                            elems[elem].content &amp;&amp; // Do we have a record of its permitted content?
+                            elems[elem].content.indexOf(content.elem) === -1
+                        ) ||
+                        (
+                            !elems[elem].content &amp;&amp; // we dont know about its permitted content
+                            !elems[content.elem] // check that we know about the element at all
+                        )
+                    )
+                ) {
+                    item.content.splice(i, 1);
+                }
+            });
+        }
+
+        // remove element's unknown attrs and attrs with default values
+        if (elems[elem] &amp;&amp; elems[elem].attrs) {
+
+            item.eachAttr(function(attr) {
+
+                if (
+                    attr.name !== 'xmlns' &amp;&amp;
+                    (attr.prefix === 'xml' || !attr.prefix) &amp;&amp;
+                    (!params.keepDataAttrs || attr.name.indexOf('data-') != 0)
+                ) {
+                    if (
+                        // unknown attrs
+                        (
+                            params.unknownAttrs &amp;&amp;
+                            elems[elem].attrs.indexOf(attr.name) === -1
+                        ) ||
+                        // attrs with default values
+                        (
+                            params.defaultAttrs &amp;&amp;
+                            elems[elem].defaults &amp;&amp;
+                            elems[elem].defaults[attr.name] === attr.value &amp;&amp; (
+                                attrsInheritable.indexOf(attr.name) &lt; 0 ||
+                                !item.parentNode.computedAttr(attr.name)
+                            )
+                        ) ||
+                        // useless overrides
+                        (
+                            params.uselessOverrides &amp;&amp;
+                            attr.name !== 'transform' &amp;&amp;
+                            attrsInheritable.indexOf(attr.name) &gt; -1 &amp;&amp;
+                            item.parentNode.computedAttr(attr.name, attr.value)
+                        )
+                    ) {
+                        item.removeAttr(attr.name);
+                    }
+                }
+
+            });
+
+        }
+
+    }
+
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.svgo.removeUnusedNS" id="apidoc.module.svgo.removeUnusedNS">module svgo.removeUnusedNS</a></h1>
+
+
+
+
+    <h2>
+        <a href="#apidoc.element.svgo.removeUnusedNS.fn" id="apidoc.element.svgo.removeUnusedNS.fn">
+        function <span class="apidocSignatureSpan">svgo.removeUnusedNS.</span>fn
+        <span class="apidocSignatureSpan">(data)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">fn = function (data) {
+
+    var svgElem,
+        xmlnsCollection = [];
+
+<span class="apidocCodeCommentSpan">    /**
+     * Remove namespace from collection.
+     *
+     * @param {String} ns namescape name
+     */
+</span>    function removeNSfromCollection(ns) {
+
+        var pos = xmlnsCollection.indexOf(ns);
+
+        // if found - remove ns from the namespaces collection
+        if (pos &gt; -1) {
+            xmlnsCollection.splice(pos, 1);
+        }
+
+    }
+
+    /**
+     * Bananas!
+     *
+     * @param {Array} items input items
+     *
+     * @return {Array} output items
+     */
+    function monkeys(items) {
+
+        var i = 0,
+            length = items.content.length;
+
+        while(i &lt; length) {
+
+            var item = items.content[i];
+
+            if (item.isElem('svg')) {
+
+                item.eachAttr(function(attr) {
+                    // collect namespaces
+                    if (attr.prefix === 'xmlns' &amp;&amp; attr.local) {
+                        xmlnsCollection.push(attr.local);
+                    }
+                });
+
+                // if svg element has ns-attr
+                if (xmlnsCollection.length) {
+                    // save svg element
+                    svgElem = item;
+                }
+
+            } else if (xmlnsCollection.length) {
+
+                // check item for the ns-attrs
+                if (item.prefix) {
+                    removeNSfromCollection(item.prefix);
+                }
+
+                // check each attr for the ns-attrs
+                item.eachAttr(function(attr) {
+                    removeNSfromCollection(attr.prefix);
+                });
+
+            }
+
+            // if nothing is found - go deeper
+            if (xmlnsCollection.length &amp;&amp; item.content) {
+                monkeys(item);
+            }
+
+            i++;
+
+        }
+
+        return items;
+
+    }
+
+    data = monkeys(data);
+
+    // remove svg element ns-attributes if they are not used even once
+    if (xmlnsCollection.length) {
+        xmlnsCollection.forEach(function(name) {
+            svgElem.removeAttr('xmlns:' + name);
+        });
+    }
+
+    return data;
+
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.svgo.removeUselessDefs" id="apidoc.module.svgo.removeUselessDefs">module svgo.removeUselessDefs</a></h1>
+
+
+
+
+    <h2>
+        <a href="#apidoc.element.svgo.removeUselessDefs.fn" id="apidoc.element.svgo.removeUselessDefs.fn">
+        function <span class="apidocSignatureSpan">svgo.removeUselessDefs.</span>fn
+        <span class="apidocSignatureSpan">(item)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">fn = function (item) {
+
+    if (item.isElem('defs')) {
+
+        defs = item;
+        item.content = (item.content || []).reduce(getUsefulItems, []);
+
+        if (item.isEmpty()) return false;
+
+    } else if (item.isElem(nonRendering) &amp;&amp; !item.hasAttr('id')) {
+
+        return false;
+
+    }
+
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.svgo.removeUselessStrokeAndFill" id="apidoc.module.svgo.removeUselessStrokeAndFill">module svgo.removeUselessStrokeAndFill</a></h1>
+
+
+
+
+    <h2>
+        <a href="#apidoc.element.svgo.removeUselessStrokeAndFill.fn" id="apidoc.element.svgo.removeUselessStrokeAndFill.fn">
+        function <span class="apidocSignatureSpan">svgo.removeUselessStrokeAndFill.</span>fn
+        <span class="apidocSignatureSpan">(item, params)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">fn = function (item, params) {
+
+    if (item.isElem(styleOrScript)) {
+        hasStyleOrScript = true;
+    }
+
+    if (!hasStyleOrScript &amp;&amp; item.isElem(shape) &amp;&amp; !item.computedAttr('id')) {
+
+        var stroke = params.stroke &amp;&amp; item.computedAttr('stroke'),
+            fill = params.fill &amp;&amp; !item.computedAttr('fill', 'none');
+
+        // remove stroke*
+        if (
+            params.stroke &amp;&amp;
+            (!stroke ||
+                stroke == 'none' ||
+                item.computedAttr('stroke-opacity', '0') ||
+                item.computedAttr('stroke-width', '0')
+            )
+        ) {
+            var parentStroke = item.parentNode.computedAttr('stroke'),
+                declineStroke = parentStroke &amp;&amp; parentStroke != 'none';
+
+            item.eachAttr(function(attr) {
+                if (regStrokeProps.test(attr.name)) {
+                    item.removeAttr(attr.name);
+                }
+            });
+
+            if (declineStroke) item.addAttr({
+                name: 'stroke',
+                value: 'none',
+                prefix: '',
+                local: 'stroke'
+            });
+        }
+
+        // remove fill*
+        if (
+            params.fill &amp;&amp;
+            (!fill || item.computedAttr('fill-opacity', '0'))
+        ) {
+            item.eachAttr(function(attr) {
+                if (regFillProps.test(attr.name)) {
+                    item.removeAttr(attr.name);
+                }
+            });
+
+            if (fill) {
+                if (item.hasAttr('fill'))
+                    item.attr('fill').value = 'none';
+                else
+                    item.addAttr({
+                        name: 'fill',
+                        value: 'none',
+                        prefix: '',
+                        local: 'fill'
+                    });
+            }
+        }
+
+    }
+
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.svgo.removeViewBox" id="apidoc.module.svgo.removeViewBox">module svgo.removeViewBox</a></h1>
+
+
+
+
+    <h2>
+        <a href="#apidoc.element.svgo.removeViewBox.fn" id="apidoc.element.svgo.removeViewBox.fn">
+        function <span class="apidocSignatureSpan">svgo.removeViewBox.</span>fn
+        <span class="apidocSignatureSpan">(item)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">fn = function (item) {
+
+    if (
+        item.isElem(viewBoxElems) &amp;&amp;
+        item.hasAttr('viewBox') &amp;&amp;
+        item.hasAttr('width') &amp;&amp;
+        item.hasAttr('height')
+    ) {
+
+        var match = item.attr('viewBox').value.match(regViewBox);
+
+        if (match) {
+            if (
+                item.attr('width').value === match[1] &amp;&amp;
+                item.attr('height').value === match[3]
+            ) {
+                item.removeAttr('viewBox');
+            }
+        }
+
+    }
+
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.svgo.removeXMLNS" id="apidoc.module.svgo.removeXMLNS">module svgo.removeXMLNS</a></h1>
+
+
+
+
+    <h2>
+        <a href="#apidoc.element.svgo.removeXMLNS.fn" id="apidoc.element.svgo.removeXMLNS.fn">
+        function <span class="apidocSignatureSpan">svgo.removeXMLNS.</span>fn
+        <span class="apidocSignatureSpan">(item)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">fn = function (item) {
+
+    if (item.isElem('svg') &amp;&amp; item.hasAttr('xmlns')) {
+        item.removeAttr('xmlns');
+    }
+
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.svgo.removeXMLProcInst" id="apidoc.module.svgo.removeXMLProcInst">module svgo.removeXMLProcInst</a></h1>
+
+
+
+
+    <h2>
+        <a href="#apidoc.element.svgo.removeXMLProcInst.fn" id="apidoc.element.svgo.removeXMLProcInst.fn">
+        function <span class="apidocSignatureSpan">svgo.removeXMLProcInst.</span>fn
+        <span class="apidocSignatureSpan">(item)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">fn = function (item) {
+
+    return !(item.processinginstruction &amp;&amp; item.processinginstruction.name === 'xml');
+
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.svgo.sortAttrs" id="apidoc.module.svgo.sortAttrs">module svgo.sortAttrs</a></h1>
+
+
+
+
+    <h2>
+        <a href="#apidoc.element.svgo.sortAttrs.fn" id="apidoc.element.svgo.sortAttrs.fn">
+        function <span class="apidocSignatureSpan">svgo.sortAttrs.</span>fn
+        <span class="apidocSignatureSpan">(item, params)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">fn = function (item, params) {
+
+	var attrs = [],
+		sorted = {},
+		orderlen = params.order.length + 1;
+
+	if (item.elem) {
+
+		item.eachAttr(function(attr) {
+			attrs.push(attr);
+		});
+
+		attrs.sort(function(a, b) {
+			if (a.prefix != b.prefix) {
+				// xmlns attributes implicitly have the prefix xmlns
+				if (a.prefix == 'xmlns')
+					return -1;
+				if (b.prefix == 'xmlns')
+					return 1;
+				return a.prefix &lt; b.prefix ? -1 : 1;
+			}
+
+			var aindex = orderlen;
+			var bindex = orderlen;
+
+			for (var i = 0; i &lt; params.order.length; i++) {
+				if (a.name == params.order[i]) {
+					aindex = i;
+				} else if (a.name.indexOf(params.order[i] + '-') === 0) {
+					aindex = i + .5;
+				}
+				if (b.name == params.order[i]) {
+					bindex = i;
+				} else if (b.name.indexOf(params.order[i] + '-') === 0) {
+					bindex = i + .5;
+				}
+			}
+
+			if (aindex != bindex) {
+				return aindex - bindex;
+			}
+			return a.name &lt; b.name ? -1 : 1;
+		});
+
+		attrs.forEach(function (attr) {
+			sorted[attr.name] = attr;
+		});
+
+		item.attrs = sorted;
+
+	}
+
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.svgo.transformsWithOnePath" id="apidoc.module.svgo.transformsWithOnePath">module svgo.transformsWithOnePath</a></h1>
+
+
+
+
+    <h2>
+        <a href="#apidoc.element.svgo.transformsWithOnePath.fn" id="apidoc.element.svgo.transformsWithOnePath.fn">
+        function <span class="apidocSignatureSpan">svgo.transformsWithOnePath.</span>fn
+        <span class="apidocSignatureSpan">(data, params)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">fn = function (data, params) {
+
+    data.content.forEach(function(item) {
+
+        // only for SVG with one Path inside
+        if (item.isElem('svg') &amp;&amp;
+            item.content.length === 1 &amp;&amp;
+            item.content[0].isElem('path')
+        ) {
+
+            var svgElem = item,
+                pathElem = svgElem.content[0],
+                // get absoluted Path data
+                path = relative2absolute(EXTEND(true, [], path2js(pathElem))),
+                xs = [],
+                ys = [],
+                cubicÐ¡ontrolPoint = [0, 0],
+                quadraticÐ¡ontrolPoint = [0, 0],
+                lastPoint = [0, 0],
+                cubicBoundingBox,
+                quadraticBoundingBox,
+                i,
+                segment;
+
+            path.forEach(function(pathItem) {
+
+                // ML
+                if ('ML'.indexOf(pathItem.instruction) &gt; -1) {
+
+                    for (i = 0; i &lt; pathItem.data.length; i++) {
+                        if (i % 2 === 0) {
+                            xs.push(pathItem.data[i]);
+                        } else {
+                            ys.push(pathItem.data[i]);
+                        }
+                    }
+
+                    lastPoint = cubicÐ¡ontrolPoint = quadraticÐ¡ontrolPoint = pathItem.data.slice(-2);
+
+                // H
+                } else if (pathItem.instruction === 'H') {
+
+                    pathItem.data.forEach(function(d) {
+                        xs.push(d);
+                    });
+
+                    lastPoint[0] = cubicÐ¡ontrolPoint[0] = quadraticÐ¡ontrolPoint[0] = pathItem.data[pathItem.data.length - 2];
+
+                // V
+                } else if (pathItem.instruction === 'V') {
+
+                    pathItem.data.forEach(function(d) {
+                        ys.push(d);
+                    });
+
+                    lastPoint[1] = cubicÐ¡ontrolPoint[1] = quadraticÐ¡ontrolPoint[1] = pathItem.data[pathItem.data.length - 1];
+
+                // C
+                } else if (pathItem.instruction === 'C') {
+
+                    for (i = 0; i &lt; pathItem.data.length; i += 6) {
+
+                        segment = pathItem.data.slice(i, i + 6);
+
+                        cubicBoundingBox = computeCubicBoundingBox.apply(this, lastPoint.concat(segment));
+
+                        xs.push(cubicBoundingBox.minx);
+                        xs.push(cubicBoundingBox.maxx);
+
+                        ys.push(cubicBoundingBox.miny);
+                        ys.push(cubicBoundingBox.maxy);
+
+                        // reflected control point for the next possible S
+                        cubicÐ¡ontrolPoint = [
+                            2 * segment[4] - segment[2],
+                            2 * segment[5] - segment[3]
+                        ];
+
+                        lastPoint = segment.slice(-2);
+
+                    }
+
+                // S
+                } else if (pathItem.instruction === 'S') {
+
+                    for (i = 0; i &lt; pathItem.data.length; i += 4) {
+
+                        segment = pathItem.data.slice(i, i + 4);
+
+                        cubicBoundingBox = computeCubicBoundingBox.apply(this, lastPoint.concat(cubicÐ¡ontrolPoint).concat(segment
+));
+
+                        xs.push(cubicBoundingBox.minx);
+                        xs.push(cubicBoundingBox.maxx);
+
+                        ys.push(cubicBoundingBox.miny);
+                        ys.push(cubicBoundingBox.maxy);
+
+                        // reflected control point for the next possible S
+                        cubicÐ¡ontrolPoint = [
+                            2 * segment[2] - cubicÐ¡ontrolPoint[0],
+                            2 * segment[3] - cubicÐ¡ontrolPoint[1],
+                        ];
+
+                        lastPoint = segment.slice(-2);
+
+                    }
+
+                // Q
+                } else if (pathItem.instruction === 'Q') {
+
+                    for (i = 0; i &lt; pathItem.data.length; i += 4) {
+
+                        segment = pathItem.data.slice(i, i + 4);
+
+                        quadraticBoundingBox = computeQuadraticBoundingBox.apply(this, lastPoint.concat(segment)); ...</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+
+
+
+
+
+</div>
+
+<div class="apidocFooterDiv">
+    [ this document was created with
+    <a href="https://github.com/kaizhu256/node-utility2" target="_blank">utility2</a>
+    ]
+</div>
+</div>
+</body></html>
