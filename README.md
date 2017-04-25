@@ -1,9 +1,14 @@
-# api documentation for  [svgo (v0.7.2)](https://github.com/svg/svgo)  [![npm package](https://img.shields.io/npm/v/npmdoc-svgo.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-svgo) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-svgo.svg)](https://travis-ci.org/npmdoc/node-npmdoc-svgo)
+# npmdoc-svgo
+
+#### basic api documentation for  [svgo (v0.7.2)](https://github.com/svg/svgo)  [![npm package](https://img.shields.io/npm/v/npmdoc-svgo.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-svgo) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-svgo.svg)](https://travis-ci.org/npmdoc/node-npmdoc-svgo)
+
 #### Nodejs-based tool for optimizing SVG vector graphics files
 
 [![NPM](https://nodei.co/npm/svgo.png?downloads=true&downloadRank=true&stars=true)](https://www.npmjs.com/package/svgo)
 
-[![apidoc](https://npmdoc.github.io/node-npmdoc-svgo/build/screenCapture.buildCi.browser.apidoc.html.png)](https://npmdoc.github.io/node-npmdoc-svgo/build/apidoc.html)
+- [https://npmdoc.github.io/node-npmdoc-svgo/build/apidoc.html](https://npmdoc.github.io/node-npmdoc-svgo/build/apidoc.html)
+
+[![apidoc](https://npmdoc.github.io/node-npmdoc-svgo/build/screenCapture.buildCi.browser.%252Ftmp%252Fbuild%252Fapidoc.html.png)](https://npmdoc.github.io/node-npmdoc-svgo/build/apidoc.html)
 
 ![npmPackageListing](https://npmdoc.github.io/node-npmdoc-svgo/build/screenCapture.npmPackageListing.svg)
 
@@ -95,44 +100,6 @@
     },
     "version": "0.7.2"
 }
-```
-
-
-
-# <a name="apidoc.tableOfContents"></a>[table of contents](#apidoc.tableOfContents)
-
-#### [module svgo](#apidoc.module.svgo)
-1.  [function <span class="apidocSignatureSpan"></span>svgo (config)](#apidoc.element.svgo.svgo)
-1.  [function <span class="apidocSignatureSpan">svgo.</span>toString ()](#apidoc.element.svgo.toString)
-
-
-
-# <a name="apidoc.module.svgo"></a>[module svgo](#apidoc.module.svgo)
-
-#### <a name="apidoc.element.svgo.svgo"></a>[function <span class="apidocSignatureSpan"></span>svgo (config)](#apidoc.element.svgo.svgo)
-- description and source-code
-```javascript
-svgo = function (config) {
-
-    this.config = CONFIG(config);
-
-}
-```
-- example usage
-```shell
-n/a
-```
-
-#### <a name="apidoc.element.svgo.toString"></a>[function <span class="apidocSignatureSpan">svgo.</span>toString ()](#apidoc.element.svgo.toString)
-- description and source-code
-```javascript
-toString = function () {
-    return toString;
-}
-```
-- example usage
-```shell
-n/a
 ```
 
 
