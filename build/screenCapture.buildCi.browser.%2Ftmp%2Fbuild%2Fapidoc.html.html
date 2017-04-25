@@ -1,4 +1,4 @@
-<div class="apidocDiv">
+<html><head></head><body><div class="apidocDiv">
 <style>
 /*csslint
 */
@@ -47,17 +47,10 @@
 }
 </style>
 <h1>api documentation for
-    <a
-
-        href="https://github.com/svg/svgo"
-
-    >svgo (v0.7.2)</a>
+    <a href="https://github.com/svg/svgo">svgo (v0.7.2)</a>
 </h1>
 <h4>Nodejs-based tool for optimizing SVG vector graphics files</h4>
-<div class="apidocSectionDiv"><a
-    href="#apidoc.tableOfContents"
-    id="apidoc.tableOfContents"
-><h1>table of contents</h1></a><ol>
+<div class="apidocSectionDiv"><a href="#apidoc.tableOfContents" id="apidoc.tableOfContents"><h1>table of contents</h1></a><ol>
 
     <li class="apidocModuleLi"><a href="#apidoc.module.svgo">module svgo</a><ol>
 
@@ -2102,7 +2095,7 @@
     <li>description and source-code<pre class="apidocCodePre">jsAPI = function (data, parentNode) {
     EXTEND(this, data);
     if (parentNode) {
-        Object.defineProperty(this, &#x27;parentNode&#x27;, {
+        Object.defineProperty(this, 'parentNode', {
             writable: true,
             value: parentNode
         });
@@ -2218,34 +2211,34 @@
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">applyTransforms = function (elem, path, params) {
-    // if there are no &#x27;stroke&#x27; attr and references to other objects such as
+    // if there are no 'stroke' attr and references to other objects such as
     // gradiends or clip-path which are also subjects to transform.
-    if (!elem.hasAttr(&#x27;transform&#x27;) || !elem.attr(&#x27;transform&#x27;).value ||
+    if (!elem.hasAttr('transform') || !elem.attr('transform').value ||
         elem.someAttr(function(attr) {
-            return ~referencesProps.indexOf(attr.name) &#x26;&#x26; ~attr.value.indexOf(&#x27;url(&#x27;);
+            return ~referencesProps.indexOf(attr.name) &amp;&amp; ~attr.value.indexOf('url(');
         }))
         return path;
 
-    var matrix = transformsMultiply(transform2js(elem.attr(&#x27;transform&#x27;).value)),
-        stroke = elem.computedAttr(&#x27;stroke&#x27;),
-        id = elem.computedAttr(&#x27;id&#x27;),
+    var matrix = transformsMultiply(transform2js(elem.attr('transform').value)),
+        stroke = elem.computedAttr('stroke'),
+        id = elem.computedAttr('id'),
         transformPrecision = params.transformPrecision,
         newPoint, scale;
 
-    if (stroke &#x26;&#x26; stroke != &#x27;none&#x27;) {
+    if (stroke &amp;&amp; stroke != 'none') {
         if (!params.applyTransformsStroked ||
-            (matrix.data[0] != matrix.data[3] || matrix.data[1] != -matrix.data[2]) &#x26;&#x26;
+            (matrix.data[0] != matrix.data[3] || matrix.data[1] != -matrix.data[2]) &amp;&amp;
             (matrix.data[0] != -matrix.data[3] || matrix.data[1] != matrix.data[2]))
             return path;
 
-        // &#x22;stroke-width&#x22; should be inside the part with ID, otherwise it can be overrided in &#x3c;use&#x3e;
+        // "stroke-width" should be inside the part with ID, otherwise it can be overrided in &lt;use&gt;
         if (id) {
             var idElem = elem,
                 hasStrokeWidth = false;
 
             do {
-                if (idElem.hasAttr(&#x27;stroke-width&#x27;)) hasStrokeWidth = true;
-            } while (!idElem.hasAttr(&#x27;id&#x27;, id) &#x26;&#x26; !hasStrokeWidth &#x26;&#x26; (idElem = idElem.parentNode));
+                if (idElem.hasAttr('stroke-width')) hasStrokeWidth = true;
+            } while (!idElem.hasAttr('id', id) &amp;&amp; !hasStrokeWidth &amp;&amp; (idElem = idElem.parentNode));
 
             if (!hasStrokeWidth) return path;
         }
@@ -2253,21 +2246,21 @@
         scale = +Math.sqrt(matrix.data[0] * matrix.data[0] + matrix.data[1] * matrix.data[1]).toFixed(transformPrecision);
 
         if (scale !== 1) {
-            var strokeWidth = elem.computedAttr(&#x27;stroke-width&#x27;) || defaultStrokeWidth;
+            var strokeWidth = elem.computedAttr('stroke-width') || defaultStrokeWidth;
 
-            if (elem.hasAttr(&#x27;stroke-width&#x27;)) {
-                elem.attrs[&#x27;stroke-width&#x27;].value = elem.attrs[&#x27;stroke-width&#x27;].value.trim()
+            if (elem.hasAttr('stroke-width')) {
+                elem.attrs['stroke-width'].value = elem.attrs['stroke-width'].value.trim()
                     .replace(regNumericValues, function(num) { return removeLeadingZero(num * scale) });
             } else {
                 elem.addAttr({
-                    name: &#x27;stroke-width&#x27;,
-                    prefix: &#x27;&#x27;,
-                    local: &#x27;stroke-width&#x27;,
+                    name: 'stroke-width',
+                    prefix: '',
+                    local: 'stroke-width',
                     value: strokeWidth.replace(regNumericValues, function(num) { return removeLeadingZero(num * scale) })
                 });
             }
         }
-    } else if (id) { // Stroke and stroke-width can be redefined with &#x3c;use&#x3e;
+    } else if (id) { // Stroke and stroke-width can be redefined with &lt;use&gt;
         return path;
     }
 
@@ -2275,23 +2268,23 @@
 
         if (pathItem.data) {
 
-            // h -&#x3e; l
-            if (pathItem.instruction === &#x27;h&#x27;) {
+            // h -&gt; l
+            if (pathItem.instruction === 'h') {
 
-                pathItem.instruction = &#x27;l&#x27;;
+                pathItem.instruction = 'l';
                 pathItem.data[1] = 0;
 
-            // v -&#x3e; l
-            } else if (pathItem.instruction === &#x27;v&#x27;) {
+            // v -&gt; l
+            } else if (pathItem.instruction === 'v') {
 
-                pathItem.instruction = &#x27;l&#x27;;
+                pathItem.instruction = 'l';
                 pathItem.data[1] = pathItem.data[0];
                 pathItem.data[0] = 0;
 
             }
 
             // if there is a translate() transform
-            if (pathItem.instruction === &#x27;M&#x27; &#x26;&#x26;
+            if (pathItem.instruction === 'M' &amp;&amp;
                 (matrix.data[4] !== 0 ||
                 matrix.data[5] !== 0)
             ) {
@@ -2307,17 +2300,17 @@
 
             } else {
 
-                if (pathItem.instruction == &#x27;a&#x27;) {
+                if (pathItem.instruction == 'a') {
 
                     transformArc(pathItem.data, matrix.data);
 
                     // reduce number of digits in rotation angle
-                    if (Math.abs(pathItem.data[2]) &#x3e; 80) {
+                    if (Math.abs(pathItem.data[2]) &gt; 80) {
                         var a = pathItem.data[0],
                             rotation = pathItem.data[2];
                         pathItem.data[0] = pathItem.data[1];
                         pathItem.data[1] = a;
-                        pathItem.data[2] = rotation + (rotation &#x3e; 0 ? -90 : 90);
+                        pathItem.data[2] = rotation + (rotation &gt; 0 ? -90 : 90);
                     }
 
                     newPoint = transformPoint(matrix.data, pathItem.data[5], pathItem.data[6]);
@@ -2348,45 +2341,45 @@
         i;
 
     // X
-    if (xa &#x3c; minx) { minx = xa; }
-    if (xa &#x3e; maxx) { maxx = xa; }
-    if (xd &#x3c; minx) { minx= xd; }
-    if (xd &#x3e; maxx) { maxx = xd; }
+    if (xa &lt; minx) { minx = xa; }
+    if (xa &gt; maxx) { maxx = xa; }
+    if (xd &lt; minx) { minx= xd; }
+    if (xd &gt; maxx) { maxx = xd; }
 
     ts = computeCubicFirstDerivativeRoots(xa, xb, xc, xd);
 
-    for (i = 0; i &#x3c; ts.length; i++) {
+    for (i = 0; i &lt; ts.length; i++) {
 
         t = ts[i];
 
-        if (t &#x3e;= 0 &#x26;&#x26; t &#x3c;= 1) {
+        if (t &gt;= 0 &amp;&amp; t &lt;= 1) {
             x = computeCubicBaseValue(t, xa, xb, xc, xd);
             // y = computeCubicBaseValue(t, ya, yb, yc, yd);
 
-            if (x &#x3c; minx) { minx = x; }
-            if (x &#x3e; maxx) { maxx = x; }
+            if (x &lt; minx) { minx = x; }
+            if (x &gt; maxx) { maxx = x; }
         }
 
     }
 
     // Y
-    if (ya &#x3c; miny) { miny = ya; }
-    if (ya &#x3e; maxy) { maxy = ya; }
-    if (yd &#x3c; miny) { miny = yd; }
-    if (yd &#x3e; maxy) { maxy = yd; }
+    if (ya &lt; miny) { miny = ya; }
+    if (ya &gt; maxy) { maxy = ya; }
+    if (yd &lt; miny) { miny = yd; }
+    if (yd &gt; maxy) { maxy = yd; }
 
     ts = computeCubicFirstDerivativeRoots(ya, yb, yc, yd);
 
-    for (i = 0; i &#x3c; ts.length; i++) {
+    for (i = 0; i &lt; ts.length; i++) {
 
         t = ts[i];
 
-        if (t &#x3e;= 0 &#x26;&#x26; t &#x3c;= 1) {
+        if (t &gt;= 0 &amp;&amp; t &lt;= 1) {
             // x = computeCubicBaseValue(t, xa, xb, xc, xd);
             y = computeCubicBaseValue(t, ya, yb, yc, yd);
 
-            if (y &#x3c; miny) { miny = y; }
-            if (y &#x3e; maxy) { maxy = y; }
+            if (y &lt; miny) { miny = y; }
+            if (y &gt; maxy) { maxy = y; }
         }
 
     }
@@ -2422,35 +2415,35 @@
         y;
 
     // X
-    if (xa &#x3c; minx) { minx = xa; }
-    if (xa &#x3e; maxx) { maxx = xa; }
-    if (xc &#x3c; minx) { minx = xc; }
-    if (xc &#x3e; maxx) { maxx = xc; }
+    if (xa &lt; minx) { minx = xa; }
+    if (xa &gt; maxx) { maxx = xa; }
+    if (xc &lt; minx) { minx = xc; }
+    if (xc &gt; maxx) { maxx = xc; }
 
     t = computeQuadraticFirstDerivativeRoot(xa, xb, xc);
 
-    if (t &#x3e;= 0 &#x26;&#x26; t &#x3c;= 1) {
+    if (t &gt;= 0 &amp;&amp; t &lt;= 1) {
         x = computeQuadraticBaseValue(t, xa, xb, xc);
         // y = computeQuadraticBaseValue(t, ya, yb, yc);
 
-        if (x &#x3c; minx) { minx = x; }
-        if (x &#x3e; maxx) { maxx = x; }
+        if (x &lt; minx) { minx = x; }
+        if (x &gt; maxx) { maxx = x; }
     }
 
     // Y
-    if (ya &#x3c; miny) { miny = ya; }
-    if (ya &#x3e; maxy) { maxy = ya; }
-    if (yc &#x3c; miny) { miny = yc; }
-    if (yc &#x3e; maxy) { maxy = yc; }
+    if (ya &lt; miny) { miny = ya; }
+    if (ya &gt; maxy) { maxy = ya; }
+    if (yc &lt; miny) { miny = yc; }
+    if (yc &gt; maxy) { maxy = yc; }
 
     t = computeQuadraticFirstDerivativeRoot(ya, yb, yc);
 
-    if (t &#x3e;= 0 &#x26;&#x26; t &#x3c;=1 ) {
+    if (t &gt;= 0 &amp;&amp; t &lt;=1 ) {
         // x = computeQuadraticBaseValue(t, xa, xb, xc);
         y = computeQuadraticBaseValue(t, ya, yb, yc);
 
-        if (y &#x3c; miny) { miny = y; }
-        if (y &#x3e; maxy) { maxy = y ; }
+        if (y &lt; miny) { miny = y; }
+        if (y &gt; maxy) { maxy = y ; }
 
     }
 
@@ -2475,35 +2468,35 @@
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">intersects = function (path1, path2) {
-    if (path1.length &#x3c; 3 || path2.length &#x3c; 3) return false; // nothing to fill
+    if (path1.length &lt; 3 || path2.length &lt; 3) return false; // nothing to fill
 
     // Collect points of every subpath.
     var points1 = relative2absolute(path1).reduce(gatherPoints, []),
         points2 = relative2absolute(path2).reduce(gatherPoints, []);
 
     // Axis-aligned bounding box check.
-    if (points1.maxX &#x3c;= points2.minX || points2.maxX &#x3c;= points1.minX ||
-        points1.maxY &#x3c;= points2.minY || points2.maxY &#x3c;= points1.minY ||
+    if (points1.maxX &lt;= points2.minX || points2.maxX &lt;= points1.minX ||
+        points1.maxY &lt;= points2.minY || points2.maxY &lt;= points1.minY ||
         points1.every(function (set1) {
             return points2.every(function (set2) {
-                return set1[set1.maxX][0] &#x3c;= set2[set2.minX][0] ||
-                    set2[set2.maxX][0] &#x3c;= set1[set1.minX][0] ||
-                    set1[set1.maxY][1] &#x3c;= set2[set2.minY][1] ||
-                    set2[set2.maxY][1] &#x3c;= set1[set1.minY][1];
+                return set1[set1.maxX][0] &lt;= set2[set2.minX][0] ||
+                    set2[set2.maxX][0] &lt;= set1[set1.minX][0] ||
+                    set1[set1.maxY][1] &lt;= set2[set2.minY][1] ||
+                    set2[set2.maxY][1] &lt;= set1[set1.minY][1];
             });
         })
     ) return false;
 
-    // Get a convex hull from points of each subpath. Has the most complexity O(n·log n).
+    // Get a convex hull from points of each subpath. Has the most complexity O(nÂ·log n).
     var hullNest1 = points1.map(convexHull),
         hullNest2 = points2.map(convexHull);
 
     // Check intersection of every subpath of the first path with every subpath of the second.
     return hullNest1.some(function(hull1) {
-        if (hull1.length &#x3c; 3) return false;
+        if (hull1.length &lt; 3) return false;
 
         return hullNest2.some(function(hull2) {
-            if (hull2.length &#x3c; 3) return false;
+            if (hull2.length &lt; 3) return false;
 
             var simplex = [getSupport(hull1, hull2, [1, 0])], // create the initial simplex
                 direction = minus(simplex[0]); // set the direction to point towards the origin
@@ -2511,13 +2504,13 @@
             var iterations = 1e4; // infinite loop protection, 10 000 iterations is more than enough
             while (true) {
                 if (iterations-- == 0) {
-                    console.error(&#x27;Error: infinite loop while processing mergePaths plugin.&#x27;);
-                    return true; // true is the safe value that means “do nothing with paths”
+                    console.error('Error: infinite loop while processing mergePaths plugin.');
+                    return true; // true is the safe value that means â€œdo nothing with pathsâ€
                 }
                 // add a new point
                 simplex.push(getSupport(hull1, hull2, direction));
                 // see if the new point was on the correct side of the origin
-                if (dot(direction, simplex[simplex.length - 1]) &#x3c;= 0) return false;
+                if (dot(direction, simplex[simplex.length - 1]) &lt;= 0) return false;
                 // process the simplex
                 if (processSimplex(simplex, direction)) return true;
             }
@@ -2530,14 +2523,14 @@
 
     // Computes farthest polygon point in particular direction.
     // Thanks to knowledge of min/max x and y coordinates we can choose a quadrant to search in.
-    // Since we&#x27;re working on convex hull, the dot product is increasing until we find the farthest point.
+    // Since we're working on convex hull, the dot product is increasing until we find the farthest point.
     function supportPoint(polygon, direction) {
-        var index = direction[1] &#x3e;= 0 ?
-                direction[0] &#x3c; 0 ? polygon.maxY : polygon.maxX :
-                direction[0] &#x3c; 0 ? polygon.minX : polygon.minY,
+        var index = direction[1] &gt;= 0 ?
+                direction[0] &lt; 0 ? polygon.maxY : polygon.maxX :
+                direction[0] &lt; 0 ? polygon.minX : polygon.minY,
             max = -Infinity,
             value;
-        while ((value = dot(polygon[index], direction)) &#x3e; max) {
+        while ((value = dot(polygon[index], direction)) &gt; max) {
             max = value;
             index = ++index % polygon.length;
         }
@@ -2564,9 +2557,9 @@
         data = collapseRepeated(data);
     }
 
-    path.attr(&#x27;d&#x27;).value = data.reduce(function(pathString, item) {
-        return pathString += item.instruction + (item.data ? cleanupOutData(item.data, params) : &#x27;&#x27;);
-    }, &#x27;&#x27;);
+    path.attr('d').value = data.reduce(function(pathString, item) {
+        return pathString += item.instruction + (item.data ? cleanupOutData(item.data, params) : '');
+    }, '');
 
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
@@ -2592,11 +2585,11 @@
         instruction, // current instruction context
         startMoveto = false;
 
-    // splitting path string into array like [&#x27;M&#x27;, &#x27;10 50&#x27;, &#x27;L&#x27;, &#x27;20 30&#x27;]
-    path.attr(&#x27;d&#x27;).value.split(regPathInstructions).forEach(function(data) {
+    // splitting path string into array like ['M', '10 50', 'L', '20 30']
+    path.attr('d').value.split(regPathInstructions).forEach(function(data) {
         if (!data) return;
         if (!startMoveto) {
-            if (data == &#x27;M&#x27; || data == &#x27;m&#x27;) {
+            if (data == 'M' || data == 'm') {
                 startMoveto = true;
             } else return;
         }
@@ -2606,9 +2599,9 @@
             instruction = data;
 
             // z - instruction w/o data
-            if (instruction == &#x27;Z&#x27; || instruction == &#x27;z&#x27;) {
+            if (instruction == 'Z' || instruction == 'z') {
                 pathData.push({
-                    instruction: &#x27;z&#x27;
+                    instruction: 'z'
                 });
             }
         // data item
@@ -2620,12 +2613,12 @@
 
             // Subsequent moveto pairs of coordinates are threated as implicit lineto commands
             // http://www.w3.org/TR/SVG/paths.html#PathDataMovetoCommands
-            if (instruction == &#x27;M&#x27; || instruction == &#x27;m&#x27;) {
+            if (instruction == 'M' || instruction == 'm') {
                 pathData.push({
-                    instruction: pathData.length == 0 ? &#x27;M&#x27; : instruction,
+                    instruction: pathData.length == 0 ? 'M' : instruction,
                     data: data.splice(0, 2)
                 });
-                instruction = instruction == &#x27;M&#x27; ? &#x27;L&#x27; : &#x27;l&#x27;;
+                instruction = instruction == 'M' ? 'L' : 'l';
             }
 
             for (var pair = paramsLength[instruction]; data.length;) {
@@ -2638,8 +2631,8 @@
     });
 
     // First moveto is actually absolute. Subsequent coordinates were separated above.
-    if (pathData.length &#x26;&#x26; pathData[0].instruction == &#x27;m&#x27;) {
-        pathData[0].instruction = &#x27;M&#x27;;
+    if (pathData.length &amp;&amp; pathData[0].instruction == 'm') {
+        pathData[0].instruction = 'M';
     }
     path.pathJS = pathData;
 
@@ -2665,60 +2658,60 @@
     data = data.map(function(item) {
 
         var instruction = item.instruction,
-            itemData = item.data &#x26;&#x26; item.data.slice();
+            itemData = item.data &amp;&amp; item.data.slice();
 
-        if (instruction == &#x27;M&#x27;) {
+        if (instruction == 'M') {
 
             set(currentPoint, itemData);
             set(subpathPoint, itemData);
 
-        } else if (&#x27;mlcsqt&#x27;.indexOf(instruction) &#x3e; -1) {
+        } else if ('mlcsqt'.indexOf(instruction) &gt; -1) {
 
-            for (i = 0; i &#x3c; itemData.length; i++) {
+            for (i = 0; i &lt; itemData.length; i++) {
                 itemData[i] += currentPoint[i % 2];
             }
             set(currentPoint, itemData);
 
-            if (instruction == &#x27;m&#x27;) {
+            if (instruction == 'm') {
                 set(subpathPoint, itemData);
             }
 
-        } else if (instruction == &#x27;a&#x27;) {
+        } else if (instruction == 'a') {
 
             itemData[5] += currentPoint[0];
             itemData[6] += currentPoint[1];
             set(currentPoint, itemData);
 
-        } else if (instruction == &#x27;h&#x27;) {
+        } else if (instruction == 'h') {
 
             itemData[0] += currentPoint[0];
             currentPoint[0] = itemData[0];
 
-        } else if (instruction == &#x27;v&#x27;) {
+        } else if (instruction == 'v') {
 
             itemData[0] += currentPoint[1];
             currentPoint[1] = itemData[0];
 
-        } else if (&#x27;MZLCSQTA&#x27;.indexOf(instruction) &#x3e; -1) {
+        } else if ('MZLCSQTA'.indexOf(instruction) &gt; -1) {
 
             set(currentPoint, itemData);
 
-        } else if (instruction == &#x27;H&#x27;) {
+        } else if (instruction == 'H') {
 
             currentPoint[0] = itemData[0];
 
-        } else if (instruction == &#x27;V&#x27;) {
+        } else if (instruction == 'V') {
 
             currentPoint[1] = itemData[0];
 
-        } else if (instruction == &#x27;z&#x27;) {
+        } else if (instruction == 'z') {
 
             set(currentPoint, subpathPoint);
 
         }
 
-        return instruction == &#x27;z&#x27; ?
-            { instruction: &#x27;z&#x27; } :
+        return instruction == 'z' ?
+            { instruction: 'z' } :
             {
                 instruction: instruction.toUpperCase(),
                 data: itemData
@@ -2755,40 +2748,40 @@
         rowsSum = data[0] * data[1] + data[2] * data[3],
         scaleBefore = rowsSum || +(sx == sy);
 
-    // [..., ..., ..., ..., tx, ty] → translate(tx, ty)
+    // [..., ..., ..., ..., tx, ty] â†’ translate(tx, ty)
     if (data[4] || data[5]) {
-        transforms.push({ name: &#x27;translate&#x27;, data: data.slice(4, data[5] ? 6 : 5) });
+        transforms.push({ name: 'translate', data: data.slice(4, data[5] ? 6 : 5) });
     }
 
-    // [sx, 0, tan(a)·sy, sy, 0, 0] → skewX(a)·scale(sx, sy)
-    if (!data[1] &#x26;&#x26; data[2]) {
-        transforms.push({ name: &#x27;skewX&#x27;, data: [mth.atan(data[2] / sy, floatPrecision)] });
+    // [sx, 0, tan(a)Â·sy, sy, 0, 0] â†’ skewX(a)Â·scale(sx, sy)
+    if (!data[1] &amp;&amp; data[2]) {
+        transforms.push({ name: 'skewX', data: [mth.atan(data[2] / sy, floatPrecision)] });
 
-    // [sx, sx·tan(a), 0, sy, 0, 0] → skewY(a)·scale(sx, sy)
-    } else if (data[1] &#x26;&#x26; !data[2]) {
-        transforms.push({ name: &#x27;skewY&#x27;, data: [mth.atan(data[1] / data[0], floatPrecision)] });
+    // [sx, sxÂ·tan(a), 0, sy, 0, 0] â†’ skewY(a)Â·scale(sx, sy)
+    } else if (data[1] &amp;&amp; !data[2]) {
+        transforms.push({ name: 'skewY', data: [mth.atan(data[1] / data[0], floatPrecision)] });
         sx = data[0];
         sy = data[3];
 
-    // [sx·cos(a), sx·sin(a), sy·-sin(a), sy·cos(a), x, y] → rotate(a[, cx, cy])·(scale or skewX) or
-    // [sx·cos(a), sy·sin(a), sx·-sin(a), sy·cos(a), x, y] → scale(sx, sy)·rotate(a[, cx, cy]) (if !scaleBefore)
-    } else if (!colsSum || (sx == 1 &#x26;&#x26; sy == 1) || !scaleBefore) {
+    // [sxÂ·cos(a), sxÂ·sin(a), syÂ·-sin(a), syÂ·cos(a), x, y] â†’ rotate(a[, cx, cy])Â·(scale or skewX) or
+    // [sxÂ·cos(a), syÂ·sin(a), sxÂ·-sin(a), syÂ·cos(a), x, y] â†’ scale(sx, sy)Â·rotate(a[, cx, cy]) (if !scaleBefore)
+    } else if (!colsSum || (sx == 1 &amp;&amp; sy == 1) || !scaleBefore) {
         if (!scaleBefore) {
-            sx = (data[0] &#x3c; 0 ? -1 : 1) * Math.sqrt(data[0] * data[0] + data[2] * data[2]);
-            sy = (data[3] &#x3c; 0 ? -1 : 1) * Math.sqrt(data[1] * data[1] + data[3] * data[3]);
-            transforms.push({ name: &#x27;scale&#x27;, data: [sx, sy] });
+            sx = (data[0] &lt; 0 ? -1 : 1) * Math.sqrt(data[0] * data[0] + data[2] * data[2]);
+            sy = (data[3] &lt; 0 ? -1 : 1) * Math.sqrt(data[1] * data[1] + data[3] * data[3]);
+            transforms.push({ name: 'scale', data: [sx, sy] });
         }
-        var rotate = [mth.acos(data[0] / sx, floatPrecision) * (data[1] * sy &#x3c; 0 ? -1 : 1)];
+        var rotate = [mth.acos(data[0] / sx, floatPrecision) * (data[1] * sy &lt; 0 ? -1 : 1)];
 
-        if (rotate[0]) transforms.push({ name: &#x27;rotate&#x27;, data: rotate });
+        if (rotate[0]) transforms.push({ name: 'rotate', data: rotate });
 
-        if (rowsSum &#x26;&#x26; colsSum) transforms.push({
-            name: &#x27;skewX&#x27;,
+        if (rowsSum &amp;&amp; colsSum) transforms.push({
+            name: 'skewX',
             data: [mth.atan(colsSum / (sx * sx), floatPrecision)]
         });
 
         // rotate(a, cx, cy) can consume translate() within optional arguments cx, cy (rotation point)
-        if (rotate[0] &#x26;&#x26; (data[4] || data[5])) {
+        if (rotate[0] &amp;&amp; (data[4] || data[5])) {
             transforms.shift();
             var cos = data[0] / sx,
                 sin = data[1] / (scaleBefore ? sx : sy),
@@ -2799,13 +2792,13 @@
             rotate.push(((1 - cos) * y + sin * x) / denom);
         }
 
-    // Too many transformations, return original matrix if it isn&#x27;t just a scale/translate
+    // Too many transformations, return original matrix if it isn't just a scale/translate
     } else if (data[1] || data[2]) {
         return transform;
     }
 
-    if (scaleBefore &#x26;&#x26; (sx != 1 || sy != 1) || !transforms.length) transforms.push({
-        name: &#x27;scale&#x27;,
+    if (scaleBefore &amp;&amp; (sx != 1 || sy != 1) || !transforms.length) transforms.push({
+        name: 'scale',
         data: sx == sy ? [sx] : [sx, sy]
     });
 
@@ -2830,7 +2823,7 @@
         // current transform context
         current;
 
-    // split value into [&#x27;&#x27;, &#x27;translate&#x27;, &#x27;10 50&#x27;, &#x27;&#x27;, &#x27;scale&#x27;, &#x27;2&#x27;, &#x27;&#x27;, &#x27;rotate&#x27;, &#x27;-45&#x27;, &#x27;&#x27;]
+    // split value into ['', 'translate', '10 50', '', 'scale', '2', '', 'rotate', '-45', '']
     transformString.split(regTransformSplit).forEach(function(item) {
 <span class="apidocCodeCommentSpan">        /*jshint -W084 */
 </span>        var num;
@@ -2878,7 +2871,7 @@
         sin = Math.sin(rot),
         h = Math.pow(arc[5] * cos + arc[6] * sin, 2) / (4 * a * a) +
             Math.pow(arc[6] * cos - arc[5] * sin, 2) / (4 * b * b);
-    if (h &#x3e; 1) {
+    if (h &gt; 1) {
         h = Math.sqrt(h);
         a *= h;
         b *= h;
@@ -2899,14 +2892,14 @@
     } else {
         var majorAxisSqr = (squareSum + root) / 2,
             minorAxisSqr = (squareSum - root) / 2,
-            major = Math.abs(majorAxisSqr - lastCol) &#x3e; 1e-6,
+            major = Math.abs(majorAxisSqr - lastCol) &gt; 1e-6,
             sub = (major ? majorAxisSqr : minorAxisSqr) - lastCol,
             rowsSum = m[0] * m[2] + m[1] * m[3],
             term1 = m[0] * sub + m[2] * rowsSum,
             term2 = m[1] * sub + m[3] * rowsSum;
         arc[0] = Math.sqrt(majorAxisSqr);
         arc[1] = Math.sqrt(minorAxisSqr);
-        arc[2] = ((major ? term2 &#x3c; 0 : term1 &#x3e; 0) ? -1 : 1) *
+        arc[2] = ((major ? term2 &lt; 0 : term1 &gt; 0) ? -1 : 1) *
             Math.acos((major ? term1 : term2) / Math.sqrt(term1 * term1 + term2 * term2)) * 180 / Math.PI;
     }
     return arc;
@@ -2928,7 +2921,7 @@
 
     // convert transforms objects to the matrices
     transforms = transforms.map(function(transform) {
-        if (transform.name === &#x27;matrix&#x27;) {
+        if (transform.name === 'matrix') {
             return transform.data;
         }
         return transformToMatrix(transform);
@@ -2936,7 +2929,7 @@
 
     // multiply all matrices into one
     transforms = {
-        name: &#x27;matrix&#x27;,
+        name: 'matrix',
         data: transforms.reduce(function(a, b) {
             return multiplyTransformMatrices(a, b);
         })
@@ -2967,7 +2960,7 @@
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">fn = function (data, params) {
-    if (!params || !(Array.isArray(params.attributes) &#x26;&#x26; params.attributes.some(String) || params.attribute)) {
+    if (!params || !(Array.isArray(params.attributes) &amp;&amp; params.attributes.some(String) || params.attribute)) {
         console.error(ENOCLS);
         return data;
     }
@@ -2975,12 +2968,12 @@
     var attributes = params.attributes || [ params.attribute ],
         svg = data.content[0];
 
-    if (svg.isElem(&#x27;svg&#x27;)) {
+    if (svg.isElem('svg')) {
         attributes.forEach(function (attribute) {
             if (!svg.hasAttr(attribute)) {
                 svg.addAttr({
                     name: attribute,
-                    prefix: &#x27;&#x27;,
+                    prefix: '',
                     local: attribute
                 });
             }
@@ -2995,16 +2988,16 @@
 // main filter
 var filter = true;
 
-for (var i = 0; filter &#x26;&#x26; i &#x3c; plugins.length; i++) {
+for (var i = 0; filter &amp;&amp; i &lt; plugins.length; i++) {
     var plugin = plugins[i];
 
-    if (plugin.active &#x26;&#x26; plugin.<span class="apidocCodeKeywordSpan">fn</span>(item, plugin.params) === false) {
+    if (plugin.active &amp;&amp; plugin.<span class="apidocCodeKeywordSpan">fn</span>(item, plugin.params) === false) {
         filter = false;
     }
 }
 
 // direct pass
-if (!reverse &#x26;&#x26; item.content) {
+if (!reverse &amp;&amp; item.content) {
     monkeys(item);
 ...</pre></li>
     </ul>
@@ -3030,7 +3023,7 @@ if (!reverse &#x26;&#x26; item.content) {
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">fn = function (data, params) {
-    if (!params || !(Array.isArray(params.classNames) &#x26;&#x26; params.classNames.some(String) || params.className)) {
+    if (!params || !(Array.isArray(params.classNames) &amp;&amp; params.classNames.some(String) || params.className)) {
         console.error(ENOCLS);
         return data;
     }
@@ -3038,21 +3031,21 @@ if (!reverse &#x26;&#x26; item.content) {
     var classNames = params.classNames || [ params.className ],
         svg = data.content[0];
 
-    if (svg.isElem(&#x27;svg&#x27;)) {
-        if (svg.hasAttr(&#x27;class&#x27;)) {
-            var classes = svg.attr(&#x27;class&#x27;).value.split(&#x27; &#x27;);
+    if (svg.isElem('svg')) {
+        if (svg.hasAttr('class')) {
+            var classes = svg.attr('class').value.split(' ');
             classNames.forEach(function(className){
-                if (classes.indexOf(className) &#x3c; 0) {
+                if (classes.indexOf(className) &lt; 0) {
                     classes.push(className);
                 }
             });
-            svg.attr(&#x27;class&#x27;).value = classes.join(&#x27; &#x27;);
+            svg.attr('class').value = classes.join(' ');
         } else {
             svg.addAttr({
-                name: &#x27;class&#x27;,
-                value: classNames.join(&#x27; &#x27;),
-                prefix: &#x27;&#x27;,
-                local: &#x27;class&#x27;
+                name: 'class',
+                value: classNames.join(' '),
+                prefix: '',
+                local: 'class'
             });
         }
     }
@@ -3065,16 +3058,16 @@ if (!reverse &#x26;&#x26; item.content) {
 // main filter
 var filter = true;
 
-for (var i = 0; filter &#x26;&#x26; i &#x3c; plugins.length; i++) {
+for (var i = 0; filter &amp;&amp; i &lt; plugins.length; i++) {
     var plugin = plugins[i];
 
-    if (plugin.active &#x26;&#x26; plugin.<span class="apidocCodeKeywordSpan">fn</span>(item, plugin.params) === false) {
+    if (plugin.active &amp;&amp; plugin.<span class="apidocCodeKeywordSpan">fn</span>(item, plugin.params) === false) {
         filter = false;
     }
 }
 
 // direct pass
-if (!reverse &#x26;&#x26; item.content) {
+if (!reverse &amp;&amp; item.content) {
     monkeys(item);
 ...</pre></li>
     </ul>
@@ -3108,11 +3101,11 @@ if (!reverse &#x26;&#x26; item.content) {
             if (params.newlines) {
                 // new line which requires a space instead of themselve
                 attr.value = attr.value.replace(regNewlinesNeedSpace, function(match, p1, p2) {
-                    return p1 + &#x27; &#x27; + p2;
+                    return p1 + ' ' + p2;
                 });
 
                 // simple new line
-                attr.value = attr.value.replace(regNewlines, &#x27;&#x27;);
+                attr.value = attr.value.replace(regNewlines, '');
             }
 
             if (params.trim) {
@@ -3120,7 +3113,7 @@ if (!reverse &#x26;&#x26; item.content) {
             }
 
             if (params.spaces) {
-                attr.value = attr.value.replace(regSpaces, &#x27; &#x27;);
+                attr.value = attr.value.replace(regSpaces, ' ');
             }
 
         });
@@ -3133,16 +3126,16 @@ if (!reverse &#x26;&#x26; item.content) {
 // main filter
 var filter = true;
 
-for (var i = 0; filter &#x26;&#x26; i &#x3c; plugins.length; i++) {
+for (var i = 0; filter &amp;&amp; i &lt; plugins.length; i++) {
     var plugin = plugins[i];
 
-    if (plugin.active &#x26;&#x26; plugin.<span class="apidocCodeKeywordSpan">fn</span>(item, plugin.params) === false) {
+    if (plugin.active &amp;&amp; plugin.<span class="apidocCodeKeywordSpan">fn</span>(item, plugin.params) === false) {
         filter = false;
     }
 }
 
 // direct pass
-if (!reverse &#x26;&#x26; item.content) {
+if (!reverse &amp;&amp; item.content) {
     monkeys(item);
 ...</pre></li>
     </ul>
@@ -3173,27 +3166,27 @@ if (!reverse &#x26;&#x26; item.content) {
 
     var regEnableBackground = /^new\s0\s0\s([\-+]?\d*\.?\d+([eE][\-+]?\d+)?)\s([\-+]?\d*\.?\d+([eE][\-+]?\d+)?)$/,
         hasFilter = false,
-        elems = [&#x27;svg&#x27;, &#x27;mask&#x27;, &#x27;pattern&#x27;];
+        elems = ['svg', 'mask', 'pattern'];
 
     function checkEnableBackground(item) {
         if (
-            item.isElem(elems) &#x26;&#x26;
-            item.hasAttr(&#x27;enable-background&#x27;) &#x26;&#x26;
-            item.hasAttr(&#x27;width&#x27;) &#x26;&#x26;
-            item.hasAttr(&#x27;height&#x27;)
+            item.isElem(elems) &amp;&amp;
+            item.hasAttr('enable-background') &amp;&amp;
+            item.hasAttr('width') &amp;&amp;
+            item.hasAttr('height')
         ) {
 
-            var match = item.attr(&#x27;enable-background&#x27;).value.match(regEnableBackground);
+            var match = item.attr('enable-background').value.match(regEnableBackground);
 
             if (match) {
                 if (
-                    item.attr(&#x27;width&#x27;).value === match[1] &#x26;&#x26;
-                    item.attr(&#x27;height&#x27;).value === match[3]
+                    item.attr('width').value === match[1] &amp;&amp;
+                    item.attr('height').value === match[3]
                 ) {
-                    if (item.isElem(&#x27;svg&#x27;)) {
-                        item.removeAttr(&#x27;enable-background&#x27;);
+                    if (item.isElem('svg')) {
+                        item.removeAttr('enable-background');
                     } else {
-                        item.attr(&#x27;enable-background&#x27;).value = &#x27;new&#x27;;
+                        item.attr('enable-background').value = 'new';
                     }
                 }
             }
@@ -3202,7 +3195,7 @@ if (!reverse &#x26;&#x26; item.content) {
     }
 
     function checkForFilter(item) {
-        if (item.isElem(&#x27;filter&#x27;)) {
+        if (item.isElem('filter')) {
             hasFilter = true;
         }
     }
@@ -3226,8 +3219,8 @@ if (!reverse &#x26;&#x26; item.content) {
     });
 
     return hasFilter ? firstStep : monkeys(firstStep, function(item) {
-            //we don&#x27;t need &#x27;enable-background&#x27; if we have no filters
-            item.removeAttr(&#x27;enable-background&#x27;);
+            //we don't need 'enable-background' if we have no filters
+            item.removeAttr('enable-background');
         });
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
@@ -3235,16 +3228,16 @@ if (!reverse &#x26;&#x26; item.content) {
 // main filter
 var filter = true;
 
-for (var i = 0; filter &#x26;&#x26; i &#x3c; plugins.length; i++) {
+for (var i = 0; filter &amp;&amp; i &lt; plugins.length; i++) {
     var plugin = plugins[i];
 
-    if (plugin.active &#x26;&#x26; plugin.<span class="apidocCodeKeywordSpan">fn</span>(item, plugin.params) === false) {
+    if (plugin.active &amp;&amp; plugin.<span class="apidocCodeKeywordSpan">fn</span>(item, plugin.params) === false) {
         filter = false;
     }
 }
 
 // direct pass
-if (!reverse &#x26;&#x26; item.content) {
+if (!reverse &amp;&amp; item.content) {
     monkeys(item);
 ...</pre></li>
     </ul>
@@ -3275,7 +3268,7 @@ if (!reverse &#x26;&#x26; item.content) {
         currentIDstring,
         IDs = Object.create(null),
         referencesIDs = Object.create(null),
-        idPrefix = &#x27;id-&#x27;, // prefix IDs so that values like &#x27;__proto__&#x27; don&#x27;t break the work
+        idPrefix = 'id-', // prefix IDs so that values like '__proto__' don't break the work
         hasStyleOrScript = false;
 
 <span class="apidocCodeCommentSpan">    /**
@@ -3286,34 +3279,34 @@ if (!reverse &#x26;&#x26; item.content) {
      */
 </span>    function monkeys(items) {
 
-        for (var i = 0; i &#x3c; items.content.length &#x26;&#x26; !hasStyleOrScript; i++) {
+        for (var i = 0; i &lt; items.content.length &amp;&amp; !hasStyleOrScript; i++) {
 
             var item = items.content[i],
                 match;
 
-            // check if &#x3c;style&#x3e; of &#x3c;script&#x3e; presents
+            // check if &lt;style&gt; of &lt;script&gt; presents
             if (item.isElem(styleOrScript)) {
                 hasStyleOrScript = true;
                 continue;
             }
 
-            // …and don&#x27;t remove any ID if yes
+            // â€¦and don't remove any ID if yes
             if (item.isElem()) {
 
                 item.eachAttr(function(attr) {
                     var key;
                     // save IDs
-                    if (attr.name === &#x27;id&#x27;) {
+                    if (attr.name === 'id') {
                         key = idPrefix + attr.value;
                         if (key in IDs) {
-                            item.removeAttr(&#x27;id&#x27;);
+                            item.removeAttr('id');
                         } else {
                             IDs[key] = item;
                         }
                     }
 
                     // save IDs url() references
-                    else if (referencesProps.indexOf(attr.name) &#x3e; -1) {
+                    else if (referencesProps.indexOf(attr.name) &gt; -1) {
                         match = attr.value.match(regReferencesUrl);
 
                         if (match) {
@@ -3328,8 +3321,8 @@ if (!reverse &#x26;&#x26; item.content) {
 
                     // save IDs href references
                     else if (
-                        attr.local === &#x27;href&#x27; &#x26;&#x26; (match = attr.value.match(regReferencesHref)) ||
-                        attr.name === &#x27;begin&#x27; &#x26;&#x26; (match = attr.value.match(regReferencesBegin))
+                        attr.local === 'href' &amp;&amp; (match = attr.value.match(regReferencesHref)) ||
+                        attr.name === 'begin' &amp;&amp; (match = attr.value.match(regReferencesBegin))
                     ) {
                         key = idPrefix + match[1];
                         if (referencesIDs[key]) {
@@ -3362,22 +3355,22 @@ if (!reverse &#x26;&#x26; item.content) {
     for (var k in referencesIDs) {
         if (IDs[k]) {
             idKey = k;
-            k = k.replace(idPrefix, &#x27;&#x27;);
+            k = k.replace(idPrefix, '');
             // replace referenced IDs with the minified ones
             if (params.minify) {
                 currentIDstring = getIDstring(currentID = generateID(currentID), params);
-                IDs[idKey].attr(&#x27;id&#x27;).value = currentIDstring;
+                IDs[idKey].attr('id').value = currentIDstring;
 
                 referencesIDs[idKey].forEach(function(attr) {
                     attr.value = attr.value
-                        .replace(&#x27;#&#x27; + k, &#x27;#&#x27; + currentIDstring)
-                        .replace(k + &#x27;.&#x27;, currentIDstring + &#x27;.&#x27;);
+                        .replace('#' + k, '#' + currentIDstring)
+                        .replace(k + '.', currentIDstring + '.');
                 });
 
                 idKey = idPrefix + k;
             }
 
-            // don&#x27;t remove referenced IDs
+            // don't remove referenced IDs
             delete IDs[idKey];
         }
     }
@@ -3386,7 +3379,7 @@ if (!reverse &#x26;&#x26; item.content) {
     if (params.remove) {
 
         for(var ID in IDs) {
-            IDs[ID].removeAttr(&#x27;id&#x27;);
+            IDs[ID].removeAttr('id');
         }
 
     }
@@ -3399,16 +3392,16 @@ if (!reverse &#x26;&#x26; item.content) {
 // main filter
 var filter = true;
 
-for (var i = 0; filter &#x26;&#x26; i &#x3c; plugins.length; i++) {
+for (var i = 0; filter &amp;&amp; i &lt; plugins.length; i++) {
     var plugin = plugins[i];
 
-    if (plugin.active &#x26;&#x26; plugin.<span class="apidocCodeKeywordSpan">fn</span>(item, plugin.params) === false) {
+    if (plugin.active &amp;&amp; plugin.<span class="apidocCodeKeywordSpan">fn</span>(item, plugin.params) === false) {
         filter = false;
     }
 }
 
 // direct pass
-if (!reverse &#x26;&#x26; item.content) {
+if (!reverse &amp;&amp; item.content) {
     monkeys(item);
 ...</pre></li>
     </ul>
@@ -3438,35 +3431,35 @@ if (!reverse &#x26;&#x26; item.content) {
     <li>description and source-code<pre class="apidocCodePre">fn = function (item, params) {
 
 
-    if ( item.hasAttr(&#x27;points&#x27;) ) {
+    if ( item.hasAttr('points') ) {
         roundValues(item.attrs.points);
     }
 
-    if ( item.hasAttr(&#x27;enable-background&#x27;) ) {
-        roundValues(item.attrs[&#x27;enable-background&#x27;]);
+    if ( item.hasAttr('enable-background') ) {
+        roundValues(item.attrs['enable-background']);
     }
 
-    if ( item.hasAttr(&#x27;viewBox&#x27;) ) {
+    if ( item.hasAttr('viewBox') ) {
         roundValues(item.attrs.viewBox);
     }
 
-    if ( item.hasAttr(&#x27;stroke-dasharray&#x27;) ) {
-        roundValues(item.attrs[&#x27;stroke-dasharray&#x27;]);
+    if ( item.hasAttr('stroke-dasharray') ) {
+        roundValues(item.attrs['stroke-dasharray']);
     }
 
-    if ( item.hasAttr(&#x27;dx&#x27;) ) {
+    if ( item.hasAttr('dx') ) {
         roundValues(item.attrs.dx);
     }
 
-    if ( item.hasAttr(&#x27;dy&#x27;) ) {
+    if ( item.hasAttr('dy') ) {
         roundValues(item.attrs.dy);
     }
 
-    if ( item.hasAttr(&#x27;x&#x27;) ) {
+    if ( item.hasAttr('x') ) {
         roundValues(item.attrs.x);
     }
 
-    if ( item.hasAttr(&#x27;y&#x27;) ) {
+    if ( item.hasAttr('y') ) {
         roundValues(item.attrs.y);
     }
 
@@ -3491,15 +3484,15 @@ if (!reverse &#x26;&#x26; item.content) {
 
                 // round it to the fixed precision
                 num = +(+match[1]).toFixed(params.floatPrecision),
-                units = match[3] || &#x27;&#x27;;
+                units = match[3] || '';
 
                 // convert absolute values to pixels
-                if (params.convertToPx &#x26;&#x26; units &#x26;&#x26; (units in absoluteLengths)) {
+                if (params.convertToPx &amp;&amp; units &amp;&amp; (units in absoluteLengths)) {
                     var pxNum = +(absoluteLengths[units] * match[1]).toFixed(params.floatPrecision);
 
-                    if (String(pxNum).length &#x3c; match[0].length)
+                    if (String(pxNum).length &lt; match[0].length)
                         num = pxNum,
-                        units = &#x27;px&#x27;;
+                        units = 'px';
                 }
 
                  // and remove leading zero
@@ -3507,24 +3500,24 @@ if (!reverse &#x26;&#x26; item.content) {
                     num = removeLeadingZero(num);
                 }
 
-                // remove default &#x27;px&#x27; units
-                if (params.defaultPx &#x26;&#x26; units === &#x27;px&#x27;) {
-                    units = &#x27;&#x27;;
+                // remove default 'px' units
+                if (params.defaultPx &amp;&amp; units === 'px') {
+                    units = '';
                 }
 
                 roundedListArr.push(num+units);
 
             }
-            // if attribute value is &#x22;new&#x22;(only enable-background).
+            // if attribute value is "new"(only enable-background).
             else if(matchNew){
 
-                roundedListArr.push(&#x27;new&#x27;);
+                roundedListArr.push('new');
 
             }
 
         });
 
-        roundedList = roundedListArr.join(&#x27; &#x27;);
+        roundedList = roundedListArr.join(' ');
         $prop.value = roundedList;
 
     }
@@ -3535,16 +3528,16 @@ if (!reverse &#x26;&#x26; item.content) {
 // main filter
 var filter = true;
 
-for (var i = 0; filter &#x26;&#x26; i &#x3c; plugins.length; i++) {
+for (var i = 0; filter &amp;&amp; i &lt; plugins.length; i++) {
     var plugin = plugins[i];
 
-    if (plugin.active &#x26;&#x26; plugin.<span class="apidocCodeKeywordSpan">fn</span>(item, plugin.params) === false) {
+    if (plugin.active &amp;&amp; plugin.<span class="apidocCodeKeywordSpan">fn</span>(item, plugin.params) === false) {
         filter = false;
     }
 }
 
 // direct pass
-if (!reverse &#x26;&#x26; item.content) {
+if (!reverse &amp;&amp; item.content) {
     monkeys(item);
 ...</pre></li>
     </ul>
@@ -3584,15 +3577,15 @@ if (!reverse &#x26;&#x26; item.content) {
             if (match) {
                 // round it to the fixed precision
                 var num = +(+match[1]).toFixed(params.floatPrecision),
-                    units = match[3] || &#x27;&#x27;;
+                    units = match[3] || '';
 
                 // convert absolute values to pixels
-                if (params.convertToPx &#x26;&#x26; units &#x26;&#x26; (units in absoluteLengths)) {
+                if (params.convertToPx &amp;&amp; units &amp;&amp; (units in absoluteLengths)) {
                     var pxNum = +(absoluteLengths[units] * match[1]).toFixed(params.floatPrecision);
 
-                    if (String(pxNum).length &#x3c; match[0].length)
+                    if (String(pxNum).length &lt; match[0].length)
                         num = pxNum,
-                        units = &#x27;px&#x27;;
+                        units = 'px';
                 }
 
                 // and remove leading zero
@@ -3600,9 +3593,9 @@ if (!reverse &#x26;&#x26; item.content) {
                     num = removeLeadingZero(num);
                 }
 
-                // remove default &#x27;px&#x27; units
-                if (params.defaultPx &#x26;&#x26; units === &#x27;px&#x27;) {
-                    units = &#x27;&#x27;;
+                // remove default 'px' units
+                if (params.defaultPx &amp;&amp; units === 'px') {
+                    units = '';
                 }
 
                 attr.value = num + units;
@@ -3617,16 +3610,16 @@ if (!reverse &#x26;&#x26; item.content) {
 // main filter
 var filter = true;
 
-for (var i = 0; filter &#x26;&#x26; i &#x3c; plugins.length; i++) {
+for (var i = 0; filter &amp;&amp; i &lt; plugins.length; i++) {
     var plugin = plugins[i];
 
-    if (plugin.active &#x26;&#x26; plugin.<span class="apidocCodeKeywordSpan">fn</span>(item, plugin.params) === false) {
+    if (plugin.active &amp;&amp; plugin.<span class="apidocCodeKeywordSpan">fn</span>(item, plugin.params) === false) {
         filter = false;
     }
 }
 
 // direct pass
-if (!reverse &#x26;&#x26; item.content) {
+if (!reverse &amp;&amp; item.content) {
     monkeys(item);
 ...</pre></li>
     </ul>
@@ -3656,21 +3649,21 @@ if (!reverse &#x26;&#x26; item.content) {
     <li>description and source-code<pre class="apidocCodePre">fn = function (item) {
 
     // non-empty elements
-    if (item.isElem() &#x26;&#x26; !item.isElem(&#x27;switch&#x27;) &#x26;&#x26; !item.isEmpty()) {
+    if (item.isElem() &amp;&amp; !item.isElem('switch') &amp;&amp; !item.isEmpty()) {
 
         item.content.forEach(function(g, i) {
 
             // non-empty groups
-            if (g.isElem(&#x27;g&#x27;) &#x26;&#x26; !g.isEmpty()) {
+            if (g.isElem('g') &amp;&amp; !g.isEmpty()) {
 
                 // move group attibutes to the single content element
-                if (g.hasAttr() &#x26;&#x26; g.content.length === 1) {
+                if (g.hasAttr() &amp;&amp; g.content.length === 1) {
                     var inner = g.content[0];
 
-                    if (inner.isElem() &#x26;&#x26; !inner.hasAttr(&#x27;id&#x27;) &#x26;&#x26;
-                        !(g.hasAttr(&#x27;class&#x27;) &#x26;&#x26; inner.hasAttr(&#x27;class&#x27;)) &#x26;&#x26; (
-                            !g.hasAttr(&#x27;clip-path&#x27;) &#x26;&#x26; !g.hasAttr(&#x27;mask&#x27;) ||
-                            inner.isElem(&#x27;g&#x27;) &#x26;&#x26; !g.hasAttr(&#x27;transform&#x27;) &#x26;&#x26; !inner.hasAttr(&#x27;transform&#x27;)
+                    if (inner.isElem() &amp;&amp; !inner.hasAttr('id') &amp;&amp;
+                        !(g.hasAttr('class') &amp;&amp; inner.hasAttr('class')) &amp;&amp; (
+                            !g.hasAttr('clip-path') &amp;&amp; !g.hasAttr('mask') ||
+                            inner.isElem('g') &amp;&amp; !g.hasAttr('transform') &amp;&amp; !inner.hasAttr('transform')
                         )
                     ) {
                         g.eachAttr(function(attr) {
@@ -3678,10 +3671,10 @@ if (!reverse &#x26;&#x26; item.content) {
 
                             if (!inner.hasAttr(attr.name)) {
                                 inner.addAttr(attr);
-                            } else if (attr.name == &#x27;transform&#x27;) {
-                                inner.attr(attr.name).value = attr.value + &#x27; &#x27; + inner.attr(attr.name).value;
+                            } else if (attr.name == 'transform') {
+                                inner.attr(attr.name).value = attr.value + ' ' + inner.attr(attr.name).value;
                             } else if (
-                                attrsInheritable.indexOf(attr.name) &#x3c; 0 &#x26;&#x26;
+                                attrsInheritable.indexOf(attr.name) &lt; 0 &amp;&amp;
                                 !inner.hasAttr(attr.name, attr.value)
                             ) {
                                 return;
@@ -3693,7 +3686,7 @@ if (!reverse &#x26;&#x26; item.content) {
                 }
 
                 // collapse groups without attributes
-                if (!g.hasAttr() &#x26;&#x26; !g.content.some(function(item) { return item.isElem(animationElems) })) {
+                if (!g.hasAttr() &amp;&amp; !g.content.some(function(item) { return item.isElem(animationElems) })) {
                     item.spliceContent(i, 1, g.content);
                 }
             }
@@ -3708,16 +3701,16 @@ if (!reverse &#x26;&#x26; item.content) {
 // main filter
 var filter = true;
 
-for (var i = 0; filter &#x26;&#x26; i &#x3c; plugins.length; i++) {
+for (var i = 0; filter &amp;&amp; i &lt; plugins.length; i++) {
     var plugin = plugins[i];
 
-    if (plugin.active &#x26;&#x26; plugin.<span class="apidocCodeKeywordSpan">fn</span>(item, plugin.params) === false) {
+    if (plugin.active &amp;&amp; plugin.<span class="apidocCodeKeywordSpan">fn</span>(item, plugin.params) === false) {
         filter = false;
     }
 }
 
 // direct pass
-if (!reverse &#x26;&#x26; item.content) {
+if (!reverse &amp;&amp; item.content) {
     monkeys(item);
 ...</pre></li>
     </ul>
@@ -3748,14 +3741,14 @@ if (!reverse &#x26;&#x26; item.content) {
 
         item.eachAttr(function(attr) {
 
-            if (collections.colorsProps.indexOf(attr.name) &#x3e; -1) {
+            if (collections.colorsProps.indexOf(attr.name) &gt; -1) {
 
                 var val = attr.value,
                     match;
 
                 // Convert colors to currentColor
                 if (params.currentColor) {
-                    if (typeof params.currentColor === &#x27;string&#x27;) {
+                    if (typeof params.currentColor === 'string') {
                         match = val === params.currentColor;
                     } else if (params.currentColor.exec) {
                         match = params.currentColor.exec(val);
@@ -3763,19 +3756,19 @@ if (!reverse &#x26;&#x26; item.content) {
                         match = !val.match(none);
                     }
                     if (match) {
-                        val = &#x27;currentColor&#x27;;
+                        val = 'currentColor';
                     }
                 }
 
                 // Convert color name keyword to long hex
-                if (params.names2hex &#x26;&#x26; val.toLowerCase() in collections.colorsNames) {
+                if (params.names2hex &amp;&amp; val.toLowerCase() in collections.colorsNames) {
                     val = collections.colorsNames[val.toLowerCase()];
                 }
 
                 // Convert rgb() to long hex
-                if (params.rgb2hex &#x26;&#x26; (match = val.match(regRGB))) {
+                if (params.rgb2hex &amp;&amp; (match = val.match(regRGB))) {
                     match = match.slice(1, 4).map(function(m) {
-                        if (m.indexOf(&#x27;%&#x27;) &#x3e; -1)
+                        if (m.indexOf('%') &gt; -1)
                             m = Math.round(parseFloat(m) * 2.55);
 
                         return Math.max(0, Math.min(m, 255));
@@ -3785,12 +3778,12 @@ if (!reverse &#x26;&#x26; item.content) {
                 }
 
                 // Convert long hex to short hex
-                if (params.shorthex &#x26;&#x26; (match = val.match(regHEX))) {
-                    val = &#x27;#&#x27; + match[0][1] + match[0][3] + match[0][5];
+                if (params.shorthex &amp;&amp; (match = val.match(regHEX))) {
+                    val = '#' + match[0][1] + match[0][3] + match[0][5];
                 }
 
                 // Convert hex to short name
-                if (params.shortname &#x26;&#x26; val in collections.colorsShortNames) {
+                if (params.shortname &amp;&amp; val in collections.colorsShortNames) {
                     val = collections.colorsShortNames[val];
                 }
 
@@ -3808,16 +3801,16 @@ if (!reverse &#x26;&#x26; item.content) {
 // main filter
 var filter = true;
 
-for (var i = 0; filter &#x26;&#x26; i &#x3c; plugins.length; i++) {
+for (var i = 0; filter &amp;&amp; i &lt; plugins.length; i++) {
     var plugin = plugins[i];
 
-    if (plugin.active &#x26;&#x26; plugin.<span class="apidocCodeKeywordSpan">fn</span>(item, plugin.params) === false) {
+    if (plugin.active &amp;&amp; plugin.<span class="apidocCodeKeywordSpan">fn</span>(item, plugin.params) === false) {
         filter = false;
     }
 }
 
 // direct pass
-if (!reverse &#x26;&#x26; item.content) {
+if (!reverse &amp;&amp; item.content) {
     monkeys(item);
 ...</pre></li>
     </ul>
@@ -3846,16 +3839,16 @@ if (!reverse &#x26;&#x26; item.content) {
     <ul>
     <li>description and source-code<pre class="apidocCodePre">fn = function (item, params) {
 
-    if (item.isElem(pathElems) &#x26;&#x26; item.hasAttr(&#x27;d&#x27;)) {
+    if (item.isElem(pathElems) &amp;&amp; item.hasAttr('d')) {
 
         precision = params.floatPrecision;
         error = precision !== false ? +Math.pow(.1, precision).toFixed(precision) : 1e-2;
-        roundData = precision &#x3e; 0 &#x26;&#x26; precision &#x3c; 20 ? strongRound : round;
+        roundData = precision &gt; 0 &amp;&amp; precision &lt; 20 ? strongRound : round;
         if (params.makeArcs) {
             arcThreshold = params.makeArcs.threshold;
             arcTolerance = params.makeArcs.tolerance;
         }
-        hasMarkerMid = item.hasAttr(&#x27;marker-mid&#x27;);
+        hasMarkerMid = item.hasAttr('marker-mid');
 
         var data = path2js(item);
 
@@ -3884,16 +3877,16 @@ if (!reverse &#x26;&#x26; item.content) {
 // main filter
 var filter = true;
 
-for (var i = 0; filter &#x26;&#x26; i &#x3c; plugins.length; i++) {
+for (var i = 0; filter &amp;&amp; i &lt; plugins.length; i++) {
     var plugin = plugins[i];
 
-    if (plugin.active &#x26;&#x26; plugin.<span class="apidocCodeKeywordSpan">fn</span>(item, plugin.params) === false) {
+    if (plugin.active &amp;&amp; plugin.<span class="apidocCodeKeywordSpan">fn</span>(item, plugin.params) === false) {
         filter = false;
     }
 }
 
 // direct pass
-if (!reverse &#x26;&#x26; item.content) {
+if (!reverse &amp;&amp; item.content) {
     monkeys(item);
 ...</pre></li>
     </ul>
@@ -3923,79 +3916,79 @@ if (!reverse &#x26;&#x26; item.content) {
     <li>description and source-code<pre class="apidocCodePre">fn = function (item) {
 
     if (
-        item.isElem(&#x27;rect&#x27;) &#x26;&#x26;
-        item.hasAttr(&#x27;width&#x27;) &#x26;&#x26;
-        item.hasAttr(&#x27;height&#x27;) &#x26;&#x26;
-        !item.hasAttr(&#x27;rx&#x27;) &#x26;&#x26;
-        !item.hasAttr(&#x27;ry&#x27;)
+        item.isElem('rect') &amp;&amp;
+        item.hasAttr('width') &amp;&amp;
+        item.hasAttr('height') &amp;&amp;
+        !item.hasAttr('rx') &amp;&amp;
+        !item.hasAttr('ry')
     ) {
 
-        var x = +(item.attr(&#x27;x&#x27;) || none).value,
-            y = +(item.attr(&#x27;y&#x27;) || none).value,
-            width  = +item.attr(&#x27;width&#x27;).value,
-            height = +item.attr(&#x27;height&#x27;).value;
+        var x = +(item.attr('x') || none).value,
+            y = +(item.attr('y') || none).value,
+            width  = +item.attr('width').value,
+            height = +item.attr('height').value;
 
-            // Values like &#x27;100%&#x27; compute to NaN, thus running after
-            // cleanupNumericValues when &#x27;px&#x27; units has already been removed.
+            // Values like '100%' compute to NaN, thus running after
+            // cleanupNumericValues when 'px' units has already been removed.
             // TODO: Calculate sizes from % and non-px units if possible.
         if (isNaN(x - y + width - height)) return;
 
         var pathData =
-            &#x27;M&#x27; + x + &#x27; &#x27; + y +
-            &#x27;H&#x27; + (x + width) +
-            &#x27;V&#x27; + (y + height) +
-            &#x27;H&#x27; + x +
-            &#x27;z&#x27;;
+            'M' + x + ' ' + y +
+            'H' + (x + width) +
+            'V' + (y + height) +
+            'H' + x +
+            'z';
 
         item.addAttr({
-                name: &#x27;d&#x27;,
+                name: 'd',
                 value: pathData,
-                prefix: &#x27;&#x27;,
-                local: &#x27;d&#x27;
+                prefix: '',
+                local: 'd'
             });
 
-        item.renameElem(&#x27;path&#x27;)
-            .removeAttr([&#x27;x&#x27;, &#x27;y&#x27;, &#x27;width&#x27;, &#x27;height&#x27;]);
+        item.renameElem('path')
+            .removeAttr(['x', 'y', 'width', 'height']);
 
-    } else if (item.isElem(&#x27;line&#x27;)) {
+    } else if (item.isElem('line')) {
 
-        var x1 = +(item.attr(&#x27;x1&#x27;) || none).value,
-            y1 = +(item.attr(&#x27;y1&#x27;) || none).value,
-            x2 = +(item.attr(&#x27;x2&#x27;) || none).value,
-            y2 = +(item.attr(&#x27;y2&#x27;) || none).value;
+        var x1 = +(item.attr('x1') || none).value,
+            y1 = +(item.attr('y1') || none).value,
+            x2 = +(item.attr('x2') || none).value,
+            y2 = +(item.attr('y2') || none).value;
         if (isNaN(x1 - y1 + x2 - y2)) return;
 
         item.addAttr({
-                name: &#x27;d&#x27;,
-                value: &#x27;M&#x27; + x1 + &#x27; &#x27; + y1 + &#x27;L&#x27; + x2 + &#x27; &#x27; + y2,
-                prefix: &#x27;&#x27;,
-                local: &#x27;d&#x27;
+                name: 'd',
+                value: 'M' + x1 + ' ' + y1 + 'L' + x2 + ' ' + y2,
+                prefix: '',
+                local: 'd'
             });
 
-        item.renameElem(&#x27;path&#x27;)
-            .removeAttr([&#x27;x1&#x27;, &#x27;y1&#x27;, &#x27;x2&#x27;, &#x27;y2&#x27;]);
+        item.renameElem('path')
+            .removeAttr(['x1', 'y1', 'x2', 'y2']);
 
     } else if ((
-            item.isElem(&#x27;polyline&#x27;) ||
-            item.isElem(&#x27;polygon&#x27;)
-        ) &#x26;&#x26;
-        item.hasAttr(&#x27;points&#x27;)
+            item.isElem('polyline') ||
+            item.isElem('polygon')
+        ) &amp;&amp;
+        item.hasAttr('points')
     ) {
 
-        var coords = (item.attr(&#x27;points&#x27;).value.match(regNumber) || []).map(Number);
-        if (coords.length &#x3c; 4) return false;
+        var coords = (item.attr('points').value.match(regNumber) || []).map(Number);
+        if (coords.length &lt; 4) return false;
 
         item.addAttr({
-                name: &#x27;d&#x27;,
-                value: &#x27;M&#x27; + coords.slice(0,2).join(&#x27; &#x27;) +
-                       &#x27;L&#x27; + coords.slice(2).join(&#x27; &#x27;) +
-                       (item.isElem(&#x27;polygon&#x27;) ? &#x27;z&#x27; : &#x27;&#x27;),
-                prefix: &#x27;&#x27;,
-                local: &#x27;d&#x27;
+                name: 'd',
+                value: 'M' + coords.slice(0,2).join(' ') +
+                       'L' + coords.slice(2).join(' ') +
+                       (item.isElem('polygon') ? 'z' : ''),
+                prefix: '',
+                local: 'd'
             });
 
-        item.renameElem(&#x27;path&#x27;)
-            .removeAttr(&#x27;points&#x27;);
+        item.renameElem('path')
+            .removeAttr('points');
     }
 
 }</pre></li>
@@ -4004,16 +3997,16 @@ if (!reverse &#x26;&#x26; item.content) {
 // main filter
 var filter = true;
 
-for (var i = 0; filter &#x26;&#x26; i &#x3c; plugins.length; i++) {
+for (var i = 0; filter &amp;&amp; i &lt; plugins.length; i++) {
     var plugin = plugins[i];
 
-    if (plugin.active &#x26;&#x26; plugin.<span class="apidocCodeKeywordSpan">fn</span>(item, plugin.params) === false) {
+    if (plugin.active &amp;&amp; plugin.<span class="apidocCodeKeywordSpan">fn</span>(item, plugin.params) === false) {
         filter = false;
     }
 }
 
 // direct pass
-if (!reverse &#x26;&#x26; item.content) {
+if (!reverse &amp;&amp; item.content) {
     monkeys(item);
 ...</pre></li>
     </ul>
@@ -4041,16 +4034,16 @@ if (!reverse &#x26;&#x26; item.content) {
     <li>description and source-code<pre class="apidocCodePre">fn = function (item) {
 <span class="apidocCodeCommentSpan">    /* jshint boss: true */
 </span>
-    if (item.elem &#x26;&#x26; item.hasAttr(&#x27;style&#x27;)) {
-            // [&#x27;opacity: 1&#x27;, &#x27;color: #000&#x27;]
-        var styleValue = item.attr(&#x27;style&#x27;).value,
+    if (item.elem &amp;&amp; item.hasAttr('style')) {
+            // ['opacity: 1', 'color: #000']
+        var styleValue = item.attr('style').value,
             styles = [],
             attrs = {};
 
         // Strip CSS comments preserving escape sequences and strings.
         styleValue = styleValue.replace(regStripComments, function(match) {
-            return match[0] == &#x27;/&#x27; ? &#x27;&#x27; :
-                match[0] == &#x27;\\&#x27; &#x26;&#x26; /[-g-z]/i.test(match[1]) ? match[1] : match;
+            return match[0] == '/' ? '' :
+                match[0] == '\\' &amp;&amp; /[-g-z]/i.test(match[1]) ? match[1] : match;
         });
 
         regDeclarationBlock.lastIndex = 0;
@@ -4069,13 +4062,13 @@ if (!reverse &#x26;&#x26; item.content) {
                         val = val.slice(1, -1);
                     }
 
-                    if (stylingProps.indexOf(prop) &#x3e; -1) {
+                    if (stylingProps.indexOf(prop) &gt; -1) {
 
                         attrs[prop] = {
                             name: prop,
                             value: val,
                             local: prop,
-                            prefix: &#x27;&#x27;
+                            prefix: ''
                         };
 
                         return false;
@@ -4088,11 +4081,11 @@ if (!reverse &#x26;&#x26; item.content) {
             EXTEND(item.attrs, attrs);
 
             if (styles.length) {
-                item.attr(&#x27;style&#x27;).value = styles
-                    .map(function(declaration) { return declaration.join(&#x27;:&#x27;) })
-                    .join(&#x27;;&#x27;);
+                item.attr('style').value = styles
+                    .map(function(declaration) { return declaration.join(':') })
+                    .join(';');
             } else {
-                item.removeAttr(&#x27;style&#x27;);
+                item.removeAttr('style');
             }
 
         }
@@ -4105,16 +4098,16 @@ if (!reverse &#x26;&#x26; item.content) {
 // main filter
 var filter = true;
 
-for (var i = 0; filter &#x26;&#x26; i &#x3c; plugins.length; i++) {
+for (var i = 0; filter &amp;&amp; i &lt; plugins.length; i++) {
     var plugin = plugins[i];
 
-    if (plugin.active &#x26;&#x26; plugin.<span class="apidocCodeKeywordSpan">fn</span>(item, plugin.params) === false) {
+    if (plugin.active &amp;&amp; plugin.<span class="apidocCodeKeywordSpan">fn</span>(item, plugin.params) === false) {
         filter = false;
     }
 }
 
 // direct pass
-if (!reverse &#x26;&#x26; item.content) {
+if (!reverse &amp;&amp; item.content) {
     monkeys(item);
 ...</pre></li>
     </ul>
@@ -4144,18 +4137,18 @@ if (!reverse &#x26;&#x26; item.content) {
     if (item.elem) {
 
         // transform
-        if (item.hasAttr(&#x27;transform&#x27;)) {
-            convertTransform(item, &#x27;transform&#x27;, params);
+        if (item.hasAttr('transform')) {
+            convertTransform(item, 'transform', params);
         }
 
         // gradientTransform
-        if (item.hasAttr(&#x27;gradientTransform&#x27;)) {
-            convertTransform(item, &#x27;gradientTransform&#x27;, params);
+        if (item.hasAttr('gradientTransform')) {
+            convertTransform(item, 'gradientTransform', params);
         }
 
         // patternTransform
-        if (item.hasAttr(&#x27;patternTransform&#x27;)) {
-            convertTransform(item, &#x27;patternTransform&#x27;, params);
+        if (item.hasAttr('patternTransform')) {
+            convertTransform(item, 'patternTransform', params);
         }
 
     }
@@ -4166,16 +4159,16 @@ if (!reverse &#x26;&#x26; item.content) {
 // main filter
 var filter = true;
 
-for (var i = 0; filter &#x26;&#x26; i &#x3c; plugins.length; i++) {
+for (var i = 0; filter &amp;&amp; i &lt; plugins.length; i++) {
     var plugin = plugins[i];
 
-    if (plugin.active &#x26;&#x26; plugin.<span class="apidocCodeKeywordSpan">fn</span>(item, plugin.params) === false) {
+    if (plugin.active &amp;&amp; plugin.<span class="apidocCodeKeywordSpan">fn</span>(item, plugin.params) === false) {
         filter = false;
     }
 }
 
 // direct pass
-if (!reverse &#x26;&#x26; item.content) {
+if (!reverse &amp;&amp; item.content) {
     monkeys(item);
 ...</pre></li>
     </ul>
@@ -4203,7 +4196,7 @@ if (!reverse &#x26;&#x26; item.content) {
     <li>description and source-code<pre class="apidocCodePre">jsAPI = function (data, parentNode) {
     EXTEND(this, data);
     if (parentNode) {
-        Object.defineProperty(this, &#x27;parentNode&#x27;, {
+        Object.defineProperty(this, 'parentNode', {
             writable: true,
             value: parentNode
         });
@@ -4245,12 +4238,12 @@ if (!reverse &#x26;&#x26; item.content) {
 var attributes = params.attributes || [ params.attribute ],
     svg = data.content[0];
 
-if (svg.isElem(&#x27;svg&#x27;)) {
+if (svg.isElem('svg')) {
     attributes.forEach(function (attribute) {
         if (!svg.hasAttr(attribute)) {
             svg.<span class="apidocCodeKeywordSpan">addAttr</span>({
                 name: attribute,
-                prefix: &#x27;&#x27;,
+                prefix: '',
                 local: attribute
             });
         }
@@ -4283,15 +4276,15 @@ if (svg.isElem(&#x27;svg&#x27;)) {
 var classNames = params.classNames || [ params.className ],
     svg = data.content[0];
 
-if (svg.isElem(&#x27;svg&#x27;)) {
-    if (svg.hasAttr(&#x27;class&#x27;)) {
-        var classes = svg.<span class="apidocCodeKeywordSpan">attr</span>(&#x27;class&#x27;).value.split(&#x27; &#x27;);
+if (svg.isElem('svg')) {
+    if (svg.hasAttr('class')) {
+        var classes = svg.<span class="apidocCodeKeywordSpan">attr</span>('class').value.split(' ');
         classNames.forEach(function(className){
-            if (classes.indexOf(className) &#x3c; 0) {
+            if (classes.indexOf(className) &lt; 0) {
                 classes.push(className);
             }
         });
-        svg.attr(&#x27;class&#x27;).value = classes.join(&#x27; &#x27;);
+        svg.attr('class').value = classes.join(' ');
     } else {
 ...</pre></li>
     </ul>
@@ -4310,13 +4303,13 @@ if (svg.isElem(&#x27;svg&#x27;)) {
     var nodeData = {};
 
     Object.keys(node).forEach(function(key) {
-        if (key !== &#x27;content&#x27;) {
+        if (key !== 'content') {
             nodeData[key] = node[key];
         }
     });
 
     // Deep-clone node data
-    // This is still faster than using EXTEND(true…)
+    // This is still faster than using EXTEND(trueâ€¦)
     nodeData = JSON.parse(JSON.stringify(nodeData));
 
     // parentNode gets set to a proper object by the parent clone,
@@ -4366,31 +4359,31 @@ if (svg.isElem(&#x27;svg&#x27;)) {
 <span class="apidocCodeCommentSpan">    /* jshint eqnull: true */
 </span>    if (!arguments.length) return;
 
-    for (var elem = this; elem &#x26;&#x26; (!elem.hasAttr(name) || !elem.attr(name).value); elem = elem.parentNode);
+    for (var elem = this; elem &amp;&amp; (!elem.hasAttr(name) || !elem.attr(name).value); elem = elem.parentNode);
 
     if (val != null) {
         return elem ? elem.hasAttr(name, val) : false;
-    } else if (elem &#x26;&#x26; elem.hasAttr(name)) {
+    } else if (elem &amp;&amp; elem.hasAttr(name)) {
         return elem.attrs[name].value;
     }
 
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
-if (!elem.hasAttr(&#x27;transform&#x27;) || !elem.attr(&#x27;transform&#x27;).value ||
+if (!elem.hasAttr('transform') || !elem.attr('transform').value ||
     elem.someAttr(function(attr) {
-        return ~referencesProps.indexOf(attr.name) &#x26;&#x26; ~attr.value.indexOf(&#x27;url(&#x27;);
+        return ~referencesProps.indexOf(attr.name) &amp;&amp; ~attr.value.indexOf('url(');
     }))
     return path;
 
-var matrix = transformsMultiply(transform2js(elem.attr(&#x27;transform&#x27;).value)),
-    stroke = elem.<span class="apidocCodeKeywordSpan">computedAttr</span>(&#x27;stroke&#x27;),
-    id = elem.computedAttr(&#x27;id&#x27;),
+var matrix = transformsMultiply(transform2js(elem.attr('transform').value)),
+    stroke = elem.<span class="apidocCodeKeywordSpan">computedAttr</span>('stroke'),
+    id = elem.computedAttr('id'),
     transformPrecision = params.transformPrecision,
     newPoint, scale;
 
-if (stroke &#x26;&#x26; stroke != &#x27;none&#x27;) {
+if (stroke &amp;&amp; stroke != 'none') {
     if (!params.applyTransformsStroked ||
-        (matrix.data[0] != matrix.data[3] || matrix.data[1] != -matrix.data[2]) &#x26;&#x26;
+        (matrix.data[0] != matrix.data[3] || matrix.data[1] != -matrix.data[2]) &amp;&amp;
 ...</pre></li>
     </ul>
 
@@ -4427,7 +4420,7 @@ exports.fn = function(item, params) {
 if (params.newlines) {
     // new line which requires a space instead of themselve
     attr.value = attr.value.replace(regNewlinesNeedSpace, function(match, p1, p2) {
-        return p1 + &#x27; &#x27; + p2;
+        return p1 + ' ' + p2;
     });
 ...</pre></li>
     </ul>
@@ -4447,7 +4440,7 @@ if (params.newlines) {
 
     if (!arguments.length) return !!this.attrs;
 
-    if (val !== undefined) return !!this.attrs[name] &#x26;&#x26; this.attrs[name].value === val.toString();
+    if (val !== undefined) return !!this.attrs[name] &amp;&amp; this.attrs[name].value === val.toString();
 
     return !!this.attrs[name];
 
@@ -4458,12 +4451,12 @@ if (params.newlines) {
 var attributes = params.attributes || [ params.attribute ],
     svg = data.content[0];
 
-if (svg.isElem(&#x27;svg&#x27;)) {
+if (svg.isElem('svg')) {
     attributes.forEach(function (attribute) {
         if (!svg.<span class="apidocCodeKeywordSpan">hasAttr</span>(attribute)) {
             svg.addAttr({
                 name: attribute,
-                prefix: &#x27;&#x27;,
+                prefix: '',
                 local: attribute
             });
         }
@@ -4488,11 +4481,11 @@ if (svg.isElem(&#x27;svg&#x27;)) {
 
     var callback;
 
-    switch (val != null &#x26;&#x26; val.constructor &#x26;&#x26; val.constructor.name) {
-        case &#x27;Number&#x27;:   // same as String
-        case &#x27;String&#x27;:   callback = stringValueTest; break;
-        case &#x27;RegExp&#x27;:   callback = regexpValueTest; break;
-        case &#x27;Function&#x27;: callback = funcValueTest; break;
+    switch (val != null &amp;&amp; val.constructor &amp;&amp; val.constructor.name) {
+        case 'Number':   // same as String
+        case 'String':   callback = stringValueTest; break;
+        case 'RegExp':   callback = regexpValueTest; break;
+        case 'Function': callback = funcValueTest; break;
         default:         callback = nameTest;
     }
     return this.someAttr(callback);
@@ -4502,15 +4495,15 @@ if (svg.isElem(&#x27;svg&#x27;)) {
     }
 
     function stringValueTest(attr) {
-        return attr.local === localName &#x26;&#x26; val == attr.value;
+        return attr.local === localName &amp;&amp; val == attr.value;
     }
 
     function regexpValueTest(attr) {
-        return attr.local === localName &#x26;&#x26; val.test(attr.value);
+        return attr.local === localName &amp;&amp; val.test(attr.value);
     }
 
     function funcValueTest(attr) {
-        return attr.local === localName &#x26;&#x26; val(attr.value);
+        return attr.local === localName &amp;&amp; val(attr.value);
     }
 
 }</pre></li>
@@ -4521,8 +4514,8 @@ if (svg.isElem(&#x27;svg&#x27;)) {
  */
 exports.fn = function(item) {
 
-    return !(item.isElem(container) &#x26;&#x26; !item.isElem(&#x27;svg&#x27;) &#x26;&#x26; item.isEmpty() &#x26;&#x26;
-        (!item.isElem(&#x27;pattern&#x27;) || !item.<span class="apidocCodeKeywordSpan">hasAttrLocal</span>(&#x27;href&#x27;)));
+    return !(item.isElem(container) &amp;&amp; !item.isElem('svg') &amp;&amp; item.isEmpty() &amp;&amp;
+        (!item.isElem('pattern') || !item.<span class="apidocCodeKeywordSpan">hasAttrLocal</span>('href')));
 
 };
 ...</pre></li>
@@ -4541,9 +4534,9 @@ exports.fn = function(item) {
 
     if (!param) return !!this.elem;
 
-    if (Array.isArray(param)) return !!this.elem &#x26;&#x26; (param.indexOf(this.elem) &#x3e; -1);
+    if (Array.isArray(param)) return !!this.elem &amp;&amp; (param.indexOf(this.elem) &gt; -1);
 
-    return !!this.elem &#x26;&#x26; this.elem === param;
+    return !!this.elem &amp;&amp; this.elem === param;
 
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
@@ -4554,12 +4547,12 @@ exports.fn = function(item) {
 var attributes = params.attributes || [ params.attribute ],
     svg = data.content[0];
 
-if (svg.<span class="apidocCodeKeywordSpan">isElem</span>(&#x27;svg&#x27;)) {
+if (svg.<span class="apidocCodeKeywordSpan">isElem</span>('svg')) {
     attributes.forEach(function (attribute) {
         if (!svg.hasAttr(attribute)) {
             svg.addAttr({
                 name: attribute,
-                prefix: &#x27;&#x27;,
+                prefix: '',
                 local: attribute
             });
 ...</pre></li>
@@ -4580,21 +4573,21 @@ if (svg.<span class="apidocCodeKeywordSpan">isElem</span>(&#x27;svg&#x27;)) {
 
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
-var collections = require(&#x27;./_collections&#x27;),
+var collections = require('./_collections'),
    attrsInheritable = collections.inheritableAttrs,
    animationElems = collections.elemsGroups.animation;
 
 function hasAnimatedAttr(item) {
    /* jshint validthis:true */
-   return item.isElem(animationElems) &#x26;&#x26; item.hasAttr(&#x27;attributeName&#x27;, this) ||
-       !item.<span class="apidocCodeKeywordSpan">isEmpty</span>() &#x26;&#x26; item.content.some(hasAnimatedAttr, this);
+   return item.isElem(animationElems) &amp;&amp; item.hasAttr('attributeName', this) ||
+       !item.<span class="apidocCodeKeywordSpan">isEmpty</span>() &amp;&amp; item.content.some(hasAnimatedAttr, this);
 }
 
 /*
 * Collapse useless groups.
 *
 * @example
-* &#x3c;g&#x3e;
+* &lt;g&gt;
 ...</pre></li>
     </ul>
 
@@ -4615,7 +4608,7 @@ function hasAnimatedAttr(item) {
 
     if (!this.hasAttr(name)) return false;
 
-    if (!recursive &#x26;&#x26; val &#x26;&#x26; this.attrs[name].value !== val) return false;
+    if (!recursive &amp;&amp; val &amp;&amp; this.attrs[name].value !== val) return false;
 
     delete this.attrs[name];
 
@@ -4628,13 +4621,13 @@ function hasAnimatedAttr(item) {
 
     if (match) {
         if (
-            item.attr(&#x27;width&#x27;).value === match[1] &#x26;&#x26;
-            item.attr(&#x27;height&#x27;).value === match[3]
+            item.attr('width').value === match[1] &amp;&amp;
+            item.attr('height').value === match[3]
         ) {
-            if (item.isElem(&#x27;svg&#x27;)) {
-                item.<span class="apidocCodeKeywordSpan">removeAttr</span>(&#x27;enable-background&#x27;);
+            if (item.isElem('svg')) {
+                item.<span class="apidocCodeKeywordSpan">removeAttr</span>('enable-background');
             } else {
-                item.attr(&#x27;enable-background&#x27;).value = &#x27;new&#x27;;
+                item.attr('enable-background').value = 'new';
             }
         }
     }
@@ -4654,7 +4647,7 @@ function hasAnimatedAttr(item) {
     <ul>
     <li>description and source-code<pre class="apidocCodePre">renameElem = function (name) {
 
-    if (name &#x26;&#x26; typeof name === &#x27;string&#x27;)
+    if (name &amp;&amp; typeof name === 'string')
         this.elem = this.local = name;
 
     return this;
@@ -4662,20 +4655,20 @@ function hasAnimatedAttr(item) {
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
 item.addAttr({
-        name: &#x27;d&#x27;,
+        name: 'd',
         value: pathData,
-        prefix: &#x27;&#x27;,
-        local: &#x27;d&#x27;
+        prefix: '',
+        local: 'd'
     });
 
-item.<span class="apidocCodeKeywordSpan">renameElem</span>(&#x27;path&#x27;)
-    .removeAttr([&#x27;x&#x27;, &#x27;y&#x27;, &#x27;width&#x27;, &#x27;height&#x27;]);
+item.<span class="apidocCodeKeywordSpan">renameElem</span>('path')
+    .removeAttr(['x', 'y', 'width', 'height']);
 
-    } else if (item.isElem(&#x27;line&#x27;)) {
+    } else if (item.isElem('line')) {
 
-var x1 = +(item.attr(&#x27;x1&#x27;) || none).value,
-    y1 = +(item.attr(&#x27;y1&#x27;) || none).value,
-    x2 = +(item.attr(&#x27;x2&#x27;) || none).value,
+var x1 = +(item.attr('x1') || none).value,
+    y1 = +(item.attr('y1') || none).value,
+    x2 = +(item.attr('x2') || none).value,
 ...</pre></li>
     </ul>
 
@@ -4702,16 +4695,16 @@ var x1 = +(item.attr(&#x27;x1&#x27;) || none).value,
     <li>example usage<pre class="apidocCodePre">...
 exports.fn = function(item) {
 
-// move group transform attr to content&#x27;s pathElems
+// move group transform attr to content's pathElems
 if (
-    item.isElem(&#x27;g&#x27;) &#x26;&#x26;
-    item.hasAttr(&#x27;transform&#x27;) &#x26;&#x26;
-    !item.isEmpty() &#x26;&#x26;
+    item.isElem('g') &amp;&amp;
+    item.hasAttr('transform') &amp;&amp;
+    !item.isEmpty() &amp;&amp;
     !item.<span class="apidocCodeKeywordSpan">someAttr</span>(function(attr) {
-        return ~referencesProps.indexOf(attr.name) &#x26;&#x26; ~attr.value.indexOf(&#x27;url(&#x27;);
-    }) &#x26;&#x26;
+        return ~referencesProps.indexOf(attr.name) &amp;&amp; ~attr.value.indexOf('url(');
+    }) &amp;&amp;
     item.content.every(function(inner) {
-        return inner.isElem(pathElems) &#x26;&#x26; !inner.hasAttr(&#x27;id&#x27;);
+        return inner.isElem(pathElems) &amp;&amp; !inner.hasAttr('id');
     })
 ) {
     item.content.forEach(function(inner) {
@@ -4729,7 +4722,7 @@ if (
     <ul>
     <li>description and source-code<pre class="apidocCodePre">spliceContent = function (start, n, insertion) {
 
-    if (arguments.length &#x3c; 2) return [];
+    if (arguments.length &lt; 2) return [];
 
     if (!Array.isArray(insertion))
         insertion = Array.apply(null, arguments).slice(2);
@@ -4747,7 +4740,7 @@ if (
             }
 
             // collapse groups without attributes
-            if (!g.hasAttr() &#x26;&#x26; !g.content.some(function(item) { return item.isElem(animationElems) })) {
+            if (!g.hasAttr() &amp;&amp; !g.content.some(function(item) { return item.isElem(animationElems) })) {
                 item.<span class="apidocCodeKeywordSpan">spliceContent</span>(i, 1, g.content);
             }
         }
@@ -4783,13 +4776,13 @@ if (
 
     item.content = item.content.filter(function(contentItem) {
 
-        if (prevContentItem &#x26;&#x26;
-            prevContentItem.isElem(&#x27;path&#x27;) &#x26;&#x26;
-            prevContentItem.isEmpty() &#x26;&#x26;
-            prevContentItem.hasAttr(&#x27;d&#x27;) &#x26;&#x26;
-            contentItem.isElem(&#x27;path&#x27;) &#x26;&#x26;
-            contentItem.isEmpty() &#x26;&#x26;
-            contentItem.hasAttr(&#x27;d&#x27;)
+        if (prevContentItem &amp;&amp;
+            prevContentItem.isElem('path') &amp;&amp;
+            prevContentItem.isEmpty() &amp;&amp;
+            prevContentItem.hasAttr('d') &amp;&amp;
+            contentItem.isElem('path') &amp;&amp;
+            contentItem.isEmpty() &amp;&amp;
+            contentItem.hasAttr('d')
         ) {
 
             if (!prevContentItemKeys) {
@@ -4797,16 +4790,16 @@ if (
             }
 
             var contentItemAttrs = Object.keys(contentItem.attrs),
-                equalData = prevContentItemKeys.length == contentItemAttrs.length &#x26;&#x26;
+                equalData = prevContentItemKeys.length == contentItemAttrs.length &amp;&amp;
                     contentItemAttrs.every(function(key) {
-                        return key == &#x27;d&#x27; ||
-                            prevContentItem.hasAttr(key) &#x26;&#x26;
+                        return key == 'd' ||
+                            prevContentItem.hasAttr(key) &amp;&amp;
                             prevContentItem.attr(key).value == contentItem.attr(key).value;
                     }),
                 prevPathJS = path2js(prevContentItem),
                 curPathJS = path2js(contentItem);
 
-            if (equalData &#x26;&#x26; !intersects(prevPathJS, curPathJS)) {
+            if (equalData &amp;&amp; !intersects(prevPathJS, curPathJS)) {
                 js2path(prevContentItem, prevPathJS.concat(curPathJS), params);
                 return false;
             }
@@ -4824,16 +4817,16 @@ if (
 // main filter
 var filter = true;
 
-for (var i = 0; filter &#x26;&#x26; i &#x3c; plugins.length; i++) {
+for (var i = 0; filter &amp;&amp; i &lt; plugins.length; i++) {
     var plugin = plugins[i];
 
-    if (plugin.active &#x26;&#x26; plugin.<span class="apidocCodeKeywordSpan">fn</span>(item, plugin.params) === false) {
+    if (plugin.active &amp;&amp; plugin.<span class="apidocCodeKeywordSpan">fn</span>(item, plugin.params) === false) {
         filter = false;
     }
 }
 
 // direct pass
-if (!reverse &#x26;&#x26; item.content) {
+if (!reverse &amp;&amp; item.content) {
     monkeys(item);
 ...</pre></li>
     </ul>
@@ -4863,20 +4856,20 @@ if (!reverse &#x26;&#x26; item.content) {
     <li>description and source-code<pre class="apidocCodePre">fn = function (item, svgoOptions) {
 
     if(item.elem) {
-        if(item.isElem(&#x27;style&#x27;) &#x26;&#x26; !item.isEmpty()) {
+        if(item.isElem('style') &amp;&amp; !item.isEmpty()) {
             var styleCss = item.content[0].text || item.content[0].cdata || [],
-                DATA = styleCss.indexOf(&#x27;&#x3e;&#x27;) &#x3e;= 0 || styleCss.indexOf(&#x27;&#x3c;&#x27;) &#x3e;= 0 ? &#x27;cdata&#x27; : &#x27;text&#x27;;
-            if(styleCss.length &#x3e; 0) {
+                DATA = styleCss.indexOf('&gt;') &gt;= 0 || styleCss.indexOf('&lt;') &gt;= 0 ? 'cdata' : 'text';
+            if(styleCss.length &gt; 0) {
                 var styleCssMinified = csso.minify(styleCss, svgoOptions);
                 item.content[0][DATA] = styleCssMinified.css;
             }
       }
 
-      if(item.hasAttr(&#x27;style&#x27;)) {
-          var itemCss = item.attr(&#x27;style&#x27;).value;
-          if(itemCss.length &#x3e; 0) {
+      if(item.hasAttr('style')) {
+          var itemCss = item.attr('style').value;
+          if(itemCss.length &gt; 0) {
               var itemCssMinified = csso.minifyBlock(itemCss, svgoOptions);
-              item.attr(&#x27;style&#x27;).value = itemCssMinified.css;
+              item.attr('style').value = itemCssMinified.css;
           }
       }
     }
@@ -4888,16 +4881,16 @@ if (!reverse &#x26;&#x26; item.content) {
 // main filter
 var filter = true;
 
-for (var i = 0; filter &#x26;&#x26; i &#x3c; plugins.length; i++) {
+for (var i = 0; filter &amp;&amp; i &lt; plugins.length; i++) {
     var plugin = plugins[i];
 
-    if (plugin.active &#x26;&#x26; plugin.<span class="apidocCodeKeywordSpan">fn</span>(item, plugin.params) === false) {
+    if (plugin.active &amp;&amp; plugin.<span class="apidocCodeKeywordSpan">fn</span>(item, plugin.params) === false) {
         filter = false;
     }
 }
 
 // direct pass
-if (!reverse &#x26;&#x26; item.content) {
+if (!reverse &amp;&amp; item.content) {
     monkeys(item);
 ...</pre></li>
     </ul>
@@ -4926,15 +4919,15 @@ if (!reverse &#x26;&#x26; item.content) {
     <ul>
     <li>description and source-code<pre class="apidocCodePre">fn = function (item) {
 
-    if (item.isElem(&#x27;g&#x27;) &#x26;&#x26; !item.isEmpty() &#x26;&#x26; item.content.length &#x3e; 1) {
+    if (item.isElem('g') &amp;&amp; !item.isEmpty() &amp;&amp; item.content.length &gt; 1) {
 
         var intersection = {},
             hasTransform = false,
-            hasClip = item.hasAttr(&#x27;clip-path&#x27;) || item.hasAttr(&#x27;mask&#x27;),
+            hasClip = item.hasAttr('clip-path') || item.hasAttr('mask'),
             intersected = item.content.every(function(inner) {
-                if (inner.isElem() &#x26;&#x26; inner.hasAttr()) {
-                    // don&#x27;t mess with possible styles (hack until CSS parsing is implemented)
-                    if (inner.hasAttr(&#x27;class&#x27;)) return false;
+                if (inner.isElem() &amp;&amp; inner.hasAttr()) {
+                    // don't mess with possible styles (hack until CSS parsing is implemented)
+                    if (inner.hasAttr('class')) return false;
                     if (!Object.keys(intersection).length) {
                         intersection = inner.attrs;
                     } else {
@@ -4956,14 +4949,14 @@ if (!reverse &#x26;&#x26; item.content) {
 
                 for (var name in intersection) {
 
-                    if (!allPath &#x26;&#x26; !hasClip || name !== &#x27;transform&#x27;) {
+                    if (!allPath &amp;&amp; !hasClip || name !== 'transform') {
 
                         g.removeAttr(name);
 
-                        if (name === &#x27;transform&#x27;) {
+                        if (name === 'transform') {
                             if (!hasTransform) {
-                                if (item.hasAttr(&#x27;transform&#x27;)) {
-                                    item.attr(&#x27;transform&#x27;).value += &#x27; &#x27; + intersection[name].value;
+                                if (item.hasAttr('transform')) {
+                                    item.attr('transform').value += ' ' + intersection[name].value;
                                 } else {
                                     item.addAttr(intersection[name]);
                                 }
@@ -4989,16 +4982,16 @@ if (!reverse &#x26;&#x26; item.content) {
 // main filter
 var filter = true;
 
-for (var i = 0; filter &#x26;&#x26; i &#x3c; plugins.length; i++) {
+for (var i = 0; filter &amp;&amp; i &lt; plugins.length; i++) {
     var plugin = plugins[i];
 
-    if (plugin.active &#x26;&#x26; plugin.<span class="apidocCodeKeywordSpan">fn</span>(item, plugin.params) === false) {
+    if (plugin.active &amp;&amp; plugin.<span class="apidocCodeKeywordSpan">fn</span>(item, plugin.params) === false) {
         filter = false;
     }
 }
 
 // direct pass
-if (!reverse &#x26;&#x26; item.content) {
+if (!reverse &amp;&amp; item.content) {
     monkeys(item);
 ...</pre></li>
     </ul>
@@ -5025,33 +5018,33 @@ if (!reverse &#x26;&#x26; item.content) {
     <ul>
     <li>description and source-code<pre class="apidocCodePre">fn = function (item) {
 
-    // move group transform attr to content&#x27;s pathElems
+    // move group transform attr to content's pathElems
     if (
-        item.isElem(&#x27;g&#x27;) &#x26;&#x26;
-        item.hasAttr(&#x27;transform&#x27;) &#x26;&#x26;
-        !item.isEmpty() &#x26;&#x26;
+        item.isElem('g') &amp;&amp;
+        item.hasAttr('transform') &amp;&amp;
+        !item.isEmpty() &amp;&amp;
         !item.someAttr(function(attr) {
-            return ~referencesProps.indexOf(attr.name) &#x26;&#x26; ~attr.value.indexOf(&#x27;url(&#x27;);
-        }) &#x26;&#x26;
+            return ~referencesProps.indexOf(attr.name) &amp;&amp; ~attr.value.indexOf('url(');
+        }) &amp;&amp;
         item.content.every(function(inner) {
-            return inner.isElem(pathElems) &#x26;&#x26; !inner.hasAttr(&#x27;id&#x27;);
+            return inner.isElem(pathElems) &amp;&amp; !inner.hasAttr('id');
         })
     ) {
         item.content.forEach(function(inner) {
-            var attr = item.attr(&#x27;transform&#x27;);
-            if (inner.hasAttr(&#x27;transform&#x27;)) {
-                inner.attr(&#x27;transform&#x27;).value = attr.value + &#x27; &#x27; + inner.attr(&#x27;transform&#x27;).value;
+            var attr = item.attr('transform');
+            if (inner.hasAttr('transform')) {
+                inner.attr('transform').value = attr.value + ' ' + inner.attr('transform').value;
             } else {
                 inner.addAttr({
-                    &#x27;name&#x27;: attr.name,
-                    &#x27;local&#x27;: attr.local,
-                    &#x27;prefix&#x27;: attr.prefix,
-                    &#x27;value&#x27;: attr.value
+                    'name': attr.name,
+                    'local': attr.local,
+                    'prefix': attr.prefix,
+                    'value': attr.value
                 });
             }
         });
 
-        item.removeAttr(&#x27;transform&#x27;);
+        item.removeAttr('transform');
     }
 
 }</pre></li>
@@ -5060,16 +5053,16 @@ if (!reverse &#x26;&#x26; item.content) {
 // main filter
 var filter = true;
 
-for (var i = 0; filter &#x26;&#x26; i &#x3c; plugins.length; i++) {
+for (var i = 0; filter &amp;&amp; i &lt; plugins.length; i++) {
     var plugin = plugins[i];
 
-    if (plugin.active &#x26;&#x26; plugin.<span class="apidocCodeKeywordSpan">fn</span>(item, plugin.params) === false) {
+    if (plugin.active &amp;&amp; plugin.<span class="apidocCodeKeywordSpan">fn</span>(item, plugin.params) === false) {
         filter = false;
     }
 }
 
 // direct pass
-if (!reverse &#x26;&#x26; item.content) {
+if (!reverse &amp;&amp; item.content) {
     monkeys(item);
 ...</pre></li>
     </ul>
@@ -5108,7 +5101,7 @@ if (!reverse &#x26;&#x26; item.content) {
 
                 // apply to all elements if specifc element is omitted
             if (pattern.indexOf(ELEM_SEP) === -1) {
-                pattern = [&#x27;.*&#x27;, ELEM_SEP, pattern].join(&#x27;&#x27;);
+                pattern = ['.*', ELEM_SEP, pattern].join('');
             }
 
                 // create regexps for element and attribute name
@@ -5116,9 +5109,9 @@ if (!reverse &#x26;&#x26; item.content) {
                 .map(function(value) {
 
                         // adjust single * to match anything
-                    if (value === &#x27;*&#x27;) { value = &#x27;.*&#x27;; }
+                    if (value === '*') { value = '.*'; }
 
-                    return new RegExp([&#x27;^&#x27;, value, &#x27;$&#x27;].join(&#x27;&#x27;), &#x27;i&#x27;);
+                    return new RegExp(['^', value, '$'].join(''), 'i');
                 });
 
         });
@@ -5152,16 +5145,16 @@ if (!reverse &#x26;&#x26; item.content) {
 // main filter
 var filter = true;
 
-for (var i = 0; filter &#x26;&#x26; i &#x3c; plugins.length; i++) {
+for (var i = 0; filter &amp;&amp; i &lt; plugins.length; i++) {
     var plugin = plugins[i];
 
-    if (plugin.active &#x26;&#x26; plugin.<span class="apidocCodeKeywordSpan">fn</span>(item, plugin.params) === false) {
+    if (plugin.active &amp;&amp; plugin.<span class="apidocCodeKeywordSpan">fn</span>(item, plugin.params) === false) {
         filter = false;
     }
 }
 
 // direct pass
-if (!reverse &#x26;&#x26; item.content) {
+if (!reverse &amp;&amp; item.content) {
     monkeys(item);
 ...</pre></li>
     </ul>
@@ -5190,7 +5183,7 @@ if (!reverse &#x26;&#x26; item.content) {
     <ul>
     <li>description and source-code<pre class="apidocCodePre">fn = function (item) {
 
-    if (item.comment &#x26;&#x26; item.comment.charAt(0) !== &#x27;!&#x27;) {
+    if (item.comment &amp;&amp; item.comment.charAt(0) !== '!') {
         return false;
     }
 
@@ -5200,16 +5193,16 @@ if (!reverse &#x26;&#x26; item.content) {
 // main filter
 var filter = true;
 
-for (var i = 0; filter &#x26;&#x26; i &#x3c; plugins.length; i++) {
+for (var i = 0; filter &amp;&amp; i &lt; plugins.length; i++) {
     var plugin = plugins[i];
 
-    if (plugin.active &#x26;&#x26; plugin.<span class="apidocCodeKeywordSpan">fn</span>(item, plugin.params) === false) {
+    if (plugin.active &amp;&amp; plugin.<span class="apidocCodeKeywordSpan">fn</span>(item, plugin.params) === false) {
         filter = false;
     }
 }
 
 // direct pass
-if (!reverse &#x26;&#x26; item.content) {
+if (!reverse &amp;&amp; item.content) {
     monkeys(item);
 ...</pre></li>
     </ul>
@@ -5236,7 +5229,7 @@ if (!reverse &#x26;&#x26; item.content) {
     <ul>
     <li>description and source-code<pre class="apidocCodePre">fn = function (item, params) {
 
-    return !item.isElem(&#x27;desc&#x27;) || !(params.removeAny || item.isEmpty() ||
+    return !item.isElem('desc') || !(params.removeAny || item.isEmpty() ||
             standardDescs.test(item.content[0].text));
 
 }</pre></li>
@@ -5245,16 +5238,16 @@ if (!reverse &#x26;&#x26; item.content) {
 // main filter
 var filter = true;
 
-for (var i = 0; filter &#x26;&#x26; i &#x3c; plugins.length; i++) {
+for (var i = 0; filter &amp;&amp; i &lt; plugins.length; i++) {
     var plugin = plugins[i];
 
-    if (plugin.active &#x26;&#x26; plugin.<span class="apidocCodeKeywordSpan">fn</span>(item, plugin.params) === false) {
+    if (plugin.active &amp;&amp; plugin.<span class="apidocCodeKeywordSpan">fn</span>(item, plugin.params) === false) {
         filter = false;
     }
 }
 
 // direct pass
-if (!reverse &#x26;&#x26; item.content) {
+if (!reverse &amp;&amp; item.content) {
     monkeys(item);
 ...</pre></li>
     </ul>
@@ -5284,11 +5277,11 @@ if (!reverse &#x26;&#x26; item.content) {
     <li>description and source-code<pre class="apidocCodePre">fn = function (item) {
 
     if (
-        item.isElem(&#x27;svg&#x27;) &#x26;&#x26;
-        item.hasAttr(&#x27;viewBox&#x27;)
+        item.isElem('svg') &amp;&amp;
+        item.hasAttr('viewBox')
     ) {
-        item.removeAttr(&#x27;width&#x27;);
-        item.removeAttr(&#x27;height&#x27;);
+        item.removeAttr('width');
+        item.removeAttr('height');
     }
 
 }</pre></li>
@@ -5297,16 +5290,16 @@ if (!reverse &#x26;&#x26; item.content) {
 // main filter
 var filter = true;
 
-for (var i = 0; filter &#x26;&#x26; i &#x3c; plugins.length; i++) {
+for (var i = 0; filter &amp;&amp; i &lt; plugins.length; i++) {
     var plugin = plugins[i];
 
-    if (plugin.active &#x26;&#x26; plugin.<span class="apidocCodeKeywordSpan">fn</span>(item, plugin.params) === false) {
+    if (plugin.active &amp;&amp; plugin.<span class="apidocCodeKeywordSpan">fn</span>(item, plugin.params) === false) {
         filter = false;
     }
 }
 
 // direct pass
-if (!reverse &#x26;&#x26; item.content) {
+if (!reverse &amp;&amp; item.content) {
     monkeys(item);
 ...</pre></li>
     </ul>
@@ -5343,16 +5336,16 @@ if (!reverse &#x26;&#x26; item.content) {
 // main filter
 var filter = true;
 
-for (var i = 0; filter &#x26;&#x26; i &#x3c; plugins.length; i++) {
+for (var i = 0; filter &amp;&amp; i &lt; plugins.length; i++) {
     var plugin = plugins[i];
 
-    if (plugin.active &#x26;&#x26; plugin.<span class="apidocCodeKeywordSpan">fn</span>(item, plugin.params) === false) {
+    if (plugin.active &amp;&amp; plugin.<span class="apidocCodeKeywordSpan">fn</span>(item, plugin.params) === false) {
         filter = false;
     }
 }
 
 // direct pass
-if (!reverse &#x26;&#x26; item.content) {
+if (!reverse &amp;&amp; item.content) {
     monkeys(item);
 ...</pre></li>
     </ul>
@@ -5385,28 +5378,28 @@ if (!reverse &#x26;&#x26; item.content) {
 
     if (item.elem) {
 
-        if (item.isElem(&#x27;svg&#x27;)) {
+        if (item.isElem('svg')) {
 
             item.eachAttr(function(attr) {
-                if (attr.prefix === &#x27;xmlns&#x27; &#x26;&#x26; editorNamespaces.indexOf(attr.value) &#x3e; -1) {
+                if (attr.prefix === 'xmlns' &amp;&amp; editorNamespaces.indexOf(attr.value) &gt; -1) {
                     prefixes.push(attr.local);
 
-                    // &#x3c;svg xmlns:sodipodi=&#x22;&#x22;&#x3e;
+                    // &lt;svg xmlns:sodipodi=""&gt;
                     item.removeAttr(attr.name);
                 }
             });
 
         }
 
-        // &#x3c;* sodipodi:*=&#x22;&#x22;&#x3e;
+        // &lt;* sodipodi:*=""&gt;
         item.eachAttr(function(attr) {
-            if (prefixes.indexOf(attr.prefix) &#x3e; -1) {
+            if (prefixes.indexOf(attr.prefix) &gt; -1) {
                 item.removeAttr(attr.name);
             }
         });
 
-        // &#x3c;sodipodi:*&#x3e;
-        if (prefixes.indexOf(item.prefix) &#x3e; -1) {
+        // &lt;sodipodi:*&gt;
+        if (prefixes.indexOf(item.prefix) &gt; -1) {
             return false;
         }
 
@@ -5418,16 +5411,16 @@ if (!reverse &#x26;&#x26; item.content) {
 // main filter
 var filter = true;
 
-for (var i = 0; filter &#x26;&#x26; i &#x3c; plugins.length; i++) {
+for (var i = 0; filter &amp;&amp; i &lt; plugins.length; i++) {
     var plugin = plugins[i];
 
-    if (plugin.active &#x26;&#x26; plugin.<span class="apidocCodeKeywordSpan">fn</span>(item, plugin.params) === false) {
+    if (plugin.active &amp;&amp; plugin.<span class="apidocCodeKeywordSpan">fn</span>(item, plugin.params) === false) {
         filter = false;
     }
 }
 
 // direct pass
-if (!reverse &#x26;&#x26; item.content) {
+if (!reverse &amp;&amp; item.content) {
     monkeys(item);
 ...</pre></li>
     </ul>
@@ -5458,7 +5451,7 @@ if (!reverse &#x26;&#x26; item.content) {
     var elemId, elemClass;
 
     // wrap params in an array if not already
-    [&#x27;id&#x27;, &#x27;class&#x27;].forEach(function(key) {
+    ['id', 'class'].forEach(function(key) {
         if (!Array.isArray(params[key])) {
             params[key] = [ params[key] ];
         }
@@ -5469,16 +5462,16 @@ if (!reverse &#x26;&#x26; item.content) {
         return;
     }
 
-    // remove element if it&#x27;s `id` matches configured `id` params
-    elemId = item.attr(&#x27;id&#x27;);
+    // remove element if it's `id` matches configured `id` params
+    elemId = item.attr('id');
     if (elemId) {
         return params.id.indexOf(elemId.value) === -1;
     }
 
-    // remove element if it&#x27;s `class` contains any of the configured `class` params
-    elemClass = item.attr(&#x27;class&#x27;);
+    // remove element if it's `class` contains any of the configured `class` params
+    elemClass = item.attr('class');
     if (elemClass) {
-        var hasClassRegex = new RegExp(params.class.join(&#x27;|&#x27;));
+        var hasClassRegex = new RegExp(params.class.join('|'));
         return !hasClassRegex.test(elemClass.value);
     }
 }</pre></li>
@@ -5487,16 +5480,16 @@ if (!reverse &#x26;&#x26; item.content) {
 // main filter
 var filter = true;
 
-for (var i = 0; filter &#x26;&#x26; i &#x3c; plugins.length; i++) {
+for (var i = 0; filter &amp;&amp; i &lt; plugins.length; i++) {
     var plugin = plugins[i];
 
-    if (plugin.active &#x26;&#x26; plugin.<span class="apidocCodeKeywordSpan">fn</span>(item, plugin.params) === false) {
+    if (plugin.active &amp;&amp; plugin.<span class="apidocCodeKeywordSpan">fn</span>(item, plugin.params) === false) {
         filter = false;
     }
 }
 
 // direct pass
-if (!reverse &#x26;&#x26; item.content) {
+if (!reverse &amp;&amp; item.content) {
     monkeys(item);
 ...</pre></li>
     </ul>
@@ -5528,7 +5521,7 @@ if (!reverse &#x26;&#x26; item.content) {
     if (item.elem) {
 
         item.eachAttr(function(attr) {
-            if (attr.value === &#x27;&#x27;) {
+            if (attr.value === '') {
                 item.removeAttr(attr.name);
             }
         });
@@ -5541,16 +5534,16 @@ if (!reverse &#x26;&#x26; item.content) {
 // main filter
 var filter = true;
 
-for (var i = 0; filter &#x26;&#x26; i &#x3c; plugins.length; i++) {
+for (var i = 0; filter &amp;&amp; i &lt; plugins.length; i++) {
     var plugin = plugins[i];
 
-    if (plugin.active &#x26;&#x26; plugin.<span class="apidocCodeKeywordSpan">fn</span>(item, plugin.params) === false) {
+    if (plugin.active &amp;&amp; plugin.<span class="apidocCodeKeywordSpan">fn</span>(item, plugin.params) === false) {
         filter = false;
     }
 }
 
 // direct pass
-if (!reverse &#x26;&#x26; item.content) {
+if (!reverse &amp;&amp; item.content) {
     monkeys(item);
 ...</pre></li>
     </ul>
@@ -5577,8 +5570,8 @@ if (!reverse &#x26;&#x26; item.content) {
     <ul>
     <li>description and source-code<pre class="apidocCodePre">fn = function (item) {
 
-    return !(item.isElem(container) &#x26;&#x26; !item.isElem(&#x27;svg&#x27;) &#x26;&#x26; item.isEmpty() &#x26;&#x26;
-        (!item.isElem(&#x27;pattern&#x27;) || !item.hasAttrLocal(&#x27;href&#x27;)));
+    return !(item.isElem(container) &amp;&amp; !item.isElem('svg') &amp;&amp; item.isEmpty() &amp;&amp;
+        (!item.isElem('pattern') || !item.hasAttrLocal('href')));
 
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
@@ -5586,16 +5579,16 @@ if (!reverse &#x26;&#x26; item.content) {
 // main filter
 var filter = true;
 
-for (var i = 0; filter &#x26;&#x26; i &#x3c; plugins.length; i++) {
+for (var i = 0; filter &amp;&amp; i &lt; plugins.length; i++) {
     var plugin = plugins[i];
 
-    if (plugin.active &#x26;&#x26; plugin.<span class="apidocCodeKeywordSpan">fn</span>(item, plugin.params) === false) {
+    if (plugin.active &amp;&amp; plugin.<span class="apidocCodeKeywordSpan">fn</span>(item, plugin.params) === false) {
         filter = false;
     }
 }
 
 // direct pass
-if (!reverse &#x26;&#x26; item.content) {
+if (!reverse &amp;&amp; item.content) {
     monkeys(item);
 ...</pre></li>
     </ul>
@@ -5624,23 +5617,23 @@ if (!reverse &#x26;&#x26; item.content) {
 
     // Remove empty text element
     if (
-        params.text &#x26;&#x26;
-        item.isElem(&#x27;text&#x27;) &#x26;&#x26;
+        params.text &amp;&amp;
+        item.isElem('text') &amp;&amp;
         item.isEmpty()
     ) return false;
 
     // Remove empty tspan element
     if (
-        params.tspan &#x26;&#x26;
-        item.isElem(&#x27;tspan&#x27;) &#x26;&#x26;
+        params.tspan &amp;&amp;
+        item.isElem('tspan') &amp;&amp;
         item.isEmpty()
     ) return false;
 
     // Remove tref with empty xlink:href attribute
     if (
-        params.tref &#x26;&#x26;
-        item.isElem(&#x27;tref&#x27;) &#x26;&#x26;
-        !item.hasAttrLocal(&#x27;href&#x27;)
+        params.tref &amp;&amp;
+        item.isElem('tref') &amp;&amp;
+        !item.hasAttrLocal('href')
     ) return false;
 
 }</pre></li>
@@ -5649,16 +5642,16 @@ if (!reverse &#x26;&#x26; item.content) {
 // main filter
 var filter = true;
 
-for (var i = 0; filter &#x26;&#x26; i &#x3c; plugins.length; i++) {
+for (var i = 0; filter &amp;&amp; i &lt; plugins.length; i++) {
     var plugin = plugins[i];
 
-    if (plugin.active &#x26;&#x26; plugin.<span class="apidocCodeKeywordSpan">fn</span>(item, plugin.params) === false) {
+    if (plugin.active &amp;&amp; plugin.<span class="apidocCodeKeywordSpan">fn</span>(item, plugin.params) === false) {
         filter = false;
     }
 }
 
 // direct pass
-if (!reverse &#x26;&#x26; item.content) {
+if (!reverse &amp;&amp; item.content) {
     monkeys(item);
 ...</pre></li>
     </ul>
@@ -5689,148 +5682,148 @@ if (!reverse &#x26;&#x26; item.content) {
 
     if (item.elem) {
 
-        // display=&#x22;none&#x22;
+        // display="none"
         //
         // http://www.w3.org/TR/SVG/painting.html#DisplayProperty
-        // &#x22;A value of display: none indicates that the given element
-        // and its children shall not be rendered directly&#x22;
+        // "A value of display: none indicates that the given element
+        // and its children shall not be rendered directly"
         if (
-            params.displayNone &#x26;&#x26;
-            item.hasAttr(&#x27;display&#x27;, &#x27;none&#x27;)
+            params.displayNone &amp;&amp;
+            item.hasAttr('display', 'none')
         ) return false;
 
-        // opacity=&#x22;0&#x22;
+        // opacity="0"
         //
         // http://www.w3.org/TR/SVG/masking.html#ObjectAndGroupOpacityProperties
         if (
-            params.opacity0 &#x26;&#x26;
-            item.hasAttr(&#x27;opacity&#x27;, &#x27;0&#x27;)
+            params.opacity0 &amp;&amp;
+            item.hasAttr('opacity', '0')
         ) return false;
 
         // Circles with zero radius
         //
         // http://www.w3.org/TR/SVG/shapes.html#CircleElementRAttribute
-        // &#x22;A value of zero disables rendering of the element&#x22;
+        // "A value of zero disables rendering of the element"
         //
-        // &#x3c;circle r=&#x22;0&#x22;&#x3e;
+        // &lt;circle r="0"&gt;
         if (
-            params.circleR0 &#x26;&#x26;
-            item.isElem(&#x27;circle&#x27;) &#x26;&#x26;
-            item.isEmpty() &#x26;&#x26;
-            item.hasAttr(&#x27;r&#x27;, &#x27;0&#x27;)
+            params.circleR0 &amp;&amp;
+            item.isElem('circle') &amp;&amp;
+            item.isEmpty() &amp;&amp;
+            item.hasAttr('r', '0')
         ) return false;
 
         // Ellipse with zero x-axis radius
         //
         // http://www.w3.org/TR/SVG/shapes.html#EllipseElementRXAttribute
-        // &#x22;A value of zero disables rendering of the element&#x22;
+        // "A value of zero disables rendering of the element"
         //
-        // &#x3c;ellipse rx=&#x22;0&#x22;&#x3e;
+        // &lt;ellipse rx="0"&gt;
         if (
-            params.ellipseRX0 &#x26;&#x26;
-            item.isElem(&#x27;ellipse&#x27;) &#x26;&#x26;
-            item.isEmpty() &#x26;&#x26;
-            item.hasAttr(&#x27;rx&#x27;, &#x27;0&#x27;)
+            params.ellipseRX0 &amp;&amp;
+            item.isElem('ellipse') &amp;&amp;
+            item.isEmpty() &amp;&amp;
+            item.hasAttr('rx', '0')
         ) return false;
 
         // Ellipse with zero y-axis radius
         //
         // http://www.w3.org/TR/SVG/shapes.html#EllipseElementRYAttribute
-        // &#x22;A value of zero disables rendering of the element&#x22;
+        // "A value of zero disables rendering of the element"
         //
-        // &#x3c;ellipse ry=&#x22;0&#x22;&#x3e;
+        // &lt;ellipse ry="0"&gt;
         if (
-            params.ellipseRY0 &#x26;&#x26;
-            item.isElem(&#x27;ellipse&#x27;) &#x26;&#x26;
-            item.isEmpty() &#x26;&#x26;
-            item.hasAttr(&#x27;ry&#x27;, &#x27;0&#x27;)
+            params.ellipseRY0 &amp;&amp;
+            item.isElem('ellipse') &amp;&amp;
+            item.isEmpty() &amp;&amp;
+            item.hasAttr('ry', '0')
         ) return false;
 
         // Rectangle with zero width
         //
         // http://www.w3.org/TR/SVG/shapes.html#RectElementWidthAttribute
-        // &#x22;A value of zero disables rendering of the element&#x22;
+        // "A value of zero disables rendering of the element"
         //
-        // &#x3c;rect width=&#x22;0&#x22;&#x3e;
+        // &lt;rect width="0"&gt;
         if (
-            params.rectWidth0 &#x26;&#x26;
-            item.isElem(&#x27;rect&#x27;) &#x26;&#x26;
-            item.isEmpty() &#x26;&#x26;
-            item.hasAttr(&#x27;width&#x27;, &#x27;0&#x27;)
+            params.rectWidth0 &amp;&amp;
+            item.isElem('rect') &amp;&amp;
+            item.isEmpty() &amp;&amp;
+            item.hasAttr('width', '0')
         ) return false;
 
         // Rectangle with zero height
         //
         // http://www.w3.org/TR/SVG/shapes.html#RectElementHeightAttribute
-        // &#x22;A value of zero disables rendering of the element&#x22;
+        // "A value of zero disables rendering of the element"
         //
-        // &#x3c;rect height=&#x22;0&#x22;&#x3e;
+        // &lt;rect height="0"&gt;
         if (
-            params.rectHeight0 &#x26;&#x26;
-            params.rectWidth0 &#x26;&#x26;
-            item.isElem(&#x27;rect&#x27;) &#x26;&#x26;
-            item.isEmpty() &#x26;&#x26;
-            item.hasAttr(&#x27;height&#x27;, &#x27;0&#x27;)
+            params.rectHeight0 &amp;&amp;
+            params.rectWidth0 &amp;&amp;
+            item.isElem('rect') &amp;&amp;
+            item.isEmpty() &amp;&amp;
+            item.hasAttr('height', '0')
         ) return false;
 
         // Pattern with zero width
         //
         // http://www.w3.org/TR/SVG/pservers.html#PatternElementWidthAttribute
-        // &#x22;A value of zero disables rendering of the element (i.e., no paint is applied)&#x22;
+        // "A value of zero disables rendering of the element (i.e., no paint is applied)"
         //
-        // &#x3c;pattern width=&#x22;0&#x22;&#x3e;
+        // &lt;pattern width="0"&gt;
         if (
-            params.patternWidth0 &#x26;&#x26;
-            item.isElem(&#x27;pattern&#x27;) &#x26;&#x26;
-            item.hasAttr(&#x27;width&#x27;, &#x27;0&#x27;)
+            params.patternWidth0 &amp;&amp;
+            item.isElem('pattern') &amp;&amp;
+            item.hasAttr('width', '0')
         ) return false;
 
         // Pattern with zero height
         //
         // http://www.w3.org/TR/SVG/pservers.html#PatternElementHeightAttribute
-        // &#x22;A value of zero disables rendering of the element (i.e., no paint is applied)&#x22;
+        // "A value of zero disables rendering of the element (i.e., no paint is applied)"
         //
-        // &#x3c;pattern height=&#x22;0&#x22;&#x3e;
+        // &lt;pattern height="0"&gt;
         if (
-            params.patternHeight0 &#x26;&#x26;
-            item.isElem(&#x27;pattern&#x27;) &#x26;&#x26;
-            item.hasAttr(&#x27;height&#x27;, &#x27;0&#x27;)
+            params.patternHeight0 &amp;&amp;
+            item.isElem('pattern') &amp;&amp;
+            item.hasAttr('height', '0')
         ) return false;
 
         // Image with zero width
         //
         // http://www.w3.org/TR/SVG/struct.html#ImageElementWidthAttribute
-        // &#x22;A value of zero disables rendering of the element&#x22;
+        // "A value of zero disables rendering of the element"
         //
-        // &#x3c;image width=&#x22;0&#x22;&#x3e;
+        // &lt;image width="0"&gt;
         if (
-            params.imageWidth0 &#x26;&#x26;
-            item.isElem(&#x27;image&#x27;) &#x26;&#x26;
-            item.hasAttr(&#x27;width&#x27;, &#x27;0&#x27;)
+            params.imageWidth0 &amp;&amp;
+            item.isElem('image') &amp;&amp;
+            item.hasAttr('width', '0')
         ) return false;
 
         // Image with zero height
         //
         // http://www.w3.org/TR/SVG/struct.html#ImageElementHeightAttribute
-        // &#x22;A value of zero disables rendering of the element&#x22;
+        // "A value of zero disables rendering of the element"
         //
-        // &#x3c;image height=&#x22;0&#x22;&#x3e;
+        // &lt;image height="0"&gt;
         if ( ...</pre></li>
     <li>example usage<pre class="apidocCodePre">...
 
 // main filter
 var filter = true;
 
-for (var i = 0; filter &#x26;&#x26; i &#x3c; plugins.length; i++) {
+for (var i = 0; filter &amp;&amp; i &lt; plugins.length; i++) {
     var plugin = plugins[i];
 
-    if (plugin.active &#x26;&#x26; plugin.<span class="apidocCodeKeywordSpan">fn</span>(item, plugin.params) === false) {
+    if (plugin.active &amp;&amp; plugin.<span class="apidocCodeKeywordSpan">fn</span>(item, plugin.params) === false) {
         filter = false;
     }
 }
 
 // direct pass
-if (!reverse &#x26;&#x26; item.content) {
+if (!reverse &amp;&amp; item.content) {
     monkeys(item);
 ...</pre></li>
     </ul>
@@ -5859,7 +5852,7 @@ if (!reverse &#x26;&#x26; item.content) {
     <ul>
     <li>description and source-code<pre class="apidocCodePre">fn = function (item) {
 
-    return !item.isElem(&#x27;metadata&#x27;);
+    return !item.isElem('metadata');
 
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
@@ -5867,16 +5860,16 @@ if (!reverse &#x26;&#x26; item.content) {
 // main filter
 var filter = true;
 
-for (var i = 0; filter &#x26;&#x26; i &#x3c; plugins.length; i++) {
+for (var i = 0; filter &amp;&amp; i &lt; plugins.length; i++) {
     var plugin = plugins[i];
 
-    if (plugin.active &#x26;&#x26; plugin.<span class="apidocCodeKeywordSpan">fn</span>(item, plugin.params) === false) {
+    if (plugin.active &amp;&amp; plugin.<span class="apidocCodeKeywordSpan">fn</span>(item, plugin.params) === false) {
         filter = false;
     }
 }
 
 // direct pass
-if (!reverse &#x26;&#x26; item.content) {
+if (!reverse &amp;&amp; item.content) {
     monkeys(item);
 ...</pre></li>
     </ul>
@@ -5903,15 +5896,15 @@ if (!reverse &#x26;&#x26; item.content) {
     <ul>
     <li>description and source-code<pre class="apidocCodePre">fn = function (item) {
 
-    if (item.isElem(&#x27;g&#x27;)) {
+    if (item.isElem('g')) {
 
         item.eachAttr(function(attr) {
             if (
-                ~attrsGroups.presentation.indexOf(attr.name) &#x26;&#x26;
-                ~attrsGroups.graphicalEvent.indexOf(attr.name) &#x26;&#x26;
-                ~attrsGroups.core.indexOf(attr.name) &#x26;&#x26;
-                ~attrsGroups.conditionalProcessing.indexOf(attr.name) &#x26;&#x26;
-                !~excludedAttrs.indexOf(attr.name) &#x26;&#x26;
+                ~attrsGroups.presentation.indexOf(attr.name) &amp;&amp;
+                ~attrsGroups.graphicalEvent.indexOf(attr.name) &amp;&amp;
+                ~attrsGroups.core.indexOf(attr.name) &amp;&amp;
+                ~attrsGroups.conditionalProcessing.indexOf(attr.name) &amp;&amp;
+                !~excludedAttrs.indexOf(attr.name) &amp;&amp;
                 !~inheritableAttrs.indexOf(attr.name)
             ) {
                 item.removeAttr(attr.name);
@@ -5926,16 +5919,16 @@ if (!reverse &#x26;&#x26; item.content) {
 // main filter
 var filter = true;
 
-for (var i = 0; filter &#x26;&#x26; i &#x3c; plugins.length; i++) {
+for (var i = 0; filter &amp;&amp; i &lt; plugins.length; i++) {
     var plugin = plugins[i];
 
-    if (plugin.active &#x26;&#x26; plugin.<span class="apidocCodeKeywordSpan">fn</span>(item, plugin.params) === false) {
+    if (plugin.active &amp;&amp; plugin.<span class="apidocCodeKeywordSpan">fn</span>(item, plugin.params) === false) {
         filter = false;
     }
 }
 
 // direct pass
-if (!reverse &#x26;&#x26; item.content) {
+if (!reverse &amp;&amp; item.content) {
     monkeys(item);
 ...</pre></li>
     </ul>
@@ -5963,8 +5956,8 @@ if (!reverse &#x26;&#x26; item.content) {
     <li>description and source-code<pre class="apidocCodePre">fn = function (item) {
 
     if (
-        item.isElem(&#x27;image&#x27;) &#x26;&#x26;
-        item.hasAttrLocal(&#x27;href&#x27;, /(\.|image\/)(jpg|png|gif)/)
+        item.isElem('image') &amp;&amp;
+        item.hasAttrLocal('href', /(\.|image\/)(jpg|png|gif)/)
     ) {
         return false;
     }
@@ -5975,16 +5968,16 @@ if (!reverse &#x26;&#x26; item.content) {
 // main filter
 var filter = true;
 
-for (var i = 0; filter &#x26;&#x26; i &#x3c; plugins.length; i++) {
+for (var i = 0; filter &amp;&amp; i &lt; plugins.length; i++) {
     var plugin = plugins[i];
 
-    if (plugin.active &#x26;&#x26; plugin.<span class="apidocCodeKeywordSpan">fn</span>(item, plugin.params) === false) {
+    if (plugin.active &amp;&amp; plugin.<span class="apidocCodeKeywordSpan">fn</span>(item, plugin.params) === false) {
         filter = false;
     }
 }
 
 // direct pass
-if (!reverse &#x26;&#x26; item.content) {
+if (!reverse &amp;&amp; item.content) {
     monkeys(item);
 ...</pre></li>
     </ul>
@@ -6011,7 +6004,7 @@ if (!reverse &#x26;&#x26; item.content) {
     <ul>
     <li>description and source-code<pre class="apidocCodePre">fn = function (item) {
 
-    return !item.isElem(&#x27;style&#x27;);
+    return !item.isElem('style');
 
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
@@ -6019,16 +6012,16 @@ if (!reverse &#x26;&#x26; item.content) {
 // main filter
 var filter = true;
 
-for (var i = 0; filter &#x26;&#x26; i &#x3c; plugins.length; i++) {
+for (var i = 0; filter &amp;&amp; i &lt; plugins.length; i++) {
     var plugin = plugins[i];
 
-    if (plugin.active &#x26;&#x26; plugin.<span class="apidocCodeKeywordSpan">fn</span>(item, plugin.params) === false) {
+    if (plugin.active &amp;&amp; plugin.<span class="apidocCodeKeywordSpan">fn</span>(item, plugin.params) === false) {
         filter = false;
     }
 }
 
 // direct pass
-if (!reverse &#x26;&#x26; item.content) {
+if (!reverse &amp;&amp; item.content) {
     monkeys(item);
 ...</pre></li>
     </ul>
@@ -6055,7 +6048,7 @@ if (!reverse &#x26;&#x26; item.content) {
     <ul>
     <li>description and source-code<pre class="apidocCodePre">fn = function (item) {
 
-    return !item.isElem(&#x27;title&#x27;);
+    return !item.isElem('title');
 
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
@@ -6063,16 +6056,16 @@ if (!reverse &#x26;&#x26; item.content) {
 // main filter
 var filter = true;
 
-for (var i = 0; filter &#x26;&#x26; i &#x3c; plugins.length; i++) {
+for (var i = 0; filter &amp;&amp; i &lt; plugins.length; i++) {
     var plugin = plugins[i];
 
-    if (plugin.active &#x26;&#x26; plugin.<span class="apidocCodeKeywordSpan">fn</span>(item, plugin.params) === false) {
+    if (plugin.active &amp;&amp; plugin.<span class="apidocCodeKeywordSpan">fn</span>(item, plugin.params) === false) {
         filter = false;
     }
 }
 
 // direct pass
-if (!reverse &#x26;&#x26; item.content) {
+if (!reverse &amp;&amp; item.content) {
     monkeys(item);
 ...</pre></li>
     </ul>
@@ -6100,28 +6093,28 @@ if (!reverse &#x26;&#x26; item.content) {
     <li>description and source-code<pre class="apidocCodePre">fn = function (item, params) {
 
     // elems w/o namespace prefix
-    if (item.isElem() &#x26;&#x26; !item.prefix) {
+    if (item.isElem() &amp;&amp; !item.prefix) {
 
         var elem = item.elem;
 
-        // remove unknown element&#x27;s content
+        // remove unknown element's content
         if (
-            params.unknownContent &#x26;&#x26;
-            !item.isEmpty() &#x26;&#x26;
-            elems[elem] &#x26;&#x26; // make sure we know of this element before checking its children
-            elem !== &#x27;foreignObject&#x27; // Don&#x27;t check foreignObject
+            params.unknownContent &amp;&amp;
+            !item.isEmpty() &amp;&amp;
+            elems[elem] &amp;&amp; // make sure we know of this element before checking its children
+            elem !== 'foreignObject' // Don't check foreignObject
         ) {
             item.content.forEach(function(content, i) {
                 if (
-                    content.isElem() &#x26;&#x26;
-                    !content.prefix &#x26;&#x26;
+                    content.isElem() &amp;&amp;
+                    !content.prefix &amp;&amp;
                     (
                         (
-                            elems[elem].content &#x26;&#x26; // Do we have a record of its permitted content?
+                            elems[elem].content &amp;&amp; // Do we have a record of its permitted content?
                             elems[elem].content.indexOf(content.elem) === -1
                         ) ||
                         (
-                            !elems[elem].content &#x26;&#x26; // we dont know about its permitted content
+                            !elems[elem].content &amp;&amp; // we dont know about its permitted content
                             !elems[content.elem] // check that we know about the element at all
                         )
                     )
@@ -6131,36 +6124,36 @@ if (!reverse &#x26;&#x26; item.content) {
             });
         }
 
-        // remove element&#x27;s unknown attrs and attrs with default values
-        if (elems[elem] &#x26;&#x26; elems[elem].attrs) {
+        // remove element's unknown attrs and attrs with default values
+        if (elems[elem] &amp;&amp; elems[elem].attrs) {
 
             item.eachAttr(function(attr) {
 
                 if (
-                    attr.name !== &#x27;xmlns&#x27; &#x26;&#x26;
-                    (attr.prefix === &#x27;xml&#x27; || !attr.prefix) &#x26;&#x26;
-                    (!params.keepDataAttrs || attr.name.indexOf(&#x27;data-&#x27;) != 0)
+                    attr.name !== 'xmlns' &amp;&amp;
+                    (attr.prefix === 'xml' || !attr.prefix) &amp;&amp;
+                    (!params.keepDataAttrs || attr.name.indexOf('data-') != 0)
                 ) {
                     if (
                         // unknown attrs
                         (
-                            params.unknownAttrs &#x26;&#x26;
+                            params.unknownAttrs &amp;&amp;
                             elems[elem].attrs.indexOf(attr.name) === -1
                         ) ||
                         // attrs with default values
                         (
-                            params.defaultAttrs &#x26;&#x26;
-                            elems[elem].defaults &#x26;&#x26;
-                            elems[elem].defaults[attr.name] === attr.value &#x26;&#x26; (
-                                attrsInheritable.indexOf(attr.name) &#x3c; 0 ||
+                            params.defaultAttrs &amp;&amp;
+                            elems[elem].defaults &amp;&amp;
+                            elems[elem].defaults[attr.name] === attr.value &amp;&amp; (
+                                attrsInheritable.indexOf(attr.name) &lt; 0 ||
                                 !item.parentNode.computedAttr(attr.name)
                             )
                         ) ||
                         // useless overrides
                         (
-                            params.uselessOverrides &#x26;&#x26;
-                            attr.name !== &#x27;transform&#x27; &#x26;&#x26;
-                            attrsInheritable.indexOf(attr.name) &#x3e; -1 &#x26;&#x26;
+                            params.uselessOverrides &amp;&amp;
+                            attr.name !== 'transform' &amp;&amp;
+                            attrsInheritable.indexOf(attr.name) &gt; -1 &amp;&amp;
                             item.parentNode.computedAttr(attr.name, attr.value)
                         )
                     ) {
@@ -6180,16 +6173,16 @@ if (!reverse &#x26;&#x26; item.content) {
 // main filter
 var filter = true;
 
-for (var i = 0; filter &#x26;&#x26; i &#x3c; plugins.length; i++) {
+for (var i = 0; filter &amp;&amp; i &lt; plugins.length; i++) {
     var plugin = plugins[i];
 
-    if (plugin.active &#x26;&#x26; plugin.<span class="apidocCodeKeywordSpan">fn</span>(item, plugin.params) === false) {
+    if (plugin.active &amp;&amp; plugin.<span class="apidocCodeKeywordSpan">fn</span>(item, plugin.params) === false) {
         filter = false;
     }
 }
 
 // direct pass
-if (!reverse &#x26;&#x26; item.content) {
+if (!reverse &amp;&amp; item.content) {
     monkeys(item);
 ...</pre></li>
     </ul>
@@ -6231,7 +6224,7 @@ if (!reverse &#x26;&#x26; item.content) {
         var pos = xmlnsCollection.indexOf(ns);
 
         // if found - remove ns from the namespaces collection
-        if (pos &#x3e; -1) {
+        if (pos &gt; -1) {
             xmlnsCollection.splice(pos, 1);
         }
 
@@ -6249,15 +6242,15 @@ if (!reverse &#x26;&#x26; item.content) {
         var i = 0,
             length = items.content.length;
 
-        while(i &#x3c; length) {
+        while(i &lt; length) {
 
             var item = items.content[i];
 
-            if (item.isElem(&#x27;svg&#x27;)) {
+            if (item.isElem('svg')) {
 
                 item.eachAttr(function(attr) {
                     // collect namespaces
-                    if (attr.prefix === &#x27;xmlns&#x27; &#x26;&#x26; attr.local) {
+                    if (attr.prefix === 'xmlns' &amp;&amp; attr.local) {
                         xmlnsCollection.push(attr.local);
                     }
                 });
@@ -6283,7 +6276,7 @@ if (!reverse &#x26;&#x26; item.content) {
             }
 
             // if nothing is found - go deeper
-            if (xmlnsCollection.length &#x26;&#x26; item.content) {
+            if (xmlnsCollection.length &amp;&amp; item.content) {
                 monkeys(item);
             }
 
@@ -6300,7 +6293,7 @@ if (!reverse &#x26;&#x26; item.content) {
     // remove svg element ns-attributes if they are not used even once
     if (xmlnsCollection.length) {
         xmlnsCollection.forEach(function(name) {
-            svgElem.removeAttr(&#x27;xmlns:&#x27; + name);
+            svgElem.removeAttr('xmlns:' + name);
         });
     }
 
@@ -6312,16 +6305,16 @@ if (!reverse &#x26;&#x26; item.content) {
 // main filter
 var filter = true;
 
-for (var i = 0; filter &#x26;&#x26; i &#x3c; plugins.length; i++) {
+for (var i = 0; filter &amp;&amp; i &lt; plugins.length; i++) {
     var plugin = plugins[i];
 
-    if (plugin.active &#x26;&#x26; plugin.<span class="apidocCodeKeywordSpan">fn</span>(item, plugin.params) === false) {
+    if (plugin.active &amp;&amp; plugin.<span class="apidocCodeKeywordSpan">fn</span>(item, plugin.params) === false) {
         filter = false;
     }
 }
 
 // direct pass
-if (!reverse &#x26;&#x26; item.content) {
+if (!reverse &amp;&amp; item.content) {
     monkeys(item);
 ...</pre></li>
     </ul>
@@ -6348,14 +6341,14 @@ if (!reverse &#x26;&#x26; item.content) {
     <ul>
     <li>description and source-code<pre class="apidocCodePre">fn = function (item) {
 
-    if (item.isElem(&#x27;defs&#x27;)) {
+    if (item.isElem('defs')) {
 
         defs = item;
         item.content = (item.content || []).reduce(getUsefulItems, []);
 
         if (item.isEmpty()) return false;
 
-    } else if (item.isElem(nonRendering) &#x26;&#x26; !item.hasAttr(&#x27;id&#x27;)) {
+    } else if (item.isElem(nonRendering) &amp;&amp; !item.hasAttr('id')) {
 
         return false;
 
@@ -6367,16 +6360,16 @@ if (!reverse &#x26;&#x26; item.content) {
 // main filter
 var filter = true;
 
-for (var i = 0; filter &#x26;&#x26; i &#x3c; plugins.length; i++) {
+for (var i = 0; filter &amp;&amp; i &lt; plugins.length; i++) {
     var plugin = plugins[i];
 
-    if (plugin.active &#x26;&#x26; plugin.<span class="apidocCodeKeywordSpan">fn</span>(item, plugin.params) === false) {
+    if (plugin.active &amp;&amp; plugin.<span class="apidocCodeKeywordSpan">fn</span>(item, plugin.params) === false) {
         filter = false;
     }
 }
 
 // direct pass
-if (!reverse &#x26;&#x26; item.content) {
+if (!reverse &amp;&amp; item.content) {
     monkeys(item);
 ...</pre></li>
     </ul>
@@ -6407,22 +6400,22 @@ if (!reverse &#x26;&#x26; item.content) {
         hasStyleOrScript = true;
     }
 
-    if (!hasStyleOrScript &#x26;&#x26; item.isElem(shape) &#x26;&#x26; !item.computedAttr(&#x27;id&#x27;)) {
+    if (!hasStyleOrScript &amp;&amp; item.isElem(shape) &amp;&amp; !item.computedAttr('id')) {
 
-        var stroke = params.stroke &#x26;&#x26; item.computedAttr(&#x27;stroke&#x27;),
-            fill = params.fill &#x26;&#x26; !item.computedAttr(&#x27;fill&#x27;, &#x27;none&#x27;);
+        var stroke = params.stroke &amp;&amp; item.computedAttr('stroke'),
+            fill = params.fill &amp;&amp; !item.computedAttr('fill', 'none');
 
         // remove stroke*
         if (
-            params.stroke &#x26;&#x26;
+            params.stroke &amp;&amp;
             (!stroke ||
-                stroke == &#x27;none&#x27; ||
-                item.computedAttr(&#x27;stroke-opacity&#x27;, &#x27;0&#x27;) ||
-                item.computedAttr(&#x27;stroke-width&#x27;, &#x27;0&#x27;)
+                stroke == 'none' ||
+                item.computedAttr('stroke-opacity', '0') ||
+                item.computedAttr('stroke-width', '0')
             )
         ) {
-            var parentStroke = item.parentNode.computedAttr(&#x27;stroke&#x27;),
-                declineStroke = parentStroke &#x26;&#x26; parentStroke != &#x27;none&#x27;;
+            var parentStroke = item.parentNode.computedAttr('stroke'),
+                declineStroke = parentStroke &amp;&amp; parentStroke != 'none';
 
             item.eachAttr(function(attr) {
                 if (regStrokeProps.test(attr.name)) {
@@ -6431,17 +6424,17 @@ if (!reverse &#x26;&#x26; item.content) {
             });
 
             if (declineStroke) item.addAttr({
-                name: &#x27;stroke&#x27;,
-                value: &#x27;none&#x27;,
-                prefix: &#x27;&#x27;,
-                local: &#x27;stroke&#x27;
+                name: 'stroke',
+                value: 'none',
+                prefix: '',
+                local: 'stroke'
             });
         }
 
         // remove fill*
         if (
-            params.fill &#x26;&#x26;
-            (!fill || item.computedAttr(&#x27;fill-opacity&#x27;, &#x27;0&#x27;))
+            params.fill &amp;&amp;
+            (!fill || item.computedAttr('fill-opacity', '0'))
         ) {
             item.eachAttr(function(attr) {
                 if (regFillProps.test(attr.name)) {
@@ -6450,14 +6443,14 @@ if (!reverse &#x26;&#x26; item.content) {
             });
 
             if (fill) {
-                if (item.hasAttr(&#x27;fill&#x27;))
-                    item.attr(&#x27;fill&#x27;).value = &#x27;none&#x27;;
+                if (item.hasAttr('fill'))
+                    item.attr('fill').value = 'none';
                 else
                     item.addAttr({
-                        name: &#x27;fill&#x27;,
-                        value: &#x27;none&#x27;,
-                        prefix: &#x27;&#x27;,
-                        local: &#x27;fill&#x27;
+                        name: 'fill',
+                        value: 'none',
+                        prefix: '',
+                        local: 'fill'
                     });
             }
         }
@@ -6470,16 +6463,16 @@ if (!reverse &#x26;&#x26; item.content) {
 // main filter
 var filter = true;
 
-for (var i = 0; filter &#x26;&#x26; i &#x3c; plugins.length; i++) {
+for (var i = 0; filter &amp;&amp; i &lt; plugins.length; i++) {
     var plugin = plugins[i];
 
-    if (plugin.active &#x26;&#x26; plugin.<span class="apidocCodeKeywordSpan">fn</span>(item, plugin.params) === false) {
+    if (plugin.active &amp;&amp; plugin.<span class="apidocCodeKeywordSpan">fn</span>(item, plugin.params) === false) {
         filter = false;
     }
 }
 
 // direct pass
-if (!reverse &#x26;&#x26; item.content) {
+if (!reverse &amp;&amp; item.content) {
     monkeys(item);
 ...</pre></li>
     </ul>
@@ -6509,20 +6502,20 @@ if (!reverse &#x26;&#x26; item.content) {
     <li>description and source-code<pre class="apidocCodePre">fn = function (item) {
 
     if (
-        item.isElem(viewBoxElems) &#x26;&#x26;
-        item.hasAttr(&#x27;viewBox&#x27;) &#x26;&#x26;
-        item.hasAttr(&#x27;width&#x27;) &#x26;&#x26;
-        item.hasAttr(&#x27;height&#x27;)
+        item.isElem(viewBoxElems) &amp;&amp;
+        item.hasAttr('viewBox') &amp;&amp;
+        item.hasAttr('width') &amp;&amp;
+        item.hasAttr('height')
     ) {
 
-        var match = item.attr(&#x27;viewBox&#x27;).value.match(regViewBox);
+        var match = item.attr('viewBox').value.match(regViewBox);
 
         if (match) {
             if (
-                item.attr(&#x27;width&#x27;).value === match[1] &#x26;&#x26;
-                item.attr(&#x27;height&#x27;).value === match[3]
+                item.attr('width').value === match[1] &amp;&amp;
+                item.attr('height').value === match[3]
             ) {
-                item.removeAttr(&#x27;viewBox&#x27;);
+                item.removeAttr('viewBox');
             }
         }
 
@@ -6534,16 +6527,16 @@ if (!reverse &#x26;&#x26; item.content) {
 // main filter
 var filter = true;
 
-for (var i = 0; filter &#x26;&#x26; i &#x3c; plugins.length; i++) {
+for (var i = 0; filter &amp;&amp; i &lt; plugins.length; i++) {
     var plugin = plugins[i];
 
-    if (plugin.active &#x26;&#x26; plugin.<span class="apidocCodeKeywordSpan">fn</span>(item, plugin.params) === false) {
+    if (plugin.active &amp;&amp; plugin.<span class="apidocCodeKeywordSpan">fn</span>(item, plugin.params) === false) {
         filter = false;
     }
 }
 
 // direct pass
-if (!reverse &#x26;&#x26; item.content) {
+if (!reverse &amp;&amp; item.content) {
     monkeys(item);
 ...</pre></li>
     </ul>
@@ -6570,8 +6563,8 @@ if (!reverse &#x26;&#x26; item.content) {
     <ul>
     <li>description and source-code<pre class="apidocCodePre">fn = function (item) {
 
-    if (item.isElem(&#x27;svg&#x27;) &#x26;&#x26; item.hasAttr(&#x27;xmlns&#x27;)) {
-        item.removeAttr(&#x27;xmlns&#x27;);
+    if (item.isElem('svg') &amp;&amp; item.hasAttr('xmlns')) {
+        item.removeAttr('xmlns');
     }
 
 }</pre></li>
@@ -6580,16 +6573,16 @@ if (!reverse &#x26;&#x26; item.content) {
 // main filter
 var filter = true;
 
-for (var i = 0; filter &#x26;&#x26; i &#x3c; plugins.length; i++) {
+for (var i = 0; filter &amp;&amp; i &lt; plugins.length; i++) {
     var plugin = plugins[i];
 
-    if (plugin.active &#x26;&#x26; plugin.<span class="apidocCodeKeywordSpan">fn</span>(item, plugin.params) === false) {
+    if (plugin.active &amp;&amp; plugin.<span class="apidocCodeKeywordSpan">fn</span>(item, plugin.params) === false) {
         filter = false;
     }
 }
 
 // direct pass
-if (!reverse &#x26;&#x26; item.content) {
+if (!reverse &amp;&amp; item.content) {
     monkeys(item);
 ...</pre></li>
     </ul>
@@ -6616,7 +6609,7 @@ if (!reverse &#x26;&#x26; item.content) {
     <ul>
     <li>description and source-code<pre class="apidocCodePre">fn = function (item) {
 
-    return !(item.processinginstruction &#x26;&#x26; item.processinginstruction.name === &#x27;xml&#x27;);
+    return !(item.processinginstruction &amp;&amp; item.processinginstruction.name === 'xml');
 
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
@@ -6624,16 +6617,16 @@ if (!reverse &#x26;&#x26; item.content) {
 // main filter
 var filter = true;
 
-for (var i = 0; filter &#x26;&#x26; i &#x3c; plugins.length; i++) {
+for (var i = 0; filter &amp;&amp; i &lt; plugins.length; i++) {
     var plugin = plugins[i];
 
-    if (plugin.active &#x26;&#x26; plugin.<span class="apidocCodeKeywordSpan">fn</span>(item, plugin.params) === false) {
+    if (plugin.active &amp;&amp; plugin.<span class="apidocCodeKeywordSpan">fn</span>(item, plugin.params) === false) {
         filter = false;
     }
 }
 
 // direct pass
-if (!reverse &#x26;&#x26; item.content) {
+if (!reverse &amp;&amp; item.content) {
     monkeys(item);
 ...</pre></li>
     </ul>
@@ -6673,25 +6666,25 @@ if (!reverse &#x26;&#x26; item.content) {
 		attrs.sort(function(a, b) {
 			if (a.prefix != b.prefix) {
 				// xmlns attributes implicitly have the prefix xmlns
-				if (a.prefix == &#x27;xmlns&#x27;)
+				if (a.prefix == 'xmlns')
 					return -1;
-				if (b.prefix == &#x27;xmlns&#x27;)
+				if (b.prefix == 'xmlns')
 					return 1;
-				return a.prefix &#x3c; b.prefix ? -1 : 1;
+				return a.prefix &lt; b.prefix ? -1 : 1;
 			}
 
 			var aindex = orderlen;
 			var bindex = orderlen;
 
-			for (var i = 0; i &#x3c; params.order.length; i++) {
+			for (var i = 0; i &lt; params.order.length; i++) {
 				if (a.name == params.order[i]) {
 					aindex = i;
-				} else if (a.name.indexOf(params.order[i] + &#x27;-&#x27;) === 0) {
+				} else if (a.name.indexOf(params.order[i] + '-') === 0) {
 					aindex = i + .5;
 				}
 				if (b.name == params.order[i]) {
 					bindex = i;
-				} else if (b.name.indexOf(params.order[i] + &#x27;-&#x27;) === 0) {
+				} else if (b.name.indexOf(params.order[i] + '-') === 0) {
 					bindex = i + .5;
 				}
 			}
@@ -6699,7 +6692,7 @@ if (!reverse &#x26;&#x26; item.content) {
 			if (aindex != bindex) {
 				return aindex - bindex;
 			}
-			return a.name &#x3c; b.name ? -1 : 1;
+			return a.name &lt; b.name ? -1 : 1;
 		});
 
 		attrs.forEach(function (attr) {
@@ -6716,16 +6709,16 @@ if (!reverse &#x26;&#x26; item.content) {
 // main filter
 var filter = true;
 
-for (var i = 0; filter &#x26;&#x26; i &#x3c; plugins.length; i++) {
+for (var i = 0; filter &amp;&amp; i &lt; plugins.length; i++) {
     var plugin = plugins[i];
 
-    if (plugin.active &#x26;&#x26; plugin.<span class="apidocCodeKeywordSpan">fn</span>(item, plugin.params) === false) {
+    if (plugin.active &amp;&amp; plugin.<span class="apidocCodeKeywordSpan">fn</span>(item, plugin.params) === false) {
         filter = false;
     }
 }
 
 // direct pass
-if (!reverse &#x26;&#x26; item.content) {
+if (!reverse &amp;&amp; item.content) {
     monkeys(item);
 ...</pre></li>
     </ul>
@@ -6752,23 +6745,23 @@ if (!reverse &#x26;&#x26; item.content) {
     <ul>
     <li>description and source-code<pre class="apidocCodePre">cleanupOutData = function (data, params) {
 
-    var str = &#x27;&#x27;,
+    var str = '',
         delimiter,
         prev;
 
     data.forEach(function(item, i) {
 
         // space delimiter by default
-        delimiter = &#x27; &#x27;;
+        delimiter = ' ';
 
         // no extra space in front of first number
         if (i === 0) {
-            delimiter = &#x27;&#x27;;
+            delimiter = '';
         }
 
         // remove floating-point numbers leading zeros
-        // 0.5 → .5
-        // -0.5 → -.5
+        // 0.5 â†’ .5
+        // -0.5 â†’ -.5
         if (params.leadingZero) {
             item = removeLeadingZero(item);
         }
@@ -6776,12 +6769,12 @@ if (!reverse &#x26;&#x26; item.content) {
         // no extra space in front of negative number or
         // in front of a floating number if a previous number is floating too
         if (
-            params.negativeExtraSpace &#x26;&#x26;
-            (item &#x3c; 0 ||
-                (String(item).charCodeAt(0) == 46 &#x26;&#x26; prev % 1 !== 0)
+            params.negativeExtraSpace &amp;&amp;
+            (item &lt; 0 ||
+                (String(item).charCodeAt(0) == 46 &amp;&amp; prev % 1 !== 0)
             )
         ) {
-            delimiter = &#x27;&#x27;;
+            delimiter = '';
         }
 
         // save prev item value
@@ -6818,15 +6811,15 @@ if (!reverse &#x26;&#x26; item.content) {
     // base64
     if (match[2]) {
 
-        str = new Buffer(data, &#x27;base64&#x27;).toString(&#x27;utf8&#x27;);
+        str = new Buffer(data, 'base64').toString('utf8');
 
     // URI encoded
-    } else if (data.charAt(0) === &#x27;%&#x27;) {
+    } else if (data.charAt(0) === '%') {
 
         str = decodeURIComponent(data);
 
     // unencoded
-    } else if (data.charAt(0) === &#x27;&#x3c;&#x27;) {
+    } else if (data.charAt(0) === '&lt;') {
 
         str = data;
 
@@ -6848,24 +6841,24 @@ if (!reverse &#x26;&#x26; item.content) {
     <ul>
     <li>description and source-code<pre class="apidocCodePre">encodeSVGDatauri = function (str, type) {
 
-    var prefix = &#x27;data:image/svg+xml&#x27;;
+    var prefix = 'data:image/svg+xml';
 
     // base64
-    if (!type || type === &#x27;base64&#x27;) {
+    if (!type || type === 'base64') {
 
-        prefix += &#x27;;base64,&#x27;;
+        prefix += ';base64,';
 
-        str = prefix + new Buffer(str).toString(&#x27;base64&#x27;);
+        str = prefix + new Buffer(str).toString('base64');
 
     // URI encoded
-    } else if (type === &#x27;enc&#x27;) {
+    } else if (type === 'enc') {
 
-        str = prefix + &#x27;,&#x27; + encodeURIComponent(str);
+        str = prefix + ',' + encodeURIComponent(str);
 
     // unencoded
-    } else if (type === &#x27;unenc&#x27;) {
+    } else if (type === 'unenc') {
 
-        str = prefix + &#x27;,&#x27; + str;
+        str = prefix + ',' + str;
 
     }
 
@@ -6886,7 +6879,7 @@ if (!reverse &#x26;&#x26; item.content) {
     <ul>
     <li>description and source-code<pre class="apidocCodePre">intersectArrays = function (a, b) {
     return a.filter(function(n) {
-        return b.indexOf(n) &#x3e; -1;
+        return b.indexOf(n) &gt; -1;
     });
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
@@ -6904,9 +6897,9 @@ if (!reverse &#x26;&#x26; item.content) {
     <li>description and source-code<pre class="apidocCodePre">removeLeadingZero = function (num) {
     var strNum = num.toString();
 
-    if (0 &#x3c; num &#x26;&#x26; num &#x3c; 1 &#x26;&#x26; strNum.charCodeAt(0) == 48) {
+    if (0 &lt; num &amp;&amp; num &lt; 1 &amp;&amp; strNum.charCodeAt(0) == 48) {
         strNum = strNum.slice(1);
-    } else if (-1 &#x3c; num &#x26;&#x26; num &#x3c; 0 &#x26;&#x26; strNum.charCodeAt(1) == 48) {
+    } else if (-1 &lt; num &amp;&amp; num &lt; 0 &amp;&amp; strNum.charCodeAt(1) == 48) {
         strNum = strNum.charAt(0) + strNum.slice(2);
     }
 
@@ -6937,9 +6930,9 @@ if (!reverse &#x26;&#x26; item.content) {
     data.content.forEach(function(item) {
 
         // only for SVG with one Path inside
-        if (item.isElem(&#x27;svg&#x27;) &#x26;&#x26;
-            item.content.length === 1 &#x26;&#x26;
-            item.content[0].isElem(&#x27;path&#x27;)
+        if (item.isElem('svg') &amp;&amp;
+            item.content.length === 1 &amp;&amp;
+            item.content[0].isElem('path')
         ) {
 
             var svgElem = item,
@@ -6948,8 +6941,8 @@ if (!reverse &#x26;&#x26; item.content) {
                 path = relative2absolute(EXTEND(true, [], path2js(pathElem))),
                 xs = [],
                 ys = [],
-                cubicСontrolPoint = [0, 0],
-                quadraticСontrolPoint = [0, 0],
+                cubicÐ¡ontrolPoint = [0, 0],
+                quadraticÐ¡ontrolPoint = [0, 0],
                 lastPoint = [0, 0],
                 cubicBoundingBox,
                 quadraticBoundingBox,
@@ -6959,9 +6952,9 @@ if (!reverse &#x26;&#x26; item.content) {
             path.forEach(function(pathItem) {
 
                 // ML
-                if (&#x27;ML&#x27;.indexOf(pathItem.instruction) &#x3e; -1) {
+                if ('ML'.indexOf(pathItem.instruction) &gt; -1) {
 
-                    for (i = 0; i &#x3c; pathItem.data.length; i++) {
+                    for (i = 0; i &lt; pathItem.data.length; i++) {
                         if (i % 2 === 0) {
                             xs.push(pathItem.data[i]);
                         } else {
@@ -6969,30 +6962,30 @@ if (!reverse &#x26;&#x26; item.content) {
                         }
                     }
 
-                    lastPoint = cubicСontrolPoint = quadraticСontrolPoint = pathItem.data.slice(-2);
+                    lastPoint = cubicÐ¡ontrolPoint = quadraticÐ¡ontrolPoint = pathItem.data.slice(-2);
 
                 // H
-                } else if (pathItem.instruction === &#x27;H&#x27;) {
+                } else if (pathItem.instruction === 'H') {
 
                     pathItem.data.forEach(function(d) {
                         xs.push(d);
                     });
 
-                    lastPoint[0] = cubicСontrolPoint[0] = quadraticСontrolPoint[0] = pathItem.data[pathItem.data.length - 2];
+                    lastPoint[0] = cubicÐ¡ontrolPoint[0] = quadraticÐ¡ontrolPoint[0] = pathItem.data[pathItem.data.length - 2];
 
                 // V
-                } else if (pathItem.instruction === &#x27;V&#x27;) {
+                } else if (pathItem.instruction === 'V') {
 
                     pathItem.data.forEach(function(d) {
                         ys.push(d);
                     });
 
-                    lastPoint[1] = cubicСontrolPoint[1] = quadraticСontrolPoint[1] = pathItem.data[pathItem.data.length - 1];
+                    lastPoint[1] = cubicÐ¡ontrolPoint[1] = quadraticÐ¡ontrolPoint[1] = pathItem.data[pathItem.data.length - 1];
 
                 // C
-                } else if (pathItem.instruction === &#x27;C&#x27;) {
+                } else if (pathItem.instruction === 'C') {
 
-                    for (i = 0; i &#x3c; pathItem.data.length; i += 6) {
+                    for (i = 0; i &lt; pathItem.data.length; i += 6) {
 
                         segment = pathItem.data.slice(i, i + 6);
 
@@ -7005,7 +6998,7 @@ if (!reverse &#x26;&#x26; item.content) {
                         ys.push(cubicBoundingBox.maxy);
 
                         // reflected control point for the next possible S
-                        cubicСontrolPoint = [
+                        cubicÐ¡ontrolPoint = [
                             2 * segment[4] - segment[2],
                             2 * segment[5] - segment[3]
                         ];
@@ -7015,13 +7008,13 @@ if (!reverse &#x26;&#x26; item.content) {
                     }
 
                 // S
-                } else if (pathItem.instruction === &#x27;S&#x27;) {
+                } else if (pathItem.instruction === 'S') {
 
-                    for (i = 0; i &#x3c; pathItem.data.length; i += 4) {
+                    for (i = 0; i &lt; pathItem.data.length; i += 4) {
 
                         segment = pathItem.data.slice(i, i + 4);
 
-                        cubicBoundingBox = computeCubicBoundingBox.apply(this, lastPoint.concat(cubicСontrolPoint).concat(segment
+                        cubicBoundingBox = computeCubicBoundingBox.apply(this, lastPoint.concat(cubicÐ¡ontrolPoint).concat(segment
 ));
 
                         xs.push(cubicBoundingBox.minx);
@@ -7031,9 +7024,9 @@ if (!reverse &#x26;&#x26; item.content) {
                         ys.push(cubicBoundingBox.maxy);
 
                         // reflected control point for the next possible S
-                        cubicСontrolPoint = [
-                            2 * segment[2] - cubicСontrolPoint[0],
-                            2 * segment[3] - cubicСontrolPoint[1],
+                        cubicÐ¡ontrolPoint = [
+                            2 * segment[2] - cubicÐ¡ontrolPoint[0],
+                            2 * segment[3] - cubicÐ¡ontrolPoint[1],
                         ];
 
                         lastPoint = segment.slice(-2);
@@ -7041,9 +7034,9 @@ if (!reverse &#x26;&#x26; item.content) {
                     }
 
                 // Q
-                } else if (pathItem.instruction === &#x27;Q&#x27;) {
+                } else if (pathItem.instruction === 'Q') {
 
-                    for (i = 0; i &#x3c; pathItem.data.length; i += 4) {
+                    for (i = 0; i &lt; pathItem.data.length; i += 4) {
 
                         segment = pathItem.data.slice(i, i + 4);
 
@@ -7053,16 +7046,16 @@ if (!reverse &#x26;&#x26; item.content) {
 // main filter
 var filter = true;
 
-for (var i = 0; filter &#x26;&#x26; i &#x3c; plugins.length; i++) {
+for (var i = 0; filter &amp;&amp; i &lt; plugins.length; i++) {
     var plugin = plugins[i];
 
-    if (plugin.active &#x26;&#x26; plugin.<span class="apidocCodeKeywordSpan">fn</span>(item, plugin.params) === false) {
+    if (plugin.active &amp;&amp; plugin.<span class="apidocCodeKeywordSpan">fn</span>(item, plugin.params) === false) {
         filter = false;
     }
 }
 
 // direct pass
-if (!reverse &#x26;&#x26; item.content) {
+if (!reverse &amp;&amp; item.content) {
     monkeys(item);
 ...</pre></li>
     </ul>
@@ -7082,3 +7075,4 @@ if (!reverse &#x26;&#x26; item.content) {
     ]
 </div>
 </div>
+</body></html>
